@@ -40,11 +40,13 @@ if Rails.env.development?
   fire_extinguisher = ItemTypeDefinition.create({
     :name => "Fire extinguisher"
   })
+
   color_field = ItemFieldDefinition.create({
     :label => "Brand Name",
     :type => :string,
     :item_type_definition => fire_extinguisher
   })
+
   purchase_date = ItemFieldDefinition.create({
     :label => "Purchase Date",
     :type => :date,
