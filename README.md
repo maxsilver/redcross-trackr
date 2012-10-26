@@ -77,3 +77,25 @@ open http://localhost:3001
 
 
 
+Running Tests
+-----------------------------------
+(TODO : Write this section.)
+
+
+
+Deploying to Staging
+-----------------------------------
+Our staging server is hosted on Heroku :
+
+```bash
+# Add the remote for Heroku in your git config
+git remote add heroku git@heroku.com:redcross-trackr.git
+
+# Deploy local branch 'master' to staging on Heroku
+git push heroku master
+
+# Deploy local branch 'acceptance' to staging on Heroku
+git push heroku acceptance:master
+```
+
+
