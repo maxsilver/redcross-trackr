@@ -57,10 +57,6 @@ rvm reload
 gem install bundler
 bundle
 
-# Copy the default database configuration, and configure your database access (if needed)
-cp config/database.yml.example config/database.yml
-nano config/database.yml
-
 # Create the project databases
 bundle exec rake db:create:all db:schema:load
 
