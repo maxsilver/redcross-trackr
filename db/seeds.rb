@@ -28,12 +28,10 @@ if Rails.env.development?
     :chapter => chapter_gr
   })
 
-
   location_kzoo_mission = Location.create({
     :name => "Kalamazoo Gospel Mission",
     :chapter => chapter_gr
   })
-
 
   # *Defining* a item type of "Fire extinguisher"
   # which can have fields of "brand name", and "purchase date"
@@ -60,6 +58,4 @@ if Rails.env.development?
     :quantity => 7,
     :location => location_gr_church
   })
-
-
 end
