@@ -37,7 +37,7 @@ The guide will assume your using either a Mac OSX or Linux environment, and a co
 > nano config/database.yml
 
 * Create the project databases
-> bundle exec rake db:create:all
+> bundle exec rake db:create:all db:schema:load
 
 * Start the server
 > bundle exec rails server
