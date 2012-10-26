@@ -18,6 +18,28 @@ As a member of this project, you should have access to the following resources.
 
 
 
+How Resources (Items) Are Defined
+-----------------------------------
+**PLEASE READ** through the db/seeds.rb file **before** digging the project. The resources are all defined dynamically from data in the database, and the db/seeds.rb file will likely clarify 90% of any questions you might have about how these work.
+
+Items are defined by classes with the word "Definition" in the name. An Item's Type and Fields are defined in this manner. An instance of an item is a class of the same name, without "definition" in the title.
+
+For example, you might define an item by creating an ItemTypeDefition for "Fire extinguisher". The ItemTypeDefinition "Fire extinguisher" might have ItemFieldDefinitions of "Colour", "Brand", or "Purchase Date".
+
+Then, when a user actually wants to record a fire extinguisher, they create a new Item (with an item_type of ItemTypeDefinition:"Fire extinguisher"). If their Item has a brand name of "First Alert", then the Item has_one ItemField of "First Alert", and belongs_to an ItemFieldDefinition of "Brand" from above.
+
+
+How Resources (Items) Are Given or Lent
+--------------------------------------
+Items can't be simply "moved". All Items must be explicitly "Given" or "Lent".
+
+**Given Items** are items a chapter never expects to receive back, and occur by setting both the items 'owner' and 'location'. For example, If I am Grand Rapids Chapter, and I want to give Kalamazoo 50 Fire extinguishers, I would find an Item that represents my Fire extinguishers, and set both its "owner" and "location" to the Kalamazoo chapter.
+
+**Lent Items** are items that a chapter plans on getting back in the future, and occur by setting the items 'location', but ignoring its "owner". For example, If I am Grand Rapids Chapter, and I want to lend Kalamazoo my Fire Truck, I would find an Item that represents my Fire Truck, and set both its "location" to the Kalamazoo chapter. I would leave the "owner" field set to Grand Rapids, to represent the fact that this Fire Truck should eventually make its way back to me.
+
+
+
+
 Installing Red Cross for Development
 -----------------------------------
 The guide will assume your using either a Mac OSX or Linux environment, and a compatible package manager (Something like [Homebrew](http://mxcl.github.com/homebrew/) for OSX, or APT for Linux). It also assumes, you have [RVM](https://rvm.io/rvm/install/), and [MySQL](http://dev.mysql.com/doc/refman/5.5/en//installing.html) set up locally.
