@@ -9,8 +9,7 @@ Resources
 As a member of this project, you should have access to the following resources.
 
 + [**GitHub** : https://github.com/mhs/redcross-trackr](https://github.com/mhs/redcross-trackr)
-+ **GitHub Wiki** : (coming soon)
++ [**GitHub Wiki** : https://github.com/mhs/redcross-trackr/wiki](https://github.com/mhs/redcross-trackr/wiki)
 + [**Pivotal Tracker** : https://www.pivotaltracker.com/projects/668609](https://www.pivotaltracker.com/projects/668609)
-+ **Story Map** : (coming soon)
-
++ [**Story Map** : https://github.com/mhs/redcross-trackr/wiki/Story-Map](https://github.com/mhs/redcross-trackr/wiki/Story-Map)
 
