@@ -41,6 +41,9 @@ The guide will assume your using either a Mac OSX or Linux environment, and a co
 * Create the project databases
 > bundle exec rake db:create:all db:schema:load
 
+* Seed some test data for development use (Optional)
+> bundle exec rake db:seed
+
 * Start the server
 > bundle exec rails server
 
