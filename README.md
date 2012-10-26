@@ -1,4 +1,6 @@
 
+![logo](https://github.com/mhs/redcross-trackr/wiki/images/redcross-logo.png)
+
 Red Cross - Resource Tracking
 ===================================
 
