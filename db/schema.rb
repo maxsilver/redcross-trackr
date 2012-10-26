@@ -11,13 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026192425) do
+ActiveRecord::Schema.define(:version => 20121026201241) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
     t.integer  "region_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "item_definitions", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "item_field_definitions", :force => true do |t|
+    t.string   "label"
+    t.string   "type"
+    t.integer  "item_type_definition_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  create_table "item_fields", :force => true do |t|
+    t.string   "label"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "item_type_definitions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "label"
+    t.integer  "item_type_definition_id"
+    t.integer  "quantity"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "locations", :force => true do |t|
