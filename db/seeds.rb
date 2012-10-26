@@ -13,18 +13,18 @@ if Rails.env.development?
     :name => "Greater Grand Rapids Chapter",
     :region => region_michigan
   })
+
   chapter_kzoo = Chapter.create({
     :name => "Greater Kalamazoo Area Chapter",
     :region => region_michigan
   })
-
 
   location_gr_church = Location.create({
     :name => "Fountain Street Church",
     :chapter => chapter_gr
   })
   location_gr_school = Location.create({
-    :name => "Uniton High School",
+    :name => "Union High School",
     :chapter => chapter_gr
   })
 
