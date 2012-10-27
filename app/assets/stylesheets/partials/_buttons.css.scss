@@ -18,7 +18,7 @@
   color: $grayDark;
   text-align: center;
   text-shadow: 0 1px 1px rgba(255,255,255,.75);
-  text-transform: uppercase;
+  text-transform: capitalize;
   vertical-align: middle;
   cursor: pointer;
   @include buttonBackground($btnBackground, $btnBackgroundHighlight);
