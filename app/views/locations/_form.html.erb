@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :state_id %><br />
-    <%= f.number_field :state_id %>
+    <%= f.collection_select :state_id, State.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :zip %><br />
@@ -49,7 +49,7 @@
   </div>
   <div class="field">
     <%= f.label :chapter_id %><br />
-    <%= f.number_field :chapter_id %>
+    <%= f.collection_select :chapter_id, Chapter.all, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>
