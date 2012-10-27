@@ -23,6 +23,7 @@ end
 
 group :development do
   gem 'mysql2'
+  gem 'rspec-rails'
 end
 
 group :test do
