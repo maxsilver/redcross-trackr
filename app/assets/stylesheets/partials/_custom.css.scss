@@ -140,6 +140,17 @@ header {
 	}
 }
 
+.sessions {
+  .forgot-password {
+    float: right;
+    // margin: -0.5em 0 0.5em 0;
+  }
+  
+  .remember-me {
+    margin-bottom: .5em;
+  }
+}
+
 /* Footer */
 
 footer {
@@ -149,8 +160,6 @@ footer {
 	@include box-shadow($reverse-shadow);
 	z-index: 50;
 
-	
-	
 	.btn {
 		display: block;
 		margin: auto;
