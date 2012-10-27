@@ -11,5 +11,7 @@ RedcrossTrackr::Application.routes.draw do
     resources :items
   end
 
+  resources :items
+
   root :to => 'locations#index'
 end
