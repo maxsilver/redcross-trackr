@@ -2,21 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'pg'
+gem 'mysql2'
 gem 'thin'
 gem "devise"
 gem "jquery-rails"
-gem "rails_admin"
-gem "paranoia"
-gem 'carrierwave'
-gem 'cloudinary'
-gem 'geocoder'
-gem 'cancan'
-
-gem "pry"
+gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git"
 
 # Gems used only for assets and not required
 # in production environments by default.
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -27,14 +20,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
-  gem 'mysql2'
-  gem 'rspec-rails'
-end
-
 group :test do
+<<<<<<< HEAD
+  gem 'cucumber-rails', :require => false
+=======
   gem 'rspec'
   gem 'cucumber-rails'
+>>>>>>> feature/items_containers_test
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
