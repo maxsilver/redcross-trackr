@@ -36,20 +36,25 @@ class Item < ActiveRecord::Base
 
   def move(options)
     if options[:quantity] == self.quantity
-      self.update_attributes!(
-        home_location: options[:new_location],
-        current_location: options[:new_location]
-      )
+      move_all_items_to(options[:new_location])
     else
-      decrease_quantity_by(options[:quantity])
-      Item.create!(
-        name: self.name,
-        item_type_definition: self.item_type_definition,
-        quantity: options[:quantity],
-        home_location: options[:new_location],
-        current_location: options[:new_location]
-      )
+      move_some_items_to(options[:new_location], :quantity => options[:quantity])
     end
+  end
+
+  def move_all_items_to(location)
+    self.update_attributes!(home_location: location, current_location: location)
+  end
+
+  def move_some_items_to(location, options)
+    decrease_quantity_by(options[:quantity])
+    Item.create!(
+      name: self.name,
+      item_type_definition: self.item_type_definition,
+      quantity: options[:quantity],
+      home_location: location,
+      current_location: location
+    )
   end
 
   def decrease_quantity_by(amount)
