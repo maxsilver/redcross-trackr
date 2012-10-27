@@ -21,7 +21,8 @@ group :assets do
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false
+  gem 'rspec'
+  gem 'cucumber-rails'
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
