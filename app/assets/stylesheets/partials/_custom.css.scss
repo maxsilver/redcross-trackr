@@ -132,21 +132,11 @@ header {
 
 /* New Session */
 
-.sessions {
+.sessions, .passwords {
 	.btn {
 		display: block;
 		margin: auto;
-		width: 50%;
-	}
-}
-
-/* Forgot password */
-
-.passwords {
-	.btn {
-		display: block;
-		margin: auto;
-		width: 70%;
+		width: 100%;
 	}
 }
 
