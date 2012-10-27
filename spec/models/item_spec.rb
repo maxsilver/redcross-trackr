@@ -52,6 +52,8 @@ describe Item do
           :new_location => @marks_house,
           :quantity => JUST_SOME
         )
+        @jasons_house.number_of_items_of_type(@cots.item_type_definition).should == TOTAL_COT_QUANTITY - JUST_SOME
+        @marks_house.number_of_items_of_type(@cots.item_type_definition).should == JUST_SOME
       end
     end
   end
