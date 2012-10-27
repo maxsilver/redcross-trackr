@@ -131,7 +131,8 @@ if Rails.env.development?
     :name => "Red Fire Extinguisher",
     :item_type_definition => fire_extinguisher,
     :quantity => 7,
-    :current_location => location_gr_church
+    :current_location => location_gr_church,
+    :home_location => location_gr_church
   })
 
 

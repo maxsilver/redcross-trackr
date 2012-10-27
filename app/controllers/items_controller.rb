@@ -56,8 +56,8 @@ class ItemsController < ApplicationController
   end
 
   def move
-
     @items = @location.items.find(params[:item_ids])
+
     if request.put?
       location = Location.find(params[:location_id])
       container = Container.find(params[:container_id])
@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def lend
-    @items = @location.items.find(params[:item_ids])
+    @items = [].push @location.items.find(params[:item_id])
     if request.put?
       location = Location.find(params[:location_id])
       container = Container.find(params[:container_id])
