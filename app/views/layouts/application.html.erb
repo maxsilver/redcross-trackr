@@ -7,10 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-<%= link_to "Locations", locations_path %>
-<% if can?(:access, :rails_admin) %>
-  <%= link_to "Admin", rails_admin_path %>
+
+<% if current_user %>
+  <%= link_to "Locations", locations_path %>
+  <% if can?(:access, :rails_admin) %>
+    <%= link_to "Admin", rails_admin_path %>
+  <% end %>
 <% end %>
 
 <%= yield %>
