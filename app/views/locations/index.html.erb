@@ -18,7 +18,7 @@
   </tr>
 
 <% @locations.each do |location| %>
-  <tr>
+  <tr id="location_row<%= location.id %>">
     <td><%= location.name %></td>
     <td><%= location.address %></td>
     <td><%= location.address2 %></td>
@@ -30,8 +30,7 @@
     <td><%= location.national_shelter_system_identifier %></td>
     <td><%= location.chapter_id %></td>
     <td><%= link_to 'Show', location %></td>
-    <td><%= link_to 'Edit', edit_location_path(location) %></td>
-    <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

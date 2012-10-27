@@ -24,3 +24,21 @@ Then /^that location should get added to the list$/ do
   visit locations_path
   page.should have_content(@location_name)
 end
+
+When /^I delete a location$/ do
+  @location_name = "Delete Me"
+  @location = FactoryGirl.create(
+    :location,
+    :name => @location_name
+  )
+  visit locations_path
+  page.should have_content(@location_name)
+  within("#location_row#{@location.id}") { click_on "Delete" }
+end
+
+Then /^that location should get set to inactive, but not actually deleted$/ do
+  page.should_not have_content(@location_name)
+  location = Location.unscoped.find(@location.id)
+  location.should_not be_nil
+  location.deleted_at.should_not be_nil
+end
