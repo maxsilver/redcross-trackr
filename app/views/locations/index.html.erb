@@ -1,4 +1,4 @@
-<h1>Choose a location:</h1>
+<h3>Choose a location:</h3>
 
 <% @locations.each do |location| %>
   <%= link_to location, :class => "location #{cycle :even, :odd}", :data => { :lat => location.latitude, :lng => location.longitude } do %>
