@@ -1,4 +1,4 @@
-Kind.create!([
+single, multiple, container = Kind.create!([
   { :name => "single" },
   { :name => "multiple" },
   { :name => "container" },
@@ -104,11 +104,12 @@ if Rails.env.development?
     :national_shelter_system_identifier => "unique-seriously"
   })
 
-  # *Defining* a item type of "Fire extinguisher"
+  # *Defining* a item type of"" "Fire extinguisher"
   # which can have fields of "brand name", and "purchase date"
 
-  fire_extinguisher = ItemTypeDefinition.create({
-    :name => "Fire extinguisher"
+  fire_extinguisher = ItemTypeDefinition.create!({
+    :name => "Fire extinguisher",
+    :kind => single
   })
 
   color_field = ItemFieldDefinition.create!({
@@ -132,6 +133,8 @@ if Rails.env.development?
     :quantity => 7,
     :current_location => location_gr_church
   })
+
+  binding.pry
 
 
   # Make a default ADMIN user
