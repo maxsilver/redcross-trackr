@@ -2,7 +2,7 @@
 
 <h1><%= @location.name %></h1>
 
-<%= link_to 'Edit', edit_location_path(@location) %>
+<%= link_to 'Edit', @location %>
 
 <%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
 
@@ -37,7 +37,7 @@
   <% @location.individual_items.each do |item| %>
     <div class="item">
       <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
-      <%= item.name %>
+      <%= link_to item.name, item %>
       <%= item.item_type_definition.name %>
       <%= item.quantity %>
       <%= item.container.name if item.container %>
@@ -56,7 +56,7 @@
   <% @location.containers.each do |container| %>
     <div class="item">
       <%= image_tag container.picture_url(:thumbnail), :alt => container.name %>
-      <%= container.name %>
+      <%= link_to container.name, container %>
       <%= container.item_type_definition.name %>
       <%= container.quantity %>
       <%= container.container.name if container.container %>

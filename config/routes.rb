@@ -8,6 +8,7 @@ RedcrossTrackr::Application.routes.draw do
   end
 
   resources :locations
+  resources :items
 
   root :to => 'locations#index'
 end
