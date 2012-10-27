@@ -2,8 +2,8 @@
 
 <h1><%= @item.name %></h1>
 
-<%= link_to "Move", "#" %>
-<%= link_to "Lend", "#" %>
+<%= link_to "Move", move_items_path(:item_ids => [@item.id]) %>
+<%= link_to "Lend", lend_items_path(:item_ids => [@item.id]) %>
 <%= link_to 'Edit', @item %>
 
 <%= image_tag @item.picture_url(:thumbnail), :alt => @item.name %>
@@ -12,8 +12,8 @@
   <%= @item.item_type_definition.name %>
   <%= @item.quantity %>
   <%= @item.container.name if @item.container %>
-  <%= @item.current_location.name %>
-  <%= @item.home_location.name unless @item.at_home? %>
+  <%= @item.home_location.name %>
+  <%= @item.current_location.name unless @item.at_home? %>
 </div>
 
 <h2>History</h2>

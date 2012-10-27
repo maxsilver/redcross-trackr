@@ -14,6 +14,9 @@ class Item < ActiveRecord::Base
   # has_many :item_fields
 
   mount_uploader :picture, PictureUploader
+  
+  scope :containers, joins(:item_type_definition).where("item_type_definitions.kind" => "container")
+  scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind != 'container'")
 
   def at_home?
     current_location == home_location
@@ -27,14 +30,39 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def give_to(new_location)
-    owner = new_location
-    current_location = new_location
-    save!
+  def move(qty, location, container)
+    raise "Too Many" if qty > self.quantity
+
+    if qty == self.quantity
+      self.home_location = location
+      self.current_location = location
+      self.container = container
+    else
+      self.quantity -= qty
+      
+      moved_item = Item.new(item.attribuets.merge(:quantity => qty))
+      moved_item.home_location = location
+      moved_item.current_location = location
+      moved_item.container = container
+      moved_item.save!
+    end
+    self.save!
   end
 
-  def lend_to(new_location)
-    current_location = new_location
-    save!
+  def lend(qty, location, container)
+    raise "Too Many" if qty > self.quantity
+
+    if qty == self.quantity
+      self.current_location = location
+      self.container = container
+    else
+      self.quantity -= qty
+      
+      moved_item = Item.new(item.attribuets.merge(:quantity => qty))
+      moved_item.current_location = location
+      moved_item.container = container
+      moved_item.save!
+    end
+    self.save!
   end
 end

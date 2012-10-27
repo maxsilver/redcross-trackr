@@ -64,13 +64,14 @@
   <%= @location.chapter.name %>
 </p>
 
+<%= link_to "Move", move_items_path %>
+<%= link_to "Lend", lend_items_path %>
+
 <h2>Items</h2>
 <%= link_to "Add", "#" %>
-<%= link_to "Move", "#" %>
-<%= link_to "Lend", "#" %>
 
 <div class="items">
-  <% @location.individual_items.each do |item| %>
+  <% @location.items.individuals.each do |item| %>
     <div class="item">
       <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
       <%= link_to item.name, item %>
@@ -85,11 +86,9 @@
 
 <h2>Vehicles</h2>
 <%= link_to "Add", "#" %>
-<%= link_to "Move", "#" %>
-<%= link_to "Lend", "#" %>
 
 <div class="containers">
-  <% @location.containers.each do |container| %>
+  <% @location.items.containers.each do |container| %>
     <div class="item">
       <%= image_tag container.picture_url(:thumbnail), :alt => container.name %>
       <%= link_to container.name, container %>

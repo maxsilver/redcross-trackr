@@ -8,10 +8,13 @@ RedcrossTrackr::Application.routes.draw do
   end
 
   resources :locations do
-    resources :items
+    resources :items do
+      collection do
+        get "move"
+        get "lend"
+      end
+    end
   end
-
-  resources :items
 
   root :to => 'locations#index'
 end
