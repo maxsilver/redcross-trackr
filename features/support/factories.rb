@@ -4,6 +4,13 @@ FactoryGirl.define do
   	password "password"
   end
 
+  factory :item_type_definition do
+  end
+
+  factory :item do
+    item_type_definition
+  end
+
   factory :location do
   	name "Red Cross HQ"
   	address "123 Fake Street"
@@ -11,6 +18,10 @@ FactoryGirl.define do
   	state
   	zip "49505"
   	chapter
+
+    factory :location_with_items do
+      items FactoryGirl.create_list(:item, 5)
+    end
   end
 
   factory :state do

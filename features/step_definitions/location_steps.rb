@@ -41,3 +41,24 @@ Then /^that location should get set to inactive, but not actually deleted$/ do
   location.should_not be_nil
   location.deleted_at.should_not be_nil
 end
+
+Given /^I have a location that has items attached to it$/ do
+  @location = FactoryGirl.create(
+    :location_with_items,
+    :name => "Try to Delete Me"
+  )
+end
+
+When /^I try to delete that location$/ do
+  click_on "Delete"
+end
+
+Then /^I should get an error$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then /^that location should not be deleted$/ do
+  location = Location.unscoped.find(@location.id)
+  location.should_not be_nil
+  location.deleted_at.should be_nil
+end
