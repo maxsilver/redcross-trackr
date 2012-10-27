@@ -38,6 +38,28 @@ describe Location do
   	@location.should_not be_valid
   end
 
+  describe "phone number" do
+    it "can be blank" do
+      @location.contact_phone = ""
+      @location.should be_valid
+    end
+
+    it "can't just be some letters" do
+      @location.contact_phone = "asdf"
+      @location.should_not be_valid
+    end
+
+    it "can't just be some numbers" do
+      @location.contact_phone = "234949"
+      @location.should_not be_valid
+    end
+
+    it "can be only numbers, if it's the right number of numbers" do
+      @location.contact_phone = "6168568075"
+      @location.should be_valid
+    end
+  end
+
   it "requires a unique national shelter system identifier" do
   	non_unique_identifier = "1234"
   	other_location = FactoryGirl.create(
