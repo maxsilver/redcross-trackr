@@ -43,7 +43,8 @@ class ItemsController < ApplicationController
     # else
     #   redirect_to edit_location_path(@location), alert: "Can't delete this location because it has items attached to it."
     # end
-  
+  end
+
   def move
     @items = Item.find(params[:item_ids])
     if request.put?
@@ -54,7 +55,7 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
+
   def lend
     @items = Item.find(params[:item_ids])
     if request.put?
