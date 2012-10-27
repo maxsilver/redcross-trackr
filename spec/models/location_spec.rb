@@ -37,4 +37,14 @@ describe Location do
   	@location.chapter = nil
   	@location.should_not be_valid
   end
+
+  it "requires a unique national shelter system identifier" do
+  	non_unique_identifier = "1234"
+  	other_location = FactoryGirl.create(
+  		:location,
+  		:national_shelter_system_identifier => non_unique_identifier
+  	)
+  	@location.national_shelter_system_identifier = non_unique_identifier
+  	@location.should_not be_valid
+  end
 end
