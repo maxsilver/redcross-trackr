@@ -31,9 +31,8 @@ When /^I delete a location$/ do
     :location,
     :name => @location_name
   )
-  visit locations_path
-  page.should have_content(@location_name)
-  within("#location_row#{@location.id}") { click_on "Delete" }
+  visit edit_location_path(@location)
+  click_on "Delete"
 end
 
 Then /^that location should get set to inactive, but not actually deleted$/ do
