@@ -9,7 +9,9 @@
 <body>
   
 <%= link_to "Locations", locations_path %>
-<%= link_to "Admin", rails_admin_path %>
+<% if can?(:access, :rails_admin) %>
+  <%= link_to "Admin", rails_admin_path %>
+<% end %>
 
 <%= yield %>
 
