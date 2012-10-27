@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'geocoder'
 gem 'cancan'
+gem 'rails_admin'
 
 gem "pry"
 
