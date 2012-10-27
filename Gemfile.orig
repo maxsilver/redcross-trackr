@@ -7,10 +7,9 @@ gem 'thin'
 gem "devise"
 gem "jquery-rails"
 gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git"
-gem "pry"
+
 # Gems used only for assets and not required
 # in production environments by default.
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -22,8 +21,12 @@ group :assets do
 end
 
 group :test do
+<<<<<<< HEAD
+  gem 'cucumber-rails', :require => false
+=======
   gem 'rspec'
   gem 'cucumber-rails'
+>>>>>>> feature/items_containers_test
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'

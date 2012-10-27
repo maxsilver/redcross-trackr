@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :location_id
       t.integer :owner_id
       t.integer :quantity
+      t.integer :item_id
       t.timestamps
     end
   end
