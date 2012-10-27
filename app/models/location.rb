@@ -25,6 +25,10 @@ class Location < ActiveRecord::Base
   def full_address
     [address, address2, city, state.name, zip].compact.join(" ")
   end
+  
+  def contact?
+    contact_name.present? or contact_phone.present?
+  end
 
 private
   def abort_delete_if_location_has_items

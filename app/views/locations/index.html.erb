@@ -1,37 +1,26 @@
-<h1>Listing locations</h1>
-
-<%= link_to 'New Location', new_location_path %>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Address2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-    <th>Contact name</th>
-    <th>Contact phone</th>
-    <th>National shelter system identifier</th>
-    <th>Chapter</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Choose a location:</h1>
 
 <% @locations.each do |location| %>
-  <tr>
-    <td><%= location.name %></td>
-    <td><%= location.address %></td>
-    <td><%= location.address2 %></td>
-    <td><%= location.city %></td>
-    <td><%= location.state.name %></td>
-    <td><%= location.zip %></td>
-    <td><%= location.contact_name %></td>
-    <td><%= number_to_phone location.contact_phone %></td>
-    <td><%= location.national_shelter_system_identifier %></td>
-    <td><%= location.chapter.name %></td>
-    <td><%= link_to 'Show', location %></td>
-  </tr>
+  <%= link_to location, :class => "location #{cycle :even, :odd}" do %>
+    <%= image_tag location.picture_url(:thumbnail), :alt => location.name %>
+    
+    <div class="name"><%= location.name %></div>
+    <div class="chapter"><%= location.chapter.name %> Chapter</div>
+
+    <div class="address">
+      <div class="street"><%= location.address %></div>
+      <div class="street2"><%= location.address2 %></div>
+      <div class="city-sate-zip"><%= location.city %>, <%= location.state.name %> <%= location.zip %></div>
+    </div>
+
+    <% if location.contact? %>
+      <div class="contact">
+        <%= location.contact_name %> <%= number_to_phone location.contact_phone %>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
-</table>
+
+<% content_for :footer do %>
+  <%= link_to 'Add Location', new_location_path %>
+<% end %>

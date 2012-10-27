@@ -4,6 +4,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   process :tags => Rails.env
 
   version :thumbnail do
-    process :resize_to_fit => [250, 250]
+    process :resize_to_fit => [115, 115]
   end
 end

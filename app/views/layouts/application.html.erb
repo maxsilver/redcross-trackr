@@ -5,27 +5,41 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="apple-mobile-web-app-capable" content="yes" />  
+  <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />  
 </head>
 <body>
 
-<% if flash[:notice] %>
-  <div id="notice"><p><%= flash[:notice] %></p></div>
-<% end %>
+<div class="page">
+  <header>
+    <div class="name">Trackr</div>
+    <% if current_user %>
+      <%= link_to "Locations", locations_path %>
+      <% if can?(:access, :rails_admin) %>
+        <%= link_to "Admin", rails_admin_path, :class => "admin" %>
+      <% end %>
+      <%= link_to "Profile", edit_user_registration_path %>
+      <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+    <% end %>
+  </header>
+  
+  <div class="main">
+    <div class="content">
+      <% if flash[:notice] %>
+        <div id="notice"><p><%= flash[:notice] %></p></div>
+      <% end %>
 
-<% if flash[:alert] %>
-  <div id="alert"><p><%= flash[:alert] %></p></div>
-<% end %>
+      <% if flash[:alert] %>
+        <div id="alert"><p><%= flash[:alert] %></p></div>
+      <% end %>
 
-<% if current_user %>
-  <%= link_to "Locations", locations_path %>
-  <% if can?(:access, :rails_admin) %>
-    <%= link_to "Admin", rails_admin_path %>
-  <% end %>
-  <%= link_to "Profile", edit_user_registration_path %>
-  <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
-<% end %>
-
-<%= yield %>
+      <%= yield %>
+    </div>
+  </div>
+  <footer>
+    <%= yield :footer %>
+  </footer>
+</div>
 
 </body>
 </html>
