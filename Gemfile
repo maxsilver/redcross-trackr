@@ -6,7 +6,6 @@ gem 'thin'
 gem "devise"
 gem "jquery-rails"
 gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git"
-gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +17,11 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'rspec-rails'
 end
 
 # To use ActiveModel has_secure_password
