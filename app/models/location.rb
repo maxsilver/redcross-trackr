@@ -30,6 +30,10 @@ class Location < ActiveRecord::Base
     contact_name.present? or contact_phone.present?
   end
 
+  def number_of_items_of_type(item_type_definition)
+    items.of_type(item_type_definition).sum("quantity")
+  end
+
 private
   def abort_delete_if_location_has_items
     return false if items.any?

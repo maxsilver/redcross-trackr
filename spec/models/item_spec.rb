@@ -40,10 +40,8 @@ describe Item do
           :new_location => @marks_house,
           :quantity => TOTAL_COT_QUANTITY
         )
-        @cots.home_location.should == @marks_house
-        @cots.current_location.should == @marks_house
-        @jasons_house.items.of_type(@cots.item_type_definition).sum("quantity").should == 0
-        @marks_house.items.of_type(@cots.item_type_definition).sum("quantity").should == TOTAL_COT_QUANTITY
+        @jasons_house.number_of_items_of_type(@cots.item_type_definition).should == 0
+        @marks_house.number_of_items_of_type(@cots.item_type_definition).should == TOTAL_COT_QUANTITY
       end
     end
 
@@ -54,8 +52,6 @@ describe Item do
           :new_location => @marks_house,
           :quantity => JUST_SOME
         )
-        @cots.home_location.should == @marks_house
-        @cots.current_location.should == @marks_house
       end
     end
   end
