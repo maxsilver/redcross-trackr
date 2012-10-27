@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<% if flash[:notice] %>
+  <div id="notice"><p><%= flash[:notice] %></p></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div id="alert"><p><%= flash[:alert] %></p></div>
+<% end %>
+
 <% if current_user %>
   <%= link_to "Locations", locations_path %>
   <% if can?(:access, :rails_admin) %>

@@ -23,4 +23,8 @@ class Location < ActiveRecord::Base
   def full_address
     [address, address2, city, state.name, zip].compact.join(" ")
   end
+
+  def has_items?
+    items.count > 0
+  end
 end

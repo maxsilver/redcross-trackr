@@ -34,7 +34,13 @@ class LocationsController < ApplicationController
   end
 
   def destroy
-    @location = Location.destroy(params[:id])
-    redirect_to locations_url
+    @location = Location.find(params[:id])
+
+    if @location.has_items?
+      redirect_to edit_location_path(@location), alert: "Can't delete this location because it has items attached to it."
+    else
+      @location = Location.destroy(params[:id])
+      redirect_to locations_url
+    end
   end
 end

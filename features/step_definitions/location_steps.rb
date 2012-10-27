@@ -50,11 +50,13 @@ Given /^I have a location that has items attached to it$/ do
 end
 
 When /^I try to delete that location$/ do
+  visit edit_location_path(@location)
   click_on "Delete"
 end
 
 Then /^I should get an error$/ do
-  pending # express the regexp above with the code you wish you had
+  page.should have_content("Editing location")
+  page.should have_content("Can't delete this location because it has items attached to it.")
 end
 
 Then /^that location should not be deleted$/ do
