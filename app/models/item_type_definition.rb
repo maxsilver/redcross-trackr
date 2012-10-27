@@ -7,4 +7,9 @@ class ItemTypeDefinition < ActiveRecord::Base
   def kind_enum
     ["single", "multiple", "container"]
   end
+
+
+  def self.options
+    ItemTypeDefinition.all.map {|itd| [itd.name, itd.name]}
+  end
 end

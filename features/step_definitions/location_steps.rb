@@ -42,6 +42,7 @@ Then /^that location should get set to inactive, but not actually deleted$/ do
   location.deleted_at.should_not be_nil
 end
 
+
 Given /^I have a location that has items attached to it$/ do
   @location = FactoryGirl.create(
     :location_with_items,
@@ -64,3 +65,24 @@ Then /^that location should not be deleted$/ do
   location.should_not be_nil
   location.deleted_at.should be_nil
 end
+
+Given /^there exists a location "(.*?)":$/ do |location_name|
+  FactoryGirl.create(:location, :name => location_name)
+end
+
+When /^I am on the "(.*?)" location page$/ do |location_name|
+  location = Location.find_by_name location_name
+  visit location_path(location)
+
+  save_and_open_page
+end
+
+Then /^I should be on the "(.*?)" location page$/ do |location_name|
+  page.should have_content(location_name)
+end
+
+Then /^I should see the following item:$/ do |table|
+  binding.pry
+end
+
+
