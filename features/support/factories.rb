@@ -9,6 +9,9 @@ FactoryGirl.define do
 
   factory :item do
     item_type_definition
+
+    factory :cots do
+    end
   end
 
   factory :location do

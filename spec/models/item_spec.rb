@@ -69,4 +69,28 @@ describe Item do
       children_list = [Item.create(), Item.create()]
     end
   end
+
+  it "can get moved" do
+    context "when we're moving all of that item that we have" do
+      before do
+        @jasons_house = FactoryGirl.create(:location)
+        @marks_house = FactoryGirl.create(:location)
+        TOTAL_NUMBER_OF_COTS ||= 100
+        @cots = FactoryGirl.create(
+          :cots,
+          :home_location => @jasons_house,
+          :current_location => @jasons_house,
+          :quantity => TOTAL_NUMBER_OF_COTS
+        )
+      end
+
+      it "moves all the items" do
+        pending
+        @cots.move(
+          :quantity => TOTAL_NUMBER_OF_COTS,
+          :new_location => @marks_house
+        )
+      end
+    end
+  end
 end
