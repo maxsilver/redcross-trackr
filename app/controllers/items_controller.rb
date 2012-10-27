@@ -25,6 +25,13 @@ class ItemsController < ApplicationController
     # else
       # render action: "new"
     # end
+    @location = Location.find(params[:location_id])
+    @item = Item.new(params[:item])
+    if @item.save
+      redirect_to @location
+    else
+    end
+
   end
 
   def update

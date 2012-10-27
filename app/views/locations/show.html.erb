@@ -36,14 +36,15 @@
 <%= link_to "Add", "#" %>
 
 <div class="items">
-  <% @location.items.individuals.each do |item| %>
+  <%# @location.items.individuals.each do |item| %>
+  <% @location.items.each do |item| %>
     <div class="item">
       <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
       <%= link_to item.name, [@location, item] %>
-      <%= item.item_type_definition.name %>
+      <%#= item.item_type_definition.name %>
       <%= item.quantity %>
       <%= item.container.name if item.container %>
-      <%= item.home_location.name unless item.at_home? %>
+      <%#= item.home_location.name unless item.at_home? %>
       <%= check_box_tag :check %>
     </div>
   <% end %>
