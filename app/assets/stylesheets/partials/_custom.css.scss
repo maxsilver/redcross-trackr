@@ -3,6 +3,12 @@ body {
   background: $white;
   //@include box-shadow($shadow);
   border-top: 10px solid $blueLight;
+  width: 100%;
+}
+
+.page {
+	position: relative;
+	width: 100%;
 }
 
 
@@ -25,18 +31,23 @@ a {
 /* Header */
 
 header,
-.main,
 footer {
 	@include container;
+	position: relative;
 }
 
 header {
 	border-bottom: 1px solid $grayLighter;
 	@include box-shadow($shadow);
+	z-index: 50;
+	//padding-top: 1em;
 }
 
 .main {
-	padding-top: 1em;
+	background: $mainBackground;
+	z-index: 1;
+	
+	
 }
 
 .logo {
@@ -55,7 +66,7 @@ header {
 
 
 .nav {
-	@include span-columns(9 omega, 12);
+	@include span-columns(8 omega, 12);
 	
 		
 	li {
@@ -72,10 +83,59 @@ header {
 
 /* Layout - Mobile */
 
+.sessions {
+	padding: 0em 1em;
+	
+}
+
 .map {
 	
 	* {
 		display: none;
+	}
+}
+
+.locations {
+	
+	h3 {
+		border-bottom: 1px solid $grayDark;
+		padding: 1em;
+		
+	}
+}
+
+.location {
+	display: block;
+	padding: 1em;
+	
+	* {
+		color: $charcoal;
+	}
+	
+	img {
+		display: block;
+		float: left;
+		margin-right: .5em;
+		max-width: 40%;
+	}
+}
+
+.location-details {
+	@include span-columns(7 omega, 12);
+}
+
+.even {
+	background: $pageBackground;
+}
+
+/* New Session */
+
+.sessions {
+	
+	.btn {
+		display: block;
+		margin: auto;
+		width: 50%;
 	}
 }
 
@@ -86,6 +146,7 @@ footer {
 	padding-top: 1em;
 	background: white;
 	@include box-shadow($reverse-shadow);
+	z-index: 50;
 
 	
 	
