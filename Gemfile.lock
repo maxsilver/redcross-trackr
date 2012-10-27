@@ -215,6 +215,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.8)
   rails_admin!
+  rspec
   rspec-rails
   sass-rails (~> 3.2.3)
   thin

@@ -1,13 +1,12 @@
 class Item < ActiveRecord::Base
-  attr_accessible :chapter, :location, :item_type_definition, :item_fields, :quantity
+  attr_accessible :chapter, :owner, :current_location, :item_type_definition, :item_fields, :quantity
 
 
   # the chapter that "owns" this item
-  belongs_to :chapter
+  belongs_to :owner, :class_name => "Location", :foreign_key => "owner_id"
 
   # the location it currently resides at
-  belongs_to :location
-
+  belongs_to :current_location, :class_name => "Location", :foreign_key => "location_id"
 
   belongs_to :item_type_definition
   has_many :item_fields

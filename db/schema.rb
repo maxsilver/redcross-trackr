@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20121026201241) do
   create_table "items", :force => true do |t|
     t.string   "label"
     t.integer  "item_type_definition_id"
+    t.integer  "location_id"
+    t.integer  "owner_id"
     t.integer  "quantity"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false

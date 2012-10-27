@@ -20,6 +20,7 @@ group :assets do
 end
 
 group :test do
+  gem 'rspec'
   gem 'cucumber-rails'
   gem 'rspec-rails'
   gem 'database_cleaner'
