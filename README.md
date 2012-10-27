@@ -12,6 +12,8 @@ As a member of this project, you should have access to the following resources.
 
 + [**GitHub** : https://github.com/mhs/redcross-trackr](https://github.com/mhs/redcross-trackr)
 + [**GitHub Wiki** : https://github.com/mhs/redcross-trackr/wiki](https://github.com/mhs/redcross-trackr/wiki/_pages)
++ + NEW! [**User Interface Map**](https://github.com/mhs/redcross-trackr/wiki/User-Interface-Map)
++ + NEW! [**Whiteboard Notes**](https://github.com/mhs/redcross-trackr/wiki/Whiteboard-Notes-01)
 + + [**Project Map**](https://github.com/mhs/redcross-trackr/wiki/Project-Map)
 + + [**Story Map**](https://github.com/mhs/redcross-trackr/wiki/Story-Map)
 + [**Pivotal Tracker** : https://www.pivotaltracker.com/projects/668609](https://www.pivotaltracker.com/projects/668609)
