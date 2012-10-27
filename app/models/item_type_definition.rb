@@ -10,6 +10,6 @@ class ItemTypeDefinition < ActiveRecord::Base
 
 
   def self.options
-    ItemTypeDefinition.all.map {|itd| [itd.name, itd.name]}
+    ItemTypeDefinition.all.map {|itd| [itd.name, itd.id]}
   end
 end

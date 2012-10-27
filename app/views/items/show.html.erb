@@ -8,11 +8,19 @@
 
 <%= image_tag @item.picture_url(:thumbnail), :alt => @item.name %>
 
+<% binding.pry %>
 <div class="address">
   <%= @item.item_type_definition.name %>
   <%= @item.quantity %>
-  <%= @item.container.name if @item.container %>
-  <%= @item.home_location.name %>
+
+  <% if @item.container %>
+    <%= @item.container.name %>
+  <% end %>
+
+  <% if @item.home_location %>
+    <%= @item.home_location.name %>
+  <% end %>
+
   <%= @item.current_location.name unless @item.at_home? %>
 </div>
 

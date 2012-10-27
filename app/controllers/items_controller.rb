@@ -1,15 +1,15 @@
 class ItemsController < ApplicationController
+  before_filter :find_location
+
   def index
     # @locations = Location.all
   end
 
   def show
-    @location = Location.find(params[:location_id])
     @item = @location.items.find(params[:id])
   end
 
   def new
-    @location = Location.find(params[:location_id])
     @item = Item.new(:current_location => location)
     # @location = Location.new
   end
@@ -25,7 +25,8 @@ class ItemsController < ApplicationController
     # else
       # render action: "new"
     # end
-    @location = Location.find(params[:location_id])
+    #
+    binding.pry
     @item = Item.new(params[:item])
     if @item.save
       redirect_to @location
@@ -75,5 +76,9 @@ class ItemsController < ApplicationController
         item.lend(qty, location, container)
       end
     end
+  end
+
+  def find_location
+    @location = Location.find(params[:location_id])
   end
 end
