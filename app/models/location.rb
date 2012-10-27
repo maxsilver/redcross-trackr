@@ -1,6 +1,3 @@
 class Location < ActiveRecord::Base
-  attr_accessible :name, :chapter_id, :chapter
-
-  belongs_to :chapter
-  has_many :items
+  attr_accessible :address, :address2, :chapter_id, :city, :contact_name, :contact_phone, :name, :national_shelter_system_identifier, :state_id, :zip
 end

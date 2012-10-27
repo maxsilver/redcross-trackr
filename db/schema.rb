@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026201241) do
+ActiveRecord::Schema.define(:version => 20121027011425) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -51,9 +51,17 @@ ActiveRecord::Schema.define(:version => 20121026201241) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
+    t.string   "address"
+    t.string   "address2"
+    t.string   "city"
+    t.integer  "state_id"
+    t.string   "zip"
+    t.string   "contact_name"
+    t.string   "contact_phone"
+    t.string   "national_shelter_system_identifier"
     t.integer  "chapter_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "regions", :force => true do |t|
