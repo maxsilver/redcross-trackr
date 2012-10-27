@@ -24,15 +24,16 @@ Default Users
 The system has default users, created in development when you run `rake db:seeds`
 
 **Admin User**
-
+```
 e-mail : admin@example.com
 pass   : adminpassword
+```
 
 **Member User**
-
+```
 e-mail : member@example.com
 pass   : memberpassword
-
+```
 
 How Resources (Items) Are Defined
 -----------------------------------
