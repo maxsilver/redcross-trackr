@@ -13,6 +13,7 @@
   <% if can?(:access, :rails_admin) %>
     <%= link_to "Admin", rails_admin_path %>
   <% end %>
+  <%= link_to "Profile", edit_user_registration_path %>
 <% end %>
 
 <%= yield %>
