@@ -62,8 +62,8 @@ if Rails.env.development?
 
   # Make a default ADMIN user
   user = User.create(:email => "admin@example.com")
-  user.password = "admin"
-  user.password_confirmation = "admin"
+  user.password = "adminadmin"
+  user.password_confirmation = "adminadmin"
   user.admin = true
   user.save!
 

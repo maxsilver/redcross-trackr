@@ -6,8 +6,11 @@ describe Item do
          :name => "Pillow",
     })
   end
-
-  let(:item) { Item.create({:item_type_definition => item_type}) }
+  let(:location) { FactoryGirl.build(:location, :name => "The Cellar") }
+  let(:item) { Item.create({
+    :item_type_definition => item_type,
+    :owner => location
+  }) }
 
   it "can be initialized" do
     item.should_not be_nil
@@ -19,6 +22,23 @@ describe Item do
     item.save!
     item.reload
     item.current_location.should eq(location)
+  end
+
+  context "when the item is lent to a new location" do
+    let(:new_location) { FactoryGirl.build(:location, :name => "The Kitchen")}
+    before do
+      item.owner = location
+      item.lend_to(new_location)
+      item.save!
+    end
+
+    it "should be at the new location" do
+      item.current_location.should eq(new_location)
+    end
+
+    it "should be owned by its old, own location" do
+      item.owner.should eq(location)
+    end
   end
 
   context "when the item is containerable" do

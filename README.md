@@ -26,7 +26,7 @@ The system has default users, created in development when you run `rake db:seeds
 **Admin User**
 
 e-mail : admin@example.com
-pass   : admin
+pass   : adminadmin
 
 **Member User**
 

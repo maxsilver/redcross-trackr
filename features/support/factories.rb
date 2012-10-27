@@ -20,5 +20,12 @@ FactoryGirl.define do
 
   factory :chapter do
   	name "Chapter"
+    code "foo"
+    region
+  end
+
+  factory :region do
+    name "Midwest"
+    code "foo"
   end
 end

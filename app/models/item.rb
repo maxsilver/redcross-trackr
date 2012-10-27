@@ -22,4 +22,15 @@ class Item < ActiveRecord::Base
     end
   end
 
+  def give_to(new_location)
+    owner = new_location
+    current_location = new_location
+    save!
+  end
+
+  def lend_to(new_location)
+    current_location = new_location
+    save!
+  end
+
 end
