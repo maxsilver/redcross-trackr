@@ -18,13 +18,15 @@ class Location < ActiveRecord::Base
   belongs_to :chapter
   has_many :items
 
+  before_destroy :abort_delete_if_location_has_items
+
   mount_uploader :picture, PictureUploader
 
   def full_address
     [address, address2, city, state.name, zip].compact.join(" ")
   end
 
-  def has_items?
-    items.count > 0
+  def abort_delete_if_location_has_items
+    return false if items.any?
   end
 end
