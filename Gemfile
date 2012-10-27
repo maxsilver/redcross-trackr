@@ -12,6 +12,7 @@ gem 'cloudinary'
 gem 'geocoder'
 gem 'cancan'
 gem 'rails_admin'
+gem "pry"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -22,7 +23,6 @@ end
 group :development do
   gem 'mysql2'
   gem 'rspec-rails'
-  gem "pry"
 end
 
 group :test do

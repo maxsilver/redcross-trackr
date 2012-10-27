@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(:version => 20121027163500) do
 
   create_table "item_type_definitions", :force => true do |t|
     t.string   "name"
-    t.boolean  "is_containerable", :default => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.boolean  "is_containerable"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "kind"
   end
 
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20121027163500) do
     t.integer  "home_location_id"
     t.integer  "quantity"
     t.integer  "item_id"
+    t.boolean  "is_containerable"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.string   "picture"

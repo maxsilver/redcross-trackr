@@ -1,14 +1,14 @@
 When /^I add the following item to the location:$/ do |table|
-  save_and_open_page
-
   click_link "Add New Item"
 
   data = table.rows_hash
 
-  type = data.delete "Type"
+  type = data.delete "Kind"
   container = data.delete "Container"
 
-  select type, :from => "Type"
+
+  save_and_open_page
+  select type, :from => "Kind:"
   select container, :from => "Container" if container
 
   data.each_pair do |k, v|

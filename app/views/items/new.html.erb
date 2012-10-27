@@ -1,5 +1,5 @@
 <%= form_for [@location, @item] do |f|%>
-  <%= f.label :item_type_definition_id, "Kind : " %>
+  <%= f.label :item_type_definition_id, "Kind: " %>
   <%= f.select(:item_type_definition_id, ItemTypeDefinition.options) %>
   <br/>
 
@@ -7,7 +7,7 @@
   <%= f.text_field :name %>
   <br/>
 
-  <%= f.label :quantity, "quantity:" %>
+  <%= f.label :quantity, "Quantity:" %>
   <%= f.text_field :quantity %>
   <br/>
 
