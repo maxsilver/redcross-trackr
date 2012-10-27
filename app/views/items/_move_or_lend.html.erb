@@ -1,0 +1,19 @@
+<label>Location</label>
+<%= select_tag :location_id, options_from_collection_for_select(Location.all, :id, :name) %>
+
+<label>Container</label>
+<%= select_tag :container_id, options_from_collection_for_select(Item.containers, :id, :name)  %>
+
+<% @items.each do |item| %>
+  <div class="item">
+    <%= hidden_field_tag "item_ids[]", item.id %>
+    <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
+    <%= link_to item.name, item %>
+    <%= item.item_type_definition.name %>
+    <%= item.quantity %>
+    <%= item.container.name if item.container %>
+    <%= item.home_location.name %>
+    <%= item.current_location.name unless item.at_home? %>
+    <%= text_field_tag "quantities[]" %>
+  </div>
+<% end %>

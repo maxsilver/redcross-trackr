@@ -26,14 +26,6 @@ class Location < ActiveRecord::Base
     [address, address2, city, state.name, zip].compact.join(" ")
   end
 
-  def containers
-    items.joins(:item_type_definition).where("item_type_definitions.kind" => "container")
-  end
-
-  def individual_items
-    items.joins(:item_type_definition).where("item_type_definitions.kind" => ["single", "multiple"])
-  end
-
 private
   def abort_delete_if_location_has_items
     return false if items.any?
