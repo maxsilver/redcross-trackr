@@ -1,5 +1,7 @@
 <h1>Listing locations</h1>
 
+<%= link_to 'New Location', new_location_path %>
+
 <table>
   <tr>
     <th>Name</th>
@@ -30,11 +32,6 @@
     <td><%= location.national_shelter_system_identifier %></td>
     <td><%= location.chapter_id %></td>
     <td><%= link_to 'Show', location %></td>
-    <td><%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Location', new_location_path %>

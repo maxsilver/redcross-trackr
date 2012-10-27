@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Edit', edit_location_path(@location) %>
+
 <p>
   <b>Name:</b>
   <%= @location.name %>
@@ -49,7 +51,3 @@
   <b>Chapter:</b>
   <%= @location.chapter_id %>
 </p>
-
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
