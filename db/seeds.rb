@@ -134,7 +134,6 @@ if Rails.env.development?
     :current_location => location_gr_church
   })
 
-  binding.pry
 
 
   # Make a default ADMIN user
