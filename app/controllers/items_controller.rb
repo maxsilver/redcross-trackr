@@ -77,11 +77,8 @@ class ItemsController < ApplicationController
         item.lend(qty, location, container)
 
       end
-      redirect_to location_item_lend_success_path
+      redirect_to @location, :notice => "Lending completed successfully!"
     end
-  end
-
-  def lend_success
   end
 
   def find_location
