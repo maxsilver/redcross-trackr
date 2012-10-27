@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
 
   attr_accessible :name, :quantity, :container_id,
                   :item_type_definition_id, :home_location_id, :current_location_id,
-                  :picture, :picture_cache, :remove_picture
+                  :picture, :picture_cache, :remove_picture, :item_type_definition, :current_location
 
   belongs_to :item_type_definition
   belongs_to :home_location, :class_name => "Location"
