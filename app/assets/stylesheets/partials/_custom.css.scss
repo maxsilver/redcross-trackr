@@ -3,6 +3,7 @@ body {
   @include container;
   background: $white;
   //@include box-shadow($shadow);
+  border-top: 10px solid $blueLight;
 }
 
 
@@ -13,7 +14,6 @@ body {
 a {
   color: $linkColor;
   text-decoration: none;
-  font-weight: 600;
   
   &:hover {
     color: $linkColorHover;
@@ -29,5 +29,34 @@ a {
 
 /* Header */
 
+.logo {
+	background: image-url('red-cross-logo@2x.jpg')no-repeat left center;
+	background-size: 100%;
+	@include span-columns(6,12);
+	height: 80px;
+}
 
+
+	
+.name {
+    @include span-columns(6 omega, 12);
+    text-align: right;
+}
+
+
+.nav {
+	@include span-columns(9 omega, 12);
+	
+		
+	li {
+		float: left;
+		margin-right: 2%;
+		padding-right: 2%;
+		border-right: 2px solid $charcoal;
+		
+		&:last-child {
+			border: none;
+		}
+	}
+}
 

@@ -19,6 +19,8 @@ $box-shadow-color:		#6c6c6c !default;
 // -------------------------
 $blue:                  #049cdb !default;
 $blueDark:              #0064cd !default;
+$blueLight:				#61A0C9 !default; //topborder on header
+$blueLighter: 			#6095C8 !default; //default link color
 $bright-green: 			#92c54e !default; //constant nav, callouts
 $dark-green:			#59733c !default; //homepage header
 $muted-green:			#bfd79e !default; //podcast player background
@@ -40,7 +42,7 @@ $textColor:             $grayDarker !default;
 
 // Links
 // -------------------------
-$linkColor:             #0c2345 !default;
+$linkColor:             $blueLighter !default;
 $linkColorHover:        lighten($linkColor, 15%) !default;
 
 
@@ -62,16 +64,16 @@ $linkColorHover:        lighten($linkColor, 15%) !default;
 
 
 
-$sansFontFamily:        'Avenir LT W01 45 Book', Arial, sans-serif !default;
-$serifFontFamily:       'Garamond W01', Georgia, "Times New Roman", Times, serif !default;
+$sansFontFamily:        Helvetica, sans-serif !default;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
 
 $baseFontSize:          1em !default;
 $baseFontFamily:        $sansFontFamily !default;
 $baseLineHeight:        1.4em !default;
 $altFontFamily:         $serifFontFamily !default;
 
-$headingsFontFamily:    'Avenir LT W01 65 Medium', Arial, sans-serif !default; // empty to use BS default, $baseFontFamily
-$headingsFontWeight:    bold !default;    // instead of browser default, bold
+$headingsFontFamily:    Helvetica, Arial, sans-serif !default; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:    lighter !default;    // instead of browser default, bold
 $headingsColor:         $charcoal !default; // empty to use BS default, $textColor
 
 $inputFontFamily:		$serifFontFamily;

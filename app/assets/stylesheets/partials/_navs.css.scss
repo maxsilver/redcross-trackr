@@ -16,10 +16,9 @@
 .nav > li > a {
   display: block;
 }
-.nav > li > a:hover {
-  text-decoration: none;
-  color: $grayLighter;
-}
+//.nav > li > a:hover {
+//  text-decoration: none;
+//}
 
 // Redeclare pull classes because of specifity
 .nav > .pull-right {
