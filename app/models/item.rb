@@ -14,6 +14,8 @@ class Item < ActiveRecord::Base
   # has_many :item_fields
 
   mount_uploader :picture, PictureUploader
+
+  validates_presence_of :name
   
   scope :containers, joins(:item_type_definition).where("item_type_definitions.kind" => "container")
   scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind != 'container'")
