@@ -25,12 +25,12 @@
     <td><%= location.address %></td>
     <td><%= location.address2 %></td>
     <td><%= location.city %></td>
-    <td><%= location.state_id %></td>
+    <td><%= location.state.name %></td>
     <td><%= location.zip %></td>
     <td><%= location.contact_name %></td>
-    <td><%= location.contact_phone %></td>
+    <td><%= number_to_phone location.contact_phone %></td>
     <td><%= location.national_shelter_system_identifier %></td>
-    <td><%= location.chapter_id %></td>
+    <td><%= location.chapter.name %></td>
     <td><%= link_to 'Show', location %></td>
   </tr>
 <% end %>
