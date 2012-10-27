@@ -58,4 +58,21 @@ if Rails.env.development?
     :quantity => 7,
     :current_location => location_gr_church
   })
+
+
+  # Make a default ADMIN user
+  user = User.create(:email => "admin@example.com")
+  user.password = "admin"
+  user.password_confirmation = "admin"
+  user.admin = true
+  user.save!
+
+  # Make a default MEMBER user
+  user = User.create(:email => "member@example.com")
+  user.password = "member"
+  user.password_confirmation = "member"
+  user.admin = true
+  user.save!
+
+
 end

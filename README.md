@@ -19,6 +19,20 @@ As a member of this project, you should have access to the following resources.
 + [**Pivotal Tracker** : https://www.pivotaltracker.com/projects/668609](https://www.pivotaltracker.com/projects/668609)
 
 
+Default Users
+-----------------------------------
+The system has default users, created in development when you run `rake db:seeds`
+
+**Admin User**
+
+e-mail : admin@example.com
+pass   : admin
+
+**Member User**
+
+e-mail : member@example.com
+pass   : member
+
 
 How Resources (Items) Are Defined
 -----------------------------------
