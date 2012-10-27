@@ -3,11 +3,7 @@ class ItemTypeDefinition < ActiveRecord::Base
 
   has_many :items
   has_many :item_field_definitions
-
-  def kind_enum
-    ["single", "multiple", "container"]
-  end
-
+  belongs_to :kind
 
   def self.options
     ItemTypeDefinition.all.map {|itd| [itd.name, itd.id]}

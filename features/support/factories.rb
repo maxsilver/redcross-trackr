@@ -8,6 +8,7 @@ FactoryGirl.define do
   end
 
   factory :item do
+    name "Cot"
     item_type_definition
   end
 
