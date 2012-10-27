@@ -1,4 +1,6 @@
 <%= form_for [@location, @item] do |f|%>
+  <%= f.hidden_field :current_location_id, :value => @location.id %>
+
   <%= f.label :item_type_definition_id, "Kind : " %>
   <%= f.select(:item_type_definition_id, ItemTypeDefinition.options) %>
   <br/>
