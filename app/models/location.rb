@@ -4,7 +4,7 @@ class Location < ActiveRecord::Base
   after_validation :geocode
 
   attr_accessible :address, :address2, :city, :state_id, :zip,
-                  :name, :chapter_id,
+                  :name, :chapter_id, :state,
                   :contact_name, :contact_phone,
                   :national_shelter_system_identifier,
                   :picture, :picture_cache, :remove_picture
@@ -25,7 +25,7 @@ class Location < ActiveRecord::Base
   def full_address
     [address, address2, city, state.name, zip].compact.join(" ")
   end
-  
+
   def containers
     items.joins(:item_type_definition).where("item_type_definitions.kind" => "container")
   end
