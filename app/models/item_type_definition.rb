@@ -1,6 +1,10 @@
 class ItemTypeDefinition < ActiveRecord::Base
-  attr_accessible :name, :quantifiable, :container
+  attr_accessible :name, :kind
 
   has_many :items
   has_many :item_field_definitions
+
+  def kind_enum
+    ["single", "multiple", "container"]
+  end
 end
