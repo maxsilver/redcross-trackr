@@ -18,3 +18,4 @@ app/views/locations/.DS_Store
 config/.DS_Store
 db/.DS_Store
 *.DS_Store
+config/database.yml

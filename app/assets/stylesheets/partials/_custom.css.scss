@@ -25,7 +25,8 @@ a {
 /* Header */
 
 header,
-.main {
+.main,
+footer {
 	@include container;
 }
 
@@ -75,5 +76,18 @@ header {
 	
 	* {
 		display: none;
+	}
+}
+
+/* Footer */
+
+footer {
+	position: relative;
+	padding-top: 1em;
+	
+	.btn {
+		display: block;
+		margin: auto;
+		width: 50%;
 	}
 }
