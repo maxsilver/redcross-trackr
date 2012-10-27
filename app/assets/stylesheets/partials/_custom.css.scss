@@ -1,0 +1,33 @@
+/* Global Styles */
+body {
+  @include container;
+  background: $white;
+  //@include box-shadow($shadow);
+}
+
+
+* {
+	font-family: $sansFontFamily;
+}
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+  font-weight: 600;
+  
+  &:hover {
+    color: $linkColorHover;
+    text-decoration: underline;
+  }
+
+}
+
+
+
+/* Layout */
+
+
+/* Header */
+
+
+
