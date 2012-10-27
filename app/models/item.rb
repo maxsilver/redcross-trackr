@@ -19,6 +19,7 @@ class Item < ActiveRecord::Base
   
   scope :containers, joins(:item_type_definition).where("item_type_definitions.kind" => "container")
   scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind != 'container'")
+  scope :of_type, lambda { |item_type_definition| where(:item_type_definition_id => item_type_definition.id) }
 
   def at_home?
     current_location == home_location
@@ -32,23 +33,9 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def move(qty, location, container)
-    raise "Too Many" if qty > self.quantity
-
-    if qty == self.quantity
-      self.home_location = location
-      self.current_location = location
-      self.container = container
-    else
-      self.quantity -= qty
-      
-      moved_item = Item.new(item.attribuets.merge(:quantity => qty))
-      moved_item.home_location = location
-      moved_item.current_location = location
-      moved_item.container = container
-      moved_item.save!
-    end
-    self.save!
+  def move(options)
+    self.home_location = self.current_location = options[:new_location]
+    save!
   end
 
   def lend(qty, location, container)
