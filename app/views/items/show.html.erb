@@ -2,9 +2,9 @@
 
 <h1><%= @item.name %></h1>
 
-<%= link_to "Move", move_items_path(:item_ids => [@item.id]) %>
-<%= link_to "Lend", lend_items_path(:item_ids => [@item.id]) %>
-<%= link_to 'Edit', @item %>
+<%= link_to "Move", move_location_items_path(@location, :item_ids => [@item.id]) %>
+<%= link_to "Lend", lend_location_items_path(@location, :item_ids => [@item.id]) %>
+<%= link_to 'Edit', edit_location_item_path(@location, @item) %>
 
 <%= image_tag @item.picture_url(:thumbnail), :alt => @item.name %>
 

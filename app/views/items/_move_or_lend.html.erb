@@ -8,7 +8,7 @@
   <div class="item">
     <%= hidden_field_tag "item_ids[]", item.id %>
     <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
-    <%= link_to item.name, item %>
+    <%= link_to item.name, [@location, item] %>
     <%= item.item_type_definition.name %>
     <%= item.quantity %>
     <%= item.container.name if item.container %>

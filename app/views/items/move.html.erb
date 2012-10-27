@@ -1,6 +1,6 @@
 <h1>Move</h1>
 
-<%= form_tag move_items_path do %>
+<%= form_tag move_location_items_path(@location) do %>
   <%= render "move_or_lend" %>
   <%= submit_tag "Move Items" %>
 <% end %>
