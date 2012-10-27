@@ -1,7 +1,7 @@
 <h1>Choose a location:</h1>
 
 <% @locations.each do |location| %>
-  <%= link_to location, :class => "location #{cycle :even, :odd}" do %>
+  <%= link_to location, :class => "location #{cycle :even, :odd}", :data => { :lat => location.latitude, :lng => location.longitude } do %>
     <%= image_tag location.picture_url(:thumbnail), :alt => location.name %>
     
     <div class="name"><%= location.name %></div>
@@ -20,6 +20,8 @@
     <% end %>
   <% end %>
 <% end %>
+
+<div class="map" style="width: 500px; height: 500px;"></div>
 
 <% content_for :footer do %>
   <%= link_to 'Add Location', new_location_path %>
