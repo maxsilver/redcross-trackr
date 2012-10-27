@@ -1,7 +1,7 @@
 <h1>Choose a chapter or location:</h1>
 
 <% @chapters.each do |chapter| %>
-  <h2><%= chapter.name %></h2>
+  <h2><%= link_to chapter.name, chapter %></h2>
   <% chapter.locations.each do |location| %>
     <%= link_to location, :class => "location #{cycle :even, :odd}" do %>
       <%= image_tag location.picture_url(:thumbnail), :alt => location.name %>

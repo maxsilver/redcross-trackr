@@ -4,7 +4,7 @@ class ChaptersController < ApplicationController
   end
 
   def show
-    @chapters = Chapter.find(params[:id])
+    @chapter = Chapter.find(params[:id])
   end
 
 
