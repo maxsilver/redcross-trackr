@@ -11,28 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027163500) do
-
-  create_table "audits", :force => true do |t|
-    t.integer  "auditable_id"
-    t.string   "auditable_type"
-    t.integer  "associated_id"
-    t.string   "associated_type"
-    t.integer  "user_id"
-    t.string   "user_type"
-    t.string   "username"
-    t.string   "action"
-    t.text     "audited_changes"
-    t.integer  "version",         :default => 0
-    t.string   "comment"
-    t.string   "remote_address"
-    t.datetime "created_at"
-  end
-
-  add_index "audits", ["associated_id", "associated_type"], :name => "associated_index"
-  add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
-  add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
-  add_index "audits", ["user_id", "user_type"], :name => "user_index"
+ActiveRecord::Schema.define(:version => 20121027183140) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -61,14 +40,9 @@ ActiveRecord::Schema.define(:version => 20121027163500) do
 
   create_table "item_type_definitions", :force => true do |t|
     t.string   "name"
-<<<<<<< HEAD
-    t.boolean  "is_containerable"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-=======
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
->>>>>>> Added an item example for moving.
+    t.boolean  "is_containerable", :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "kind"
   end
 
@@ -78,15 +52,17 @@ ActiveRecord::Schema.define(:version => 20121027163500) do
     t.integer  "current_location_id"
     t.integer  "home_location_id"
     t.integer  "quantity"
-<<<<<<< HEAD
     t.integer  "item_id"
-    t.boolean  "is_containerable"
-=======
->>>>>>> Added an item example for moving.
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.string   "picture"
     t.integer  "container_id"
+  end
+
+  create_table "kinds", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "locations", :force => true do |t|
