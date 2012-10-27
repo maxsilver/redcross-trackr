@@ -10,8 +10,9 @@ RedcrossTrackr::Application.routes.draw do
   resources :chapters
   resources :locations do
     resources :items do
-      get "give/" => "items#give", :as => :give
-      get "lend/" => "items#lend", :as => :lend
+      match "give/" => "items#give", :as => :give
+      match "lend/" => "items#lend", :as => :lend
+      get "lend-success/" => "items#lend_success", :as => :lend_success
     end
   end
 

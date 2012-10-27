@@ -56,26 +56,32 @@ class ItemsController < ApplicationController
   end
 
   def move
-    @items = @location.items.find(params[:item_ids])
+    @items = [].push @location.items.find(params[:item_ids])
 
-    if request.put?
+    if request.post?
       location = Location.find(params[:location_id])
-      container = Container.find(params[:container_id])
+      container = Item.containers.find(params[:container_id])
       @items.zip(params[:quantities]).each do |item, qty|
         item.move(qty, location, container)
       end
+      redirect_to "http://www.google.com"
     end
   end
 
   def lend
     @items = [].push @location.items.find(params[:item_id])
-    if request.put?
+    if request.post?
       location = Location.find(params[:location_id])
-      container = Container.find(params[:container_id])
+      container = Item.containers.find(params[:container_id])
       @items.zip(params[:quantities]).each do |item, qty|
         item.lend(qty, location, container)
+
       end
+      redirect_to location_item_lend_success_path
     end
+  end
+
+  def lend_success
   end
 
   def find_location

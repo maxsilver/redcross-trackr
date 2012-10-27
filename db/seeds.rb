@@ -112,6 +112,11 @@ if Rails.env.development?
     :kind => single
   })
 
+  cardboard_box = ItemTypeDefinition.create!({
+    :name => "Cardboard Box",
+    :kind => container
+  })
+
   color_field = ItemFieldDefinition.create!({
     :name => "Brand Name",
     :kind => :string,
@@ -136,6 +141,13 @@ if Rails.env.development?
   })
 
 
+  fridge_box = Item.create!({
+    :name => "Refridgerator Box",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_gr_church,
+    :home_location => location_gr_church
+  })
 
   # Make a default ADMIN user
   user = User.new(:email => "admin@example.com")
