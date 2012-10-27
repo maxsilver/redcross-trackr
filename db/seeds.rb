@@ -127,6 +127,7 @@ if Rails.env.development?
   # *Creating* an item of type "Fire extinguisher"
   # and filling in fields for its "brand name" and "purchase date"
   item = Item.create!({
+    :name => "Red Fire Extinguisher",
     :item_type_definition => fire_extinguisher,
     :quantity => 7,
     :current_location => location_gr_church
