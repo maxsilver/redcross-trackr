@@ -51,6 +51,13 @@
     <%= f.label :chapter_id %><br />
     <%= f.collection_select :chapter_id, Chapter.all, :id, :name %>
   </div>
+  <div class="field">
+    <%= f.label :picture %><br />
+    <%= image_tag(@location.picture_url(:thumbnail), :alt => @location.name) if @location.picture? %>
+    <%= f.hidden_field :picture_cache %>
+    <%= f.file_field :picture %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -2,6 +2,8 @@
 
 <%= link_to 'Edit', edit_location_path(@location) %>
 
+<%= image_tag(@location.picture_url(:thumbnail), :alt => @location.name) %>
+
 <p>
   <b>Name:</b>
   <%= @location.name %>

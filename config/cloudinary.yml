@@ -1,0 +1,12 @@
+development:
+  cloud_name: htxvnzmyz
+  api_key: '557373124636685'
+  api_secret: AZ4_g0WTz8HeKaBqEYqs4NTk158
+  enhance_image_tag: true
+  static_image_support: false
+test:
+  cloud_name: htxvnzmyz
+  api_key: '557373124636685'
+  api_secret: AZ4_g0WTz8HeKaBqEYqs4NTk158
+  enhance_image_tag: true
+  static_image_support: false

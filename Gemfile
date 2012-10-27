@@ -7,6 +7,7 @@ gem "devise"
 gem "jquery-rails"
 gem "rails_admin"
 gem "paranoia"
+gem 'carrierwave'
 gem 'cloudinary'
 
 # Gems used only for assets and not required
