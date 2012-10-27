@@ -149,6 +149,14 @@ if Rails.env.development?
     :home_location => location_gr_church
   })
 
+  flapjack_box = Item.create!({
+    :name => "Flapjack Box",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
   # Make a default ADMIN user
   user = User.new(:email => "admin@example.com")
   user.password = "adminpassword"

@@ -34,26 +34,6 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def give(qty, location, container)
-    if container.is_a?(Item)
-      give_all_items_to(container.current_location)
-      self.current_location = container.current_location
-      self.container = container
-    elsif container.is_a?(Location)
-      give_all_items_to(container)
-      self.current_location = container
-    end
-    save!
-  end
-
-  def give_all_items_to(location)
-    self.update_attributes!(home_location: location, current_location: location)
-  end
-
-  def lend_all_items_to(location)
-    self.update_attributes!(current_location: location)
-  end
-
   def move_some_items_to(location, options)
     decrease_quantity_by(options[:quantity])
     Item.create!(
@@ -67,6 +47,26 @@ class Item < ActiveRecord::Base
 
   def decrease_quantity_by(amount)
     self.quantity -= amount
+    save!
+  end
+
+  def give_all_items_to(location)
+    self.update_attributes!(home_location: location, current_location: location)
+  end
+
+  def lend_all_items_to(location)
+    self.update_attributes!(current_location: location)
+  end
+
+  def give(qty, location, container)
+    if container.is_a?(Item)
+      give_all_items_to(container.current_location)
+      self.current_location = container.current_location
+      self.container = container
+    elsif container.is_a?(Location)
+      give_all_items_to(container)
+      self.current_location = container
+    end
     save!
   end
 
