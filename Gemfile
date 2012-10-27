@@ -24,6 +24,7 @@ group :assets do
 end
 
 group :development do
+  gem 'sqlite3'
   gem 'mysql2'
   gem 'rspec-rails'
 end
