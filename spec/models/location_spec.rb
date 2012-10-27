@@ -47,4 +47,10 @@ describe Location do
   	@location.national_shelter_system_identifier = non_unique_identifier
   	@location.should_not be_valid
   end
+  
+  it "allows multiple locations with blank national shelter system identifier" do
+  	other_location = FactoryGirl.create(:location)
+  	other_location = FactoryGirl.build(:location)
+  	other_location.should be_valid
+  end
 end
