@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027153804) do
+ActiveRecord::Schema.define(:version => 20121027154643) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20121027153804) do
   end
 
   create_table "item_field_definitions", :force => true do |t|
-    t.string   "label"
+    t.string   "name"
     t.string   "kind"
     t.integer  "item_type_definition_id"
     t.datetime "created_at",              :null => false
