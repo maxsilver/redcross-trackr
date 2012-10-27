@@ -1,15 +1,12 @@
-<h1>Choose a location:</h1>
-
-<% @locations.each do |location| %>
-  <%= link_to location, :class => "location #{cycle :even, :odd}", :data => { :lat => location.latitude, :lng => location.longitude } do %>
+<h2><%= link_to @chapter.name, @chapter %></h2>
+<% @chapter.locations.each do |location| %>
+  <%= link_to location, :class => "location #{cycle :even, :odd}" do %>
     <%= image_tag location.picture_url(:thumbnail), :alt => location.name %>
-    
+
     <div class="name"><%= location.name %></div>
     <div class="chapter"><%= location.chapter.name %> Chapter</div>
 
     <div class="address">
-      <div class="street"><%= location.address %></div>
-      <div class="street2"><%= location.address2 %></div>
       <div class="city-sate-zip"><%= location.city %>, <%= location.state.name %> <%= location.zip %></div>
     </div>
 
@@ -19,10 +16,4 @@
       </div>
     <% end %>
   <% end %>
-<% end %>
-
-<div class="map" style="width: 500px; height: 500px;"></div>
-
-<% content_for :footer do %>
-  <%= link_to 'Add Location', new_location_path %>
 <% end %>

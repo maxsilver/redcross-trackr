@@ -8,7 +8,6 @@
 
 <%= image_tag @item.picture_url(:thumbnail), :alt => @item.name %>
 
-<% binding.pry %>
 <div class="address">
   <%= @item.item_type_definition.name %>
   <%= @item.quantity %>

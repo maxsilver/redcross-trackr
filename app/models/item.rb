@@ -3,7 +3,8 @@ class Item < ActiveRecord::Base
 
   attr_accessible :name, :quantity, :container_id,
                   :item_type_definition_id, :home_location_id, :current_location_id,
-                  :picture, :picture_cache, :remove_picture, :item_type_definition, :current_location
+                  :picture, :picture_cache, :remove_picture, :item_type_definition,
+                  :current_location, :home_location
 
   belongs_to :item_type_definition
   belongs_to :home_location, :class_name => "Location"
@@ -19,6 +20,7 @@ class Item < ActiveRecord::Base
   
   scope :containers, joins(:item_type_definition).where("item_type_definitions.kind" => "container")
   scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind != 'container'")
+  scope :of_type, lambda { |item_type_definition| where(:item_type_definition_id => item_type_definition.id) }
 
   def at_home?
     current_location == home_location
@@ -32,39 +34,41 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def move(qty, location, container)
-    raise "Too Many" if qty > self.quantity
-
-    if qty == self.quantity
-      self.home_location = location
-      self.current_location = location
-      self.container = container
+  def move(options)
+    if options[:quantity] == self.quantity
+      move_all_items_to(options[:new_location])
     else
-      self.quantity -= qty
-      
-      moved_item = Item.new(item.attribuets.merge(:quantity => qty))
-      moved_item.home_location = location
-      moved_item.current_location = location
-      moved_item.container = container
-      moved_item.save!
+      move_some_items_to(options[:new_location], :quantity => options[:quantity])
     end
-    self.save!
   end
 
-  def lend(qty, location, container)
-    raise "Too Many" if qty > self.quantity
+  def move_all_items_to(location)
+    self.update_attributes!(home_location: location, current_location: location)
+  end
 
-    if qty == self.quantity
-      self.current_location = location
-      self.container = container
-    else
-      self.quantity -= qty
-      
-      moved_item = Item.new(item.attribuets.merge(:quantity => qty))
-      moved_item.current_location = location
-      moved_item.container = container
-      moved_item.save!
-    end
-    self.save!
+  def lend_all_items_to(location)
+    self.update_attributes!(current_location: location)
+  end
+
+  def move_some_items_to(location, options)
+    decrease_quantity_by(options[:quantity])
+    Item.create!(
+      name: self.name,
+      item_type_definition: self.item_type_definition,
+      quantity: options[:quantity],
+      home_location: location,
+      current_location: location
+    )
+  end
+
+  def decrease_quantity_by(amount)
+    self.quantity -= amount
+    save!
+  end
+
+  def lend(options)
+    lend_all_items_to(options[:new_location])
+    self.current_location = options[:new_location]
+    save!
   end
 end
