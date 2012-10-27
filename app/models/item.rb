@@ -15,6 +15,10 @@ class Item < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  def at_home?
+    current_location == home_location
+  end
+
   def items
     if is_containerable
       contained_items

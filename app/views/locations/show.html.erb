@@ -38,7 +38,10 @@
     <div class="item">
       <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
       <%= item.name %>
+      <%= item.item_type_definition.name %>
       <%= item.quantity %>
+      <%= item.container.name if item.container %>
+      <%= item.home_location.name unless item.at_home? %>
       <%= check_box_tag :check %>
     </div>
   <% end %>
@@ -54,7 +57,10 @@
     <div class="item">
       <%= image_tag container.picture_url(:thumbnail), :alt => container.name %>
       <%= container.name %>
+      <%= container.item_type_definition.name %>
       <%= container.quantity %>
+      <%= container.container.name if container.container %>
+      <%= container.home_location.name unless container.at_home? %>
       <%= check_box_tag :check %>
     </div>
   <% end %>
