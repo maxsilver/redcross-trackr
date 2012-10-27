@@ -1,10 +1,10 @@
 /* Global Styles */
 body {
-  @include container;
   background: $white;
   //@include box-shadow($shadow);
   border-top: 10px solid $blueLight;
 }
+
 
 
 * {
@@ -22,12 +22,21 @@ a {
 
 }
 
-
-
-/* Layout */
-
-
 /* Header */
+
+header,
+.main {
+	@include container;
+}
+
+header {
+	border-bottom: 1px solid $grayLighter;
+	@include box-shadow($shadow);
+}
+
+.main {
+	padding-top: 1em;
+}
 
 .logo {
 	background: image-url('red-cross-logo@2x.jpg')no-repeat left center;
@@ -60,3 +69,11 @@ a {
 	}
 }
 
+/* Layout - Mobile */
+
+.map {
+	
+	* {
+		display: none;
+	}
+}
