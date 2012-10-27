@@ -68,5 +68,7 @@ class Item < ActiveRecord::Base
 
   def lend(options)
     lend_all_items_to(options[:new_location])
+    self.current_location = options[:new_location]
+    save!
   end
 end

@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :location do
-  	name "Red Cross HQ"
+  	sequence(:name) { |n| "Location #{n}" }
   	address "123 Fake Street"
   	city "Grand Rapids"
   	state

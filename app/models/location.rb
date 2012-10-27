@@ -13,6 +13,7 @@ class Location < ActiveRecord::Base
 
   validates_presence_of :name, :address, :city, :state, :zip, :chapter
   validates_uniqueness_of :national_shelter_system_identifier, :allow_blank => true
+  validates_uniqueness_of :name
 
   belongs_to :state
   belongs_to :chapter

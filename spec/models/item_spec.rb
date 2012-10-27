@@ -4,6 +4,8 @@ describe Item do
   before(:each) do
   	@item = FactoryGirl.build(:item)
   	@item.should be_valid
+    @jasons_house = FactoryGirl.create(:location, :name => "Jason's House")
+    @marks_house = FactoryGirl.create(:location, :name => "Mark's House")
   end
 
   subject { @item }
@@ -14,7 +16,6 @@ describe Item do
   end
 
   it "can be saved without messing up home_location" do
-    @jasons_house = FactoryGirl.create(:location)
     @cots = FactoryGirl.create(:item, :home_location => @jasons_house)
     @cots.home_location.should == @jasons_house
     @cots.save!
@@ -23,8 +24,6 @@ describe Item do
 
   context "moving" do
     before do
-      @jasons_house = FactoryGirl.create(:location)
-      @marks_house = FactoryGirl.create(:location)
       TOTAL_COT_QUANTITY ||= 100
       @cots = FactoryGirl.create(
         :item,
@@ -68,8 +67,6 @@ describe Item do
 
   context "lending" do
     before do
-      @jasons_house = FactoryGirl.create(:location)
-      @marks_house = FactoryGirl.create(:location)
       TOTAL_COT_QUANTITY ||= 100
       @cots = FactoryGirl.create(
         :item,
@@ -85,6 +82,14 @@ describe Item do
         :quantity => TOTAL_COT_QUANTITY
       )
       @cots.home_location.should == @jasons_house
+    end
+
+    it "changes location" do
+      @cots.lend(
+        :new_location => @marks_house,
+        :quantity => TOTAL_COT_QUANTITY
+      )
+      @cots.current_location.should == @marks_house
     end
   end
 end
