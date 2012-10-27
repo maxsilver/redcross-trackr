@@ -7,20 +7,24 @@
   <%= csrf_meta_tags %>
   <meta name="apple-mobile-web-app-capable" content="yes" />  
   <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />  
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiAYsEi7meP_hcCD4SxOhlkaUGMGqIvKw&sensor=true"></script>
 </head>
 <body>
 
 <div class="page">
-  <header>
-    <div class="name">Trackr</div>
+  <header class="cf">
+  	<div class="logo"></div>
+    <h1 class="name">Trackr</h1>
+    <ul class="nav cf">
     <% if current_user %>
-      <%= link_to "Locations", locations_path %>
+      <li><%= link_to "Locations", locations_path %></li>
       <% if can?(:access, :rails_admin) %>
-        <%= link_to "Admin", rails_admin_path, :class => "admin" %>
+        <li><%= link_to "Admin", rails_admin_path, :class => "admin" %></li>
       <% end %>
-      <%= link_to "Profile", edit_user_registration_path %>
-      <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+      <li><%= link_to "Profile", edit_user_registration_path %></li>
+      <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
     <% end %>
+    </ul>
   </header>
   
   <div class="main">

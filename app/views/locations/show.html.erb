@@ -1,33 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @location.name %></h1>
+<div class="location" data-lat="<%= @location.latitude %>" data-lng="<%= @location.longitude %>">
+  <h1><%= @location.name %></h1>
 
-<%= link_to 'Edit', edit_location_path(@location) %>
-<%= link_to "Add New Item", new_location_item_path(@location) %>
+  <%= link_to 'Edit', edit_location_path(@location) %>
+  <%= link_to "Add New Item", new_location_item_path(@location) %>
 
-<%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
+  <%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
 
-<div class="address">
-  <%= @location.address %>
-  <%= @location.address2 %>
-  <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
+  <div class="address">
+    <%= @location.address %>
+    <%= @location.address2 %>
+    <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
+    <div class="map" style="width: 200px; height: 200px;"></div>
+  </div>
+
+  <div class="contact">
+    <%= @location.contact_name %>
+    <%= number_to_phone @location.contact_phone %>
+  </div>
+
+  <p>
+    <b>National shelter system identifier:</b>
+    <%= @location.national_shelter_system_identifier %>
+  </p>
+
+  <p>
+    <b>Chapter:</b>
+    <%= @location.chapter.name %>
+  </p>  
 </div>
-
-<div class="contact">
-  <%= @location.contact_name %>
-  <%= number_to_phone @location.contact_phone %>
-</div>
-
-<p>
-  <b>National shelter system identifier:</b>
-  <%= @location.national_shelter_system_identifier %>
-</p>
-
-<p>
-  <b>Chapter:</b>
-  <%= @location.chapter.name %>
-</p>
 
 <%= link_to "Move", move_location_items_path(@location) %>
 <%= link_to "Lend", lend_location_items_path(@location) %>

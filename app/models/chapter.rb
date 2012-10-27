@@ -4,4 +4,5 @@ class Chapter < ActiveRecord::Base
   validates_presence_of :name, :code, :region
 
   belongs_to :region
+  has_many :locations
 end
