@@ -34,15 +34,19 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def move(options)
-    if options[:quantity] == self.quantity
-      move_all_items_to(options[:new_location])
-    else
-      move_some_items_to(options[:new_location], :quantity => options[:quantity])
+  def give(qty, location, container)
+    if container.is_a?(Item)
+      give_all_items_to(container.current_location)
+      self.current_location = container.current_location
+      self.container = container
+    elsif container.is_a?(Location)
+      give_all_items_to(container)
+      self.current_location = container
     end
+    save!
   end
 
-  def move_all_items_to(location)
+  def give_all_items_to(location)
     self.update_attributes!(home_location: location, current_location: location)
   end
 

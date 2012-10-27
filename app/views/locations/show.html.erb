@@ -48,6 +48,7 @@
       <%= item.container.name if item.container %>
       <%#= item.home_location.name unless item.at_home? %>
       <%= check_box_tag :check %>
+      <%= link_to "Give", location_item_give_path(@location.id, item.id) %>
       <%= link_to "Lend", location_item_lend_path(@location.id, item.id) %>
     </div>
   <% end %>

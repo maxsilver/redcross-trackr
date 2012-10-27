@@ -55,16 +55,16 @@ class ItemsController < ApplicationController
     # end
   end
 
-  def move
-    @items = [].push @location.items.find(params[:item_ids])
-
+  def give
+    @items = [].push @location.items.find(params[:item_id])
     if request.post?
       location = Location.find(params[:location_id])
       container = Item.containers.find(params[:container_id])
       @items.zip(params[:quantities]).each do |item, qty|
-        item.move(qty, location, container)
+        item.give(qty, location, container)
+
       end
-      redirect_to "http://www.google.com"
+      redirect_to @location, :notice => "Giving completed successfully!"
     end
   end
 
