@@ -86,9 +86,8 @@ header {
 
 /* Layout - Mobile */
 
-.sessions {
+.sessions, .passwords {
 	padding: 0em 1em;
-	
 }
 
 .map {
@@ -134,11 +133,20 @@ header {
 /* New Session */
 
 .sessions {
-	
 	.btn {
 		display: block;
 		margin: auto;
 		width: 50%;
+	}
+}
+
+/* Forgot password */
+
+.passwords {
+	.btn {
+		display: block;
+		margin: auto;
+		width: 70%;
 	}
 }
 
