@@ -1,49 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @location.name %></h1>
+
 <%= link_to 'Edit', edit_location_path(@location) %>
 
-<%= image_tag(@location.picture_url(:thumbnail), :alt => @location.name) %>
+<%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
 
-<p>
-  <b>Name:</b>
-  <%= @location.name %>
-</p>
-
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
-<p>
-  <b>Address:</b>
+<div class="address">
   <%= @location.address %>
-</p>
-
-<p>
-  <b>Address2:</b>
   <%= @location.address2 %>
-</p>
+  <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
+</div>
 
-<p>
-  <b>City:</b>
-  <%= @location.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @location.state.name %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%= @location.zip %>
-</p>
-
-<p>
-  <b>Contact name:</b>
+<div class="contact">
   <%= @location.contact_name %>
-</p>
-
-<p>
-  <b>Contact phone:</b>
   <%= number_to_phone @location.contact_phone %>
-</p>
+</div>
 
 <p>
   <b>National shelter system identifier:</b>
@@ -54,3 +27,35 @@
   <b>Chapter:</b>
   <%= @location.chapter.name %>
 </p>
+
+<h2>Items</h2>
+<%= link_to "Add", "#" %>
+<%= link_to "Move", "#" %>
+<%= link_to "Lend", "#" %>
+
+<div class="items">
+  <% @location.individual_items.each do |item| %>
+    <div class="item">
+      <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
+      <%= item.name %>
+      <%= item.quantity %>
+      <%= check_box_tag :check %>
+    </div>
+  <% end %>
+</div>
+
+<h2>Vehicles</h2>
+<%= link_to "Add", "#" %>
+<%= link_to "Move", "#" %>
+<%= link_to "Lend", "#" %>
+
+<div class="containers">
+  <% @location.containers.each do |container| %>
+    <div class="item">
+      <%= image_tag container.picture_url(:thumbnail), :alt => container.name %>
+      <%= container.name %>
+      <%= container.quantity %>
+      <%= check_box_tag :check %>
+    </div>
+  <% end %>
+</div>
