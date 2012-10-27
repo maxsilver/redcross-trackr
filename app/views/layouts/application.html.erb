@@ -28,7 +28,7 @@
   </header>
   
   <div class="main">
-    <div class="content">
+    <div class="content <%= controller_name %> <%= action_name %>">
       <% if flash[:notice] %>
         <div id="notice"><p><%= flash[:notice] %></p></div>
       <% end %>
