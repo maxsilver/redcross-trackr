@@ -7,7 +7,6 @@
 
 <%= image_tag(@location.picture_url(:thumbnail), :alt => @location.name) %>
 
-<%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
 <p>
   <b>Name:</b>
   <%= @location.name %>
@@ -24,7 +23,7 @@
   <b>Address2:</b>
   <%= @location.address2 %>
   <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@location.latitude}%2C#{@location.longitude}" %>
+
 </div>
 </p>
 
