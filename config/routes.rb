@@ -7,6 +7,7 @@ RedcrossTrackr::Application.routes.draw do
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
 
+  resources :chapters
   resources :locations do
     resources :items do
       collection do

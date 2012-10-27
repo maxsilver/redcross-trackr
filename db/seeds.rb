@@ -96,7 +96,7 @@ if Rails.env.development?
 
   location_kzoo_mission = Location.create!({
     :name => "Kalamazoo Gospel Mission",
-    :chapter => chapter_gr,
+    :chapter => chapter_kzoo,
     :address => "3324 Ryan St.",
     :city => "Kalamazoo",
     :state => State.all.first,
