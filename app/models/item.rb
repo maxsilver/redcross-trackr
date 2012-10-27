@@ -46,6 +46,10 @@ class Item < ActiveRecord::Base
     self.update_attributes!(home_location: location, current_location: location)
   end
 
+  def lend_all_items_to(location)
+    self.update_attributes!(current_location: location)
+  end
+
   def move_some_items_to(location, options)
     decrease_quantity_by(options[:quantity])
     Item.create!(
@@ -62,20 +66,7 @@ class Item < ActiveRecord::Base
     save!
   end
 
-  def lend(qty, location, container)
-    raise "Too Many" if qty > self.quantity
-
-    if qty == self.quantity
-      self.current_location = location
-      self.container = container
-    else
-      self.quantity -= qty
-      
-      moved_item = Item.new(item.attributes.merge(:quantity => qty))
-      moved_item.current_location = location
-      moved_item.container = container
-      moved_item.save!
-    end
-    self.save!
+  def lend(options)
+    lend_all_items_to(options[:new_location])
   end
 end
