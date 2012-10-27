@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   class IsNotContainerableException < RuntimeError; end
-  attr_accessible :chapter, :owner, :current_location, :item_type_definition, :item_fields, :quantity
+
+  attr_accessible :name, :item_type_definition_id, :owner_id, :location_id, :quantity
 
   # the chapter that "owns" this item
   belongs_to :owner, :class_name => "Location", :foreign_key => "owner_id"
