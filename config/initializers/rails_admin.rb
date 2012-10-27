@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on October 27, 2012 01:09
+# RailsAdmin config file. Generated on October 27, 2012 01:52
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -60,7 +60,7 @@ RailsAdmin.config do |config|
   
   #   # Found associations:
 
-
+  #     configure :region, :belongs_to_association 
 
   #   # Found columns:
 
@@ -69,6 +69,7 @@ RailsAdmin.config do |config|
   #     configure :code, :string 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
+  #     configure :region_id, :integer         # Hidden 
 
   #   # Cross-section configuration:
   
@@ -305,9 +306,10 @@ RailsAdmin.config do |config|
   #     configure :chapter_id, :integer         # Hidden 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
-  #     configure :active, :boolean 
   #     configure :deleted_at, :datetime 
   #     configure :picture, :carrierwave 
+  #     configure :latitude, :float 
+  #     configure :longitude, :float 
 
   #   # Cross-section configuration:
   
@@ -351,6 +353,7 @@ RailsAdmin.config do |config|
   #     configure :name, :string 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
+  #     configure :code, :string 
 
   #   # Cross-section configuration:
   
@@ -448,6 +451,7 @@ RailsAdmin.config do |config|
   #     configure :last_sign_in_ip, :string 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
+  #     configure :admin, :boolean 
 
   #   # Cross-section configuration:
   
