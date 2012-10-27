@@ -3,7 +3,8 @@ class Item < ActiveRecord::Base
 
   attr_accessible :name, :quantity, :container_id,
                   :item_type_definition_id, :home_location_id, :current_location_id,
-                  :picture, :picture_cache, :remove_picture, :item_type_definition, :current_location
+                  :picture, :picture_cache, :remove_picture, :item_type_definition, :current_location,
+                  :home_location
 
   belongs_to :item_type_definition
   belongs_to :home_location, :class_name => "Location"
@@ -16,7 +17,7 @@ class Item < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
   validates_presence_of :name
-  
+
   scope :containers, joins(:item_type_definition).where("item_type_definitions.kind" => "container")
   scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind != 'container'")
 
@@ -41,7 +42,7 @@ class Item < ActiveRecord::Base
       self.container = container
     else
       self.quantity -= qty
-      
+
       moved_item = Item.new(item.attribuets.merge(:quantity => qty))
       moved_item.home_location = location
       moved_item.current_location = location
@@ -59,7 +60,7 @@ class Item < ActiveRecord::Base
       self.container = container
     else
       self.quantity -= qty
-      
+
       moved_item = Item.new(item.attribuets.merge(:quantity => qty))
       moved_item.current_location = location
       moved_item.container = container

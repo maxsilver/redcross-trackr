@@ -1,0 +1,21 @@
+
+<%= form_for [location, item] do |f|%>
+  <%= errors_for(@item).html_safe %>
+
+  <%= f.hidden_field :current_location_id, :value => location.id %>
+
+  <%= f.label :item_type_definition_id, "Kind: " %>
+  <%= f.select(:item_type_definition_id, ItemTypeDefinition.options) %>
+  <br/>
+
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name %>
+  <br/>
+
+  <%= f.label :quantity, "Quantity:" %>
+  <%= f.text_field :quantity %>
+  <br/>
+
+  <%= f.submit "Add Item" %>
+  <%= link_to "Cancel" %>
+<% end %>

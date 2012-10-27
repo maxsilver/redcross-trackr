@@ -10,12 +10,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new(:current_location => location)
-    # @location = Location.new
+    @item = Item.new(:home_location => location, :current_location => location)
   end
 
   def edit
-    # @location = Location.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -26,22 +25,24 @@ class ItemsController < ApplicationController
       # render action: "new"
     # end
     #
-    binding.pry
+
     @item = Item.new(params[:item])
     if @item.save
       redirect_to @location
     else
+      render action: "new"
     end
 
   end
 
   def update
-    # @location = Location.find(params[:id])
-    # if @location.update_attributes(params[:location])
-    #   redirect_to @location, notice: 'Location was successfully updated.'
-    # else
-    #   render action: "edit"
-    # end
+    @item = Item.find(params[:id])
+
+    if @item.update_attributes(params[:item])
+      redirect_to location_item_path(@location, @item), notice: 'Item was successfully updated.'
+    else
+      render action: "edit"
+    end
   end
 
   def destroy
@@ -55,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def move
-    @location = Location.find(params[:location_id])
+
     @items = @location.items.find(params[:item_ids])
     if request.put?
       location = Location.find(params[:location_id])
@@ -67,7 +68,6 @@ class ItemsController < ApplicationController
   end
 
   def lend
-    @location = Location.find(params[:location_id])
     @items = @location.items.find(params[:item_ids])
     if request.put?
       location = Location.find(params[:location_id])
