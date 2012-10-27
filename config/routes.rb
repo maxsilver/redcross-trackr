@@ -1,4 +1,6 @@
 RedcrossTrackr::Application.routes.draw do
+  resources :chapters
+
   resources :locations
 
   devise_for :users
