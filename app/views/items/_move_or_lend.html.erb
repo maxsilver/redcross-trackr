@@ -1,3 +1,11 @@
+<% if @errors.any? %>
+  <div class="errors">
+    <% @errors.each do |item, error| %>
+        <div class="error"><%= error %></div>
+    <% end %>
+  </div>
+<% end %>
+
 <label>Location</label>
 <%= select_tag :location_id, options_from_collection_for_select(Location.all, :id, :name) %>
 
@@ -14,6 +22,6 @@
     <%= item.container.name if item.container %>
     <%= item.home_location.name %>
     <%= item.current_location.name unless item.at_home? %>
-    <%= text_field_tag "quantities[]" %>
+    <%= text_field_tag "quantities[]", item.quantity %>
   </div>
 <% end %>

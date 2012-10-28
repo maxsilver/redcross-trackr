@@ -57,15 +57,20 @@ class ItemsController < ApplicationController
   end
 
   def give
+    @errors = []
+
     @items = [].push @location.items.find(params[:item_id])
     if request.post?
       location = Location.find(params[:location_id])
       container = Item.containers.find(params[:container_id])
       @items.zip(params[:quantities]).each do |item, qty|
-        item.give(qty, location, container)
-
+        if qty.to_i <= item.quantity.to_i
+          item.give(qty, location, container)
+        else
+          @errors << [item,"Can't give more items than exist on the item quantity"]
+        end
       end
-      redirect_to @location, :notice => "Giving completed successfully!"
+      redirect_to @location, :notice => "Giving completed successfully!" unless @errors.any?
     end
   end
 
