@@ -24,8 +24,8 @@ class Item < ActiveRecord::Base
 
   validates_presence_of :name
 
-  scope :containers, joins(:item_type_definition).where("item_type_definitions.kind" => "container")
-  scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind != 'container'")
+  scope :containers, joins(:item_type_definition).where("item_type_definitions.kind_id" => Kind.find_by_name("container").id)
+  scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind_id != " + Kind.find_by_name("container").id.to_s)
   scope :of_type, lambda { |item_type_definition| where(:item_type_definition_id => item_type_definition.id) }
 
   def at_home?
@@ -38,22 +38,6 @@ class Item < ActiveRecord::Base
     else
       []
     end
-  end
-
-  def move(options)
-    if options[:quantity] == self.quantity
-      move_all_items_to(options[:new_location])
-    else
-      move_some_items_to(options[:new_location], :quantity => options[:quantity])
-    end
-  end
-
-  def move_all_items_to(location)
-    self.update_attributes!(home_location: location, current_location: location)
-  end
-
-  def lend_all_items_to(location)
-    self.update_attributes!(current_location: location)
   end
 
   def move_some_items_to(location, options)
@@ -72,9 +56,35 @@ class Item < ActiveRecord::Base
     save!
   end
 
-  def lend(options)
-    lend_all_items_to(options[:new_location])
-    self.current_location = options[:new_location]
+  def give_all_items_to(location)
+    self.update_attributes!(home_location: location, current_location: location)
+  end
+
+  def lend_all_items_to(location)
+    self.update_attributes!(current_location: location)
+  end
+
+  def give(qty, location, container)
+    if container.is_a?(Item)
+      give_all_items_to(container.current_location)
+      self.current_location = container.current_location
+      self.container = container
+    elsif container.is_a?(Location)
+      give_all_items_to(container)
+      self.current_location = container
+    end
+    save!
+  end
+
+  def lend(qty, location, container)
+    if container.is_a?(Item)
+      lend_all_items_to(container.current_location)
+      self.current_location = container.current_location
+      self.container = container
+    elsif container.is_a?(Location)
+      lend_all_items_to(container)
+      self.current_location = container
+    end
     save!
   end
 

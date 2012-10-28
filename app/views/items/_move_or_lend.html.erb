@@ -2,7 +2,7 @@
 <%= select_tag :location_id, options_from_collection_for_select(Location.all, :id, :name) %>
 
 <label>Container</label>
-<%= select_tag :container_id, options_from_collection_for_select(Item.containers, :id, :name)  %>
+<%= select_tag :container_id, options_from_collection_for_select(Item.containers + Location.all, :id, :name)  %>
 
 <% @items.each do |item| %>
   <div class="item">

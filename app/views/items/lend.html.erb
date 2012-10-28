@@ -1,6 +1,6 @@
 <h1>Lend</h1>
 
-<%= form_tag lend_location_items_path(@location) do %>
+<%= form_tag location_item_lend_path(@location, @items) do %>
   <%= render "move_or_lend" %>
   <%= submit_tag "Lend Items" %>
 <% end %>

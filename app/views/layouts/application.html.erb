@@ -15,20 +15,20 @@
   <header class="cf">
   	<div class="logo"></div>
     <h1 class="name">Trackr</h1>
-    <ul class="nav cf">
     <% if current_user %>
-      <li><%= link_to "Locations", locations_path %></li>
-      <% if can?(:access, :rails_admin) %>
-        <li><%= link_to "Admin", rails_admin_path, :class => "admin" %></li>
-      <% end %>
-      <li><%= link_to "Profile", edit_user_registration_path %></li>
-      <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <ul class="nav cf">
+        <% if can?(:access, :rails_admin) %>
+          <li><%= link_to "Admin", rails_admin_path, :class => "admin" %></li>
+        <% end %>
+        <li><%= link_to "Locations", locations_path %></li>
+        <li><%= link_to "Profile", edit_user_registration_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      </ul>
     <% end %>
-    </ul>
   </header>
   
   <div class="main">
-    <div class="content">
+    <div class="content <%= controller_name %> <%= action_name %>">
       <% if flash[:notice] %>
         <div id="notice"><p><%= flash[:notice] %></p></div>
       <% end %>

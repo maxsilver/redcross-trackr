@@ -96,7 +96,7 @@ input[type="color"],
 // Declare width for legacy (can't be on input[type=*] selectors or it's too specific)
 input,
 textarea {
-  width: 300px;
+  width: 100%;
 }
 // Reset height since textareas have rows
 textarea {
@@ -139,7 +139,7 @@ input[type="color"],
 // Position radios and checkboxes better
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 3px 0;
+  //margin: 3px 0;
   *margin-top: 0; /* IE7 */
   line-height: normal;
   cursor: pointer;

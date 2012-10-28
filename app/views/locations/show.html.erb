@@ -28,11 +28,11 @@
   <p>
     <b>Chapter:</b>
     <%= @location.chapter.name %>
-  </p>  
+  </p>
 </div>
 
-<%= link_to "Move", move_location_items_path(@location) %>
-<%= link_to "Lend", lend_location_items_path(@location) %>
+<%#= link_to "Move", move_location_items_path(@location) %>
+<%#= link_to "Lend", lend_location_items_path(@location) %>
 
 <h2>Items</h2>
 <%= link_to "Add", "#" %>
@@ -48,6 +48,8 @@
       <%= item.container.name if item.container %>
       <%#= item.home_location.name unless item.at_home? %>
       <%= check_box_tag :check %>
+      <%= link_to "Give", location_item_give_path(@location.id, item.id) %>
+      <%= link_to "Lend", location_item_lend_path(@location.id, item.id) %>
     </div>
   <% end %>
 </div>
