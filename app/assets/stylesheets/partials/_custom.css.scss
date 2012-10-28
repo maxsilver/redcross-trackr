@@ -131,6 +131,10 @@ header {
 		border: 1px solid white;
 		@include box-shadow($shadow);
 	}
+	
+	h5 {
+		@include span-columns(10,12);
+	}
 }
 
 .location-name {
