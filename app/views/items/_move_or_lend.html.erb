@@ -17,7 +17,7 @@ Container : <%= item.container.name if item.container %><br />
 
 
 <h2>To : </h2>
-<label>Location</label>
+<label for="giving-lending-location">Location</label>
 <%= select_tag "item[location_id]", options_from_collection_for_select(Location.all, :id, :name), :id=>"giving-lending-location" %>
 
 <label>Container</label>

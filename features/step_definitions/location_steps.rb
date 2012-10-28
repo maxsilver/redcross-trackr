@@ -82,33 +82,28 @@ Then /^I should be on the "(.*?)" location page$/ do |location_name|
 end
 
 Then /^I should see the following item:$/ do |table|
-  binding.pry
+  pending
 end
 
 Given /^a location "(.*?)" exists$/ do |name|
   FactoryGirl.create(:location, name: name)
 end
 
-Given /^an item definition "(.*?)" exists$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+When /^I follow "(.*?)"$/ do |text|
+  click_on text
 end
 
-Given /^an item "(.*?)" exists of type "(.*?)" and quantity (\d+)$/ do |arg1, arg2, arg3|
-  pending # express the regexp above with the code you wish you had
+When /^I select "(.*?)" from "(.*?)"$/ do |option, select_field_label|
+  page.should have_content("Give Item")
+  select option, :from => select_field_label
 end
 
-When /^I am on the location page for "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+When /^I press "(.*?)"$/ do |label|
+  click_on label
 end
 
-When /^I follow "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I select "(.*?)" from "(.*?)"$/ do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I press "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^"(.*?)" should have (\d+) "(.*?)"$/ do |location_name, quantity, item_name|
+  location = Location.find_by_name(location_name)
+  item = Item.find_by_name(item_name)
+  location.number_of_items_of_type(item.item_type_definition).should == quantity.to_i
 end
