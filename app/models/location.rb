@@ -13,7 +13,6 @@ class Location < ActiveRecord::Base
 
   validates_presence_of :name, :address, :city, :state, :zip, :chapter
   validates_uniqueness_of :national_shelter_system_identifier, :allow_blank => true
-  validates_uniqueness_of :name
 
   belongs_to :state
   belongs_to :chapter
@@ -26,7 +25,7 @@ class Location < ActiveRecord::Base
   def full_address
     [address, address2, city, state.name, zip].compact.join(" ")
   end
-  
+
   def contact?
     contact_name.present? or contact_phone.present?
   end
