@@ -47,7 +47,7 @@
 
     </div>
 
-    <footer class="two">
+    <div class="actions two">
       <% if item.new_record? %>
         <%= f.submit "Create", :class => "btn btn-primary btn-large" %>
         <%= link_to "Cancel", location, :class => "btn btn-classy btn-large" %>  
@@ -55,6 +55,6 @@
         <%= f.submit "Update", :class => "btn btn-primary btn-large" %>
         <%= link_to "Cancel", [location, item], :class => "btn btn-classy btn-large" %>
       <% end %>
-    </footer>
+    </div>
   <% end %>
 </div>

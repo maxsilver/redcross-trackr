@@ -17,8 +17,8 @@
   <% end %>
 </div>
 
-<footer class="three">
+<div class="actions three">
   <%= link_to "Give", location_item_give_path(@location, @item), :class => "btn btn-large btn-primary" %>
   <%= link_to "Lend", location_item_lend_path(@location, @item), :class => "btn btn-large btn-primary" %>
   <%= link_to 'Edit', edit_location_item_path(@location, @item), :class => "btn btn-large btn-primary" %>
-</footer>
+</div>

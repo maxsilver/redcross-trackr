@@ -26,8 +26,7 @@ a {
 
 /* Header */
 
-header,
-footer {
+header {
   background-color: $white;
 }
 
@@ -207,8 +206,6 @@ header {
 	margin: 0 1em;
 }
 
-
-
 // Items
 .item {
 	border-bottom: 1px solid $gray;
@@ -227,25 +224,6 @@ header {
 .item-container,
 .item-name {
 	@include span-columns(6 omega, 6);
-}
-
-/* New Session */
-
-
-/* Footer */
-
-	
-
-.sessions.new {
-	
-	footer {
-		background: transparent;
-		@include box-shadow(0 0 0 transparent);
-		
-		.btn {
-			display: inline-block;
-		}
-	}
 }
 
 .hint {
