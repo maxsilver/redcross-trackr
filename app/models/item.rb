@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   class IsNotContainerableException < RuntimeError; end
 
-  attr_accessible :name, :description, :quantity, :container_id,
+  attr_accessible :name, :quantity, :container_id, :item_id, :description,
                   :item_type_definition_id, :home_location_id, :current_location_id,
                   :picture, :picture_cache, :remove_picture, :item_type_definition,
                   :current_location, :home_location, :item_field_values_attributes
@@ -70,8 +70,12 @@ class Item < ActiveRecord::Base
       self.current_location = container.current_location
       self.container = container
     elsif container.is_a?(Location)
-      give_all_items_to(container)
-      self.current_location = container
+      give_all_items_to(location)
+      self.current_location = location
+      self.container = nil
+      binding.pry
+    else
+      give_all_items_to(location)
     end
     save!
   end
