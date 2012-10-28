@@ -74,6 +74,7 @@ if Rails.env.development?
     :code => "3894023"
   })
 
+  puts "Creating Fountain Street Church..."
   location_gr_church = Location.create!({
     :name => "Fountain Street Church",
     :chapter => chapter_gr,
@@ -85,6 +86,7 @@ if Rails.env.development?
     :picture => File.open(Rails.root.join("db","seed_images","fountain_street.jpg"))
   })
 
+  puts "Creating Union High School..."
   location_gr_school = Location.create!({
     :name => "Union High School",
     :chapter => chapter_gr,
@@ -96,6 +98,7 @@ if Rails.env.development?
     :picture => File.open(Rails.root.join("db","seed_images","union_high.jpg"))
   })
 
+  puts "Creating Kalamazoo Gospel Mission..."
   location_kzoo_mission = Location.create!({
     :name => "Kalamazoo Gospel Mission",
     :chapter => chapter_kzoo,
@@ -109,7 +112,6 @@ if Rails.env.development?
 
   # *Defining* a item type of"" "Fire extinguisher"
   # which can have fields of "brand name", and "purchase date"
-
   fire_extinguisher = ItemTypeDefinition.create!({
     :name => "Fire extinguisher",
     :kind => single
@@ -135,21 +137,25 @@ if Rails.env.development?
 
   # *Creating* an item of type "Fire extinguisher"
   # and filling in fields for its "brand name" and "purchase date"
+  puts "Creating Fire Extinguisher..."
   item = Item.create!({
     :name => "Red Fire Extinguisher",
     :item_type_definition => fire_extinguisher,
     :quantity => 7,
     :current_location => location_gr_church,
-    :home_location => location_gr_church
+    :home_location => location_gr_church,
+    :picture => File.open(Rails.root.join("db","seed_images","fire_extinguisher.jpg"))
   })
 
 
+  puts "Creating Cardboard Box..."
   fridge_box = Item.create!({
     :name => "Refridgerator Box",
     :item_type_definition => cardboard_box,
     :quantity => 1,
     :current_location => location_gr_church,
-    :home_location => location_gr_church
+    :home_location => location_gr_church,
+    :picture => File.open(Rails.root.join("db","seed_images","cardboard_box.jpg"))
   })
 
   flapjack_box = Item.create!({

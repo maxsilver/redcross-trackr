@@ -44,20 +44,27 @@ header {
 	position: relative;
 
   .logo {
-  	background: image-url('red-cross-logo@2x.jpg')no-repeat left center;
+  	background: image-url('red-cross-logo@2x.jpg') no-repeat left center;
   	background-size: 100%;
-  	@include span-columns(6,12);
-  	height: 80px;
+  	@include span-columns(5,12);
+  	height: 60px;
   }
 	
   .name {
-    @include span-columns(6 omega, 12);
-    text-align: right;
+    color: #aaa;
+    @include span-columns(5, 12);
+    @include push(1, 12);
+    font-size: 1.2em;
+    margin-top: 7px;
+
+    span {
+      color: #ccc;
+    }
   }
 
   .menu {
     position: absolute;
-    top: -10px;
+    top: 10px;
     right: 10px;
     width: 20px;
     height: 20px;
@@ -68,6 +75,7 @@ header {
     background-color: $blueLight;
     text-align: left;
     text-indent: -1000em;
+    @include border-radius(2px);
   }
 
   .nav {
@@ -96,7 +104,7 @@ header {
 
 .sessions, .passwords, .registrations {
   .main {
-  	padding: 0em 1em;
+  	padding: 0em 1em 1em;
 	}
 }
 

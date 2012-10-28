@@ -14,9 +14,8 @@ $ ()->
       @dom_scope.delegate "select", "change", @kind_changed
       @dom_scope.delegate "select", "change", @update_controls
 
-      @dom_scope.find("select").trigger 'change'
-
-      @load_state()
+      @kind_changed()
+      @update_controls()
 
     update_controls: ()=>
       type_id = @dom_scope.find("select").val()
@@ -27,7 +26,7 @@ $ ()->
         @dom_scope.find("input").removeAttr("disabled")
 
     kind_changed: ()=>
-      type_id = @dom_scope.find("select").val()
+      type_id = @dom_scope.find("#item_item_type_definition_id").val()
       context = {}
 
       if type_id != ""
@@ -51,9 +50,6 @@ $ ()->
 
       fields_content = @template(context)
       $('#additional_fields').html(fields_content)
-
-    load_state: ()=>
-      @kind_changed()
 
   item_controller = new ItemController()
 

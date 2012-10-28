@@ -5,8 +5,13 @@
 
   <%= f.hidden_field :current_location_id, :value => location.id %>
 
-  <%= f.label :item_type_definition_id, "Kind: " %>
-  <%= f.select(:item_type_definition_id, ItemTypeDefinition.options) %>
+  <% if f.object.new_record? %> 
+    <%= f.label :item_type_definition_id, "Kind: " %>
+    <%= f.select(:item_type_definition_id, ItemTypeDefinition.options) %>
+  <% else %>
+    <%= f.hidden_field(:item_type_definition_id) %>
+  <% end %>
+
   <br/>
 
   <%= f.label :name, "Name:" %>
