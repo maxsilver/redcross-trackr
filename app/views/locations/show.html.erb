@@ -65,7 +65,7 @@
       <%= container.item_type_definition.name %>
       <%= container.quantity %>
       <%= container.container.name if container.container %>
-      <%= container.home_location.name unless container.at_home? %>
+      <%= (container.home_location.name unless container.at_home?) if container.home_location %>
       <%= check_box_tag :check %>
     </div>
   <% end %>
