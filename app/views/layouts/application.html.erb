@@ -41,9 +41,9 @@
       <%= yield %>
     </div>
   </div>
-  <footer>
-    <%= yield :footer %>
-  </footer>
+  <% if footer = yield(:footer) %>
+    <footer><%= footer %></footer>
+  <% end %>
 </div>
 
 </body>
