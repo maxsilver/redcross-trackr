@@ -9,7 +9,7 @@
   <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />  
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiAYsEi7meP_hcCD4SxOhlkaUGMGqIvKw&sensor=true"></script>
 </head>
-<body>
+<body class="<%= controller_name %> <%= action_name %>">
 
 <div class="page">
   <header class="cf">
@@ -29,7 +29,7 @@
   </header>
   
   <div class="main">
-    <div class="content <%= controller_name %> <%= action_name %>">
+    <div class="content">
       <% if flash[:notice] %>
         <div id="notice"><p><%= flash[:notice] %></p></div>
       <% end %>

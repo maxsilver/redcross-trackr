@@ -1,0 +1,24 @@
+@include at-breakpoint(20em 12) {
+  
+	/* Layout - Mobile */
+	
+	
+	//We don't show maps on Mobile
+	
+	.map {
+		
+		* {
+			display: none;
+		}
+	}
+	
+	//Stripes on Mobile
+	
+	.even {
+		background: $pageBackground;
+	}
+	
+	.btn-back {
+		display: inline;
+	}
+}

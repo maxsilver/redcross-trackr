@@ -93,24 +93,18 @@ header {
 	
 }
 
-/* Layout - Mobile */
 
 .sessions, .passwords, .registrations {
 	padding: 0em 1em;
 }
 
-.map {
-	
-	* {
-		display: none;
-	}
-}
+/* Locations */
 
 .locations {
 	
 	h3 {
 		border-bottom: 1px solid $grayDark;
-		padding: 1em;
+		padding: .25em 1em;
 		
 	}
 }
@@ -118,25 +112,29 @@ header {
 .location {
 	display: block;
 	padding: 1em;
-	
-	* {
-		color: $charcoal;
-	}
-	
+		
 	img {
 		display: block;
 		float: left;
 		margin-right: .5em;
-		max-width: 40%;
+		max-width: 39%;
+		border: 1px solid white;
+		@include box-shadow($shadow);
 	}
+}
+
+.location-name {
+	font-weight: bold;
 }
 
 .location-details {
 	@include span-columns(7 omega, 12);
 }
 
-.even {
-	background: $pageBackground;
+/* Individual Locations */
+
+.btn-back {
+	display: none;
 }
 
 /* New Session */
@@ -164,7 +162,7 @@ header {
 
 footer {
 	position: relative;
-	padding-top: 1em;
+	padding: 1em;
 	background: white;
 	@include box-shadow($reverse-shadow);
 	z-index: 50;
@@ -172,6 +170,6 @@ footer {
 	.btn {
 		display: block;
 		margin: auto;
-		width: 50%;
+		width: 100%;
 	}
 }

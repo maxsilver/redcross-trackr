@@ -1,0 +1,25 @@
+// This is a file for stuff that needs to be taken care of later. Please explain your stuff!
+
+//We don't want these messages right now. Need to discuss how they are displayed and dismissed later.
+
+#notice,
+#alert {
+	display: none;
+	
+	* {
+		display: none;
+	}
+}
+
+
+//Hiding the header until we get the location title to stick to the top of the screen on mobile
+
+@include at-breakpoint(20em 12) {
+
+	.locations.show {
+
+		header {
+			display: none;
+		}
+	}
+}

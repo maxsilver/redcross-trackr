@@ -48,8 +48,15 @@
 //@import "partials/_progress-bars";
 //@import "partials/_accordion";
 
+// Media Queries
+@import "partials/_mobile";
+
 // Custom
 @import "partials/_custom";
 
 // Utility classes
 @import "partials/_utilities"; // Has to be last to override when necessary
+
+// Temp stuff that needs to have a better solution later
+@import "partials/_temp";
+
