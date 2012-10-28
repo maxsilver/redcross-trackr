@@ -3,6 +3,7 @@ body {
   background: $mainBackground;
   //@include box-shadow($shadow);
   @include container;
+  
 }
 
 .page {
@@ -206,9 +207,9 @@ header {
 	margin: 0 1em;
 }
 
-footer.two {
-	display: none;
-}
+//footer.two {
+//	display: none;
+//}
 
 // Items
 .item {
@@ -245,9 +246,11 @@ footer {
   width: 96.6%;
   
 		
+/*
 		.btn {
 			display: none;
 		}
+*/
 }
 	
 
