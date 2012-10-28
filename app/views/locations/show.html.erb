@@ -10,7 +10,7 @@
   <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-small btn-primary desktop"%>
 
   <div class="details">
-  	<%= (image_tag @location.picture_url(:thumbnail), :alt => @location.name) if location.picure.present? %>
+  	<%= (image_tag @location.picture_url(:thumbnail), :alt => @location.name) if @location.picure.present? %>
     <div class="address">
       <%= @location.address %>
       <%= @location.address2 %>

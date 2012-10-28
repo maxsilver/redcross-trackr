@@ -30,7 +30,7 @@ Container : <%= item.container.name if item.container %><br />
 
 <div class="item">
     <%= hidden_field_tag "item_ids[]", item.id %>
-    <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
+    <%= image_tag (item.picture_url(:thumbnail), :alt => item.name) if item.picture.present? %>
     <%= link_to item.name, [@location, item] %>
     <%= item.item_type_definition.name %>
     <%= item.quantity %>

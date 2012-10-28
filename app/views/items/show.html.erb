@@ -6,7 +6,7 @@
 <%= link_to "Lend", location_item_lend_path(@location, @item) %>
 <%= link_to 'Edit', edit_location_item_path(@location, @item) %>
 
-<%= image_tag @item.picture_url(:thumbnail), :alt => @item.name %>
+<%= (image_tag @item.picture_url(:thumbnail), :alt => @item.name) if @item.picture.present? %>
 
 <div class="address">
   <%= @item.item_type_definition.name %>
