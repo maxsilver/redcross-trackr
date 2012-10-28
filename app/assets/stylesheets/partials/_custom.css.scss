@@ -37,7 +37,7 @@ footer {
 }
 
 header {
-  border-top: 10px solid $blueLight;
+  margin-top: 10px;
 	top: 0px;
 	border-bottom: 1px solid $grayLighter;
 	@include box-shadow($shadow);
@@ -80,7 +80,7 @@ header {
 
   .nav {
     position: absolute;
-    top: -10px;
+    top: 0px;
     left: 0;
     width: 100%;
     background-color: $blueLight;
@@ -90,7 +90,7 @@ header {
   	  width: auto;
     	a {
     	  color: #fff;
-  	    padding: 10px 12px 0;
+  	    padding: 10px 12px;
   	  }
   	}
   }
