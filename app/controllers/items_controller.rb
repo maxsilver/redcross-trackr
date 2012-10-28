@@ -101,7 +101,6 @@ class ItemsController < ApplicationController
           old_item_attributes.delete("created_at")
           old_item_attributes.delete("updated_at")
           new_item = Item.new(old_item_attributes)
-          new_item.picture_url = old_item.picture_url
           old_item.quantity = item.quantity.to_i - qty.to_i
           old_item.save!
           new_item.quantity = qty.to_i
