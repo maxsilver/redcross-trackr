@@ -86,16 +86,35 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def lend
+    @errors = []
     @items = [].push @location.items.find(params[:item_id])
     if request.post?
-      location = Location.find(params[:location_id])
-      container = Item.containers.find(params[:container_id])
+      location = Location.find(params[:item][:location_id])
+      container = location.items.find_by_id(params[:item][:container_id])
       @items.zip(params[:quantities]).each do |item, qty|
-        item.lend(qty, location, container)
-
+        if (qty.to_i < item.quantity.to_i) && (qty.to_i > 0)
+          old_item = item
+          old_item_attributes = old_item.attributes
+          old_item_attributes.delete("id")
+          old_item_attributes.delete("created_at")
+          old_item_attributes.delete("updated_at")
+          new_item = Item.new(old_item_attributes)
+          new_item.picture_url = old_item.picture_url
+          old_item.quantity = item.quantity.to_i - qty.to_i
+          old_item.save!
+          new_item.quantity = qty.to_i
+          new_item.lend(qty, location, container)
+        elsif qty.to_i == item.quantity.to_i
+          item.lend(qty, location, container)
+        elsif qty.to_i < 0
+          @errors << [item, "Can't lend a negative quantity of items"]
+        else
+          @errors << [item,"Can't lend more items than exist on the item quantity"]
+        end
       end
-      redirect_to @location, :notice => "Lending completed successfully!"
+      redirect_to @location, :notice => "Lending completed successfully!" unless @errors.any?
     end
   end
 
