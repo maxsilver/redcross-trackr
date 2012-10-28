@@ -1,4 +1,7 @@
 <h3>Choose a location</h3>
+<div class="actions">
+  <%= link_to 'Add Location', new_location_path, :class => "btn btn-large btn-primary" %>
+</div>
 
 <% @locations.each do |location| %>
   <%= link_to location, :class => "location cf #{cycle :even, :odd}", :data => { :lat => location.latitude, :lng => location.longitude } do %>
@@ -23,7 +26,3 @@
 <% end %>
 
 <div class="map"></div>
-
-<div class="actions">
-  <%= link_to 'Add Location', new_location_path, :class => "btn btn-large btn-primary" %>
-</div>
