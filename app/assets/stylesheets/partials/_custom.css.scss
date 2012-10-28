@@ -102,7 +102,7 @@ header {
 }
 
 
-.sessions, .passwords, .registrations, .items.new, .items.edit {
+.sessions, .passwords, .registrations, .items.new, .items.edit, .locations.new, .locations.edit {
   .main {
   	padding: 0em 1em 1em;
 	}
@@ -145,13 +145,18 @@ header {
 
 /* New Session */
 
-.sessions, .passwords, .registrations, .items.new, .items.edit {
+.sessions, .passwords, .registrations, .items.new, .items.edit, .locations.new, .locations.edit {
 	.btn {
 		display: block;
 		margin: auto;
 		
 		&[type=submit] {
 		  width: 100%;
+		  margin: 0 0 10px 0;
+		}
+		
+		&.delete {
+		  margin: 10px 0 0 0;
 		}
 	}
 }
@@ -164,12 +169,6 @@ header {
   
   .remember-me {
     margin-bottom: .5em;
-  }
-}
-
-.items.edit, .items.new {
-  .btn[type=submit] {
-    margin: 0 0 10px 0;
   }
 }
 

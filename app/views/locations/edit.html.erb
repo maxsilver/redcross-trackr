@@ -1,5 +1,5 @@
-<h1>Editing location</h1>
-
-<%= link_to 'Delete', @location, method: :delete, data: { confirm: 'Are you sure?' } %>
+<h3>Edit location</h3>
 
 <%= render 'form' %>
+
+<%= link_to 'Delete', @location, :class => "delete btn btn-danger btn-large", method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -4,7 +4,7 @@
   <h5><%= @location.name %></h5>
 
   <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary"%>
-  <%= link_to "Add New Item", new_location_item_path(@location), :class => "btn btn-small btn-primary"%>
+  <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-small btn-primary"%>
 
   <%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
 
