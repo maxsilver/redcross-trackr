@@ -51,11 +51,10 @@
 <div class="category">
 	<span class="category-name">Items</span>
 </div>
-<%= link_to "Add", "#" %>
 
-<div class="items">
+<div class="items cf">
   <% if @location.items.individuals.each do |item| %>
-    <div class="item">
+    <div class="item cf ">
       <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
       <%= link_to item.name, [@location, item] %>
       <%#= item.item_type_definition.name %>
@@ -63,8 +62,14 @@
       <%= item.container.name if item.container %>
       <%#= item.home_location.name unless item.at_home? %>
       <%= check_box_tag :check %>
-      <%= link_to "Give", location_item_give_path(@location.id, item.id) %>
-      <%= link_to "Lend", location_item_lend_path(@location.id, item.id) %>
+      <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
+      <div class="item-details cf">
+        <%= link_to item.name, [@location, item], :class => "item-name"%>
+        <%#= item.item_type_definition.name %>
+      	<span class="item-quantity">Quantity: <%= item.quantity %></span>
+      	<span class="item-container">Container: <%= item.container.name if item.container %></span>
+      	<%#= item.home_location.name unless item.at_home? %>
+      </div>
     </div>
   <% end.empty? %>
     <div class="sorry">
@@ -81,13 +86,13 @@
 <div class="containers">
   <% if @location.items.containers.each do |container| %>
     <div class="item">
+      <%= check_box_tag :check %>
       <%= image_tag container.picture_url(:thumbnail), :alt => container.name %>
       <%= link_to container.name, [@location, container] %>
       <%= container.item_type_definition.name %>
       <%= container.quantity %>
       <%= container.container.name if container.container %>
       <%= (container.home_location.name unless container.at_home?) if container.home_location %>
-      <%= check_box_tag :check %>
     </div>
   <% end.empty? %>
     <div class="sorry">

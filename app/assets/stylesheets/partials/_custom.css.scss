@@ -142,7 +142,7 @@ header {
 	padding-bottom: .5em;
 
 	h4 {
-		@include span-columns(10,12);
+		@include span-columns(9,12);
 	}
 }
 
@@ -168,7 +168,21 @@ header {
 	color: white;
 	text-shadow: 0px 1px $charcoal;
 	margin: 0 1em;
+}
 
+// Items
+.item {
+	border-bottom: 1px solid $gray;
+}
+
+.item-details {
+	@include span-columns(6 omega, 12);
+}
+
+.item-quantity,
+.item-container,
+.item-name {
+	@include span-columns(6 omega, 6);
 }
 
 /* New Session */
