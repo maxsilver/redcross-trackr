@@ -17,7 +17,7 @@ When /^I create a location$/ do
   select "Michigan", :from => "State"
   fill_in "Zip", :with => "49505"
   select "Greater Grand Rapids", :from => "Chapter"
-  click_on "Create Location"
+  click_on "Create"
 end
 
 Then /^that location should get added to the list$/ do
@@ -56,7 +56,6 @@ When /^I try to delete that location$/ do
 end
 
 Then /^I should get an error$/ do
-  page.should have_content("Editing location")
   page.should have_content("Can't delete this location because it has items attached to it.")
 end
 
@@ -78,6 +77,7 @@ When /^I am on the "(.*?)" location page$/ do |location_name|
 end
 
 Then /^I should be on the "(.*?)" location page$/ do |location_name|
+  page.should_not have_content("Name can't be blank")
   page.should have_content(location_name)
 end
 
@@ -85,4 +85,30 @@ Then /^I should see the following item:$/ do |table|
   binding.pry
 end
 
+Given /^a location "(.*?)" exists$/ do |name|
+  FactoryGirl.create(:location, name: name)
+end
 
+Given /^an item definition "(.*?)" exists$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Given /^an item "(.*?)" exists of type "(.*?)" and quantity (\d+)$/ do |arg1, arg2, arg3|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I am on the location page for "(.*?)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I follow "(.*?)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I select "(.*?)" from "(.*?)"$/ do |arg1, arg2|
+  pending # express the regexp above with the code you wish you had
+end
+
+When /^I press "(.*?)"$/ do |arg1|
+  pending # express the regexp above with the code you wish you had
+end

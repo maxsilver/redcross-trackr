@@ -5,6 +5,12 @@ FactoryGirl.define do
   end
 
   factory :item_type_definition do
+  	sequence(:name) { |n| "Definition #{n}" }
+    kind
+  end
+
+  factory :kind do
+  	sequence(:name) { |n| "Kind #{n}" }
   end
 
   factory :item do
