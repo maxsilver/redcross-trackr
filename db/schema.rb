@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027183140) do
+ActiveRecord::Schema.define(:version => 20121027212138) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20121027183140) do
     t.datetime "updated_at",              :null => false
     t.boolean  "required"
     t.boolean  "unique"
+  end
+
+  create_table "item_field_values", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "item_field_definition_id"
+    t.string   "value"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "item_fields", :force => true do |t|

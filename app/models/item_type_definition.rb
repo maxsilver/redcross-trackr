@@ -8,6 +8,7 @@ class ItemTypeDefinition < ActiveRecord::Base
   validates_presence_of :name, :kind
 
   def self.options
-    ItemTypeDefinition.all.map {|itd| [itd.name, itd.id]}
+    opts = ItemTypeDefinition.all.map {|itd| [itd.name, itd.id]}
+    opts.unshift ["-- Please Select a Kind --", ""]
   end
 end

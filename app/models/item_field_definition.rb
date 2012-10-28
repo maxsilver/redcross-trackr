@@ -8,4 +8,8 @@ class ItemFieldDefinition < ActiveRecord::Base
   def kind_enum
     ["string", "number", "date"]
   end
+
+  def self.definition_json
+    ItemFieldDefinition.all.to_json
+  end
 end

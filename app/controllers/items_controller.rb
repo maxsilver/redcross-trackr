@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
     #
 
     @item = Item.new(params[:item])
+
     if @item.save
       redirect_to @location
     else

@@ -81,7 +81,7 @@ if Rails.env.development?
     :city => "Grand Rapids",
     :state => State.all.first,
     :zip => "49506",
-    :national_shelter_system_identifier => "unique"
+    :national_shelter_system_identifier => "punique"
   })
 
   location_gr_school = Location.create!({
@@ -91,7 +91,7 @@ if Rails.env.development?
     :city => "Grand Rapids",
     :state => State.all.first,
     :zip => "49506",
-    :national_shelter_system_identifier => "unique-really"
+    :national_shelter_system_identifier => "punique-really"
   })
 
   location_kzoo_mission = Location.create!({
@@ -101,7 +101,7 @@ if Rails.env.development?
     :city => "Kalamazoo",
     :state => State.all.first,
     :zip => "39203",
-    :national_shelter_system_identifier => "unique-seriously"
+    :national_shelter_system_identifier => "dfsunique-seriously"
   })
 
   # *Defining* a item type of"" "Fire extinguisher"
