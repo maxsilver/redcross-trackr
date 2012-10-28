@@ -158,6 +158,78 @@ if Rails.env.development?
     :picture => File.open(Rails.root.join("db","seed_images","cardboard_box.jpg"))
   })
 
+  item = Item.create!({
+    :name => "Item 1",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
+  item = Item.create!({
+    :name => "Item 2",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
+  item = Item.create!({
+    :name => "Item 3",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
+  item = Item.create!({
+    :name => "Item 4",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
+  item = Item.create!({
+    :name => "Item 5",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
+  item = Item.create!({
+    :name => "Item 6",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
+  item = Item.create!({
+    :name => "Item 7",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
+  item = Item.create!({
+    :name => "Item 8",
+    :item_type_definition => cardboard_box,
+    :quantity => 1,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
+  item = Item.create!({
+    :name => "Item 9",
+    :item_type_definition => fire_extinguisher,
+    :quantity => 200,
+    :current_location => location_kzoo_mission,
+    :home_location => location_kzoo_mission
+  })
+
   flapjack_box = Item.create!({
     :name => "Flapjack Box",
     :item_type_definition => cardboard_box,
@@ -165,6 +237,8 @@ if Rails.env.development?
     :current_location => location_kzoo_mission,
     :home_location => location_kzoo_mission
   })
+
+
 
   # Make a default ADMIN user
   user = User.new(:email => "admin@example.com")
