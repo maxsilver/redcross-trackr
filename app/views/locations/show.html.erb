@@ -2,7 +2,7 @@
 
 <div class="location" data-lat="<%= @location.latitude %>" data-lng="<%= @location.longitude %>">
   <h5><%= @location.name %></h5>
-  <a href="#" class="info" rel="popover" data-placement="left" data-title="<%= @location.name %>">info</a>
+  <a href="#" class="info" rel="popover" data-placement="bottom" data-title="<%= @location.name %>">info</a>
 
   <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary"%>
   <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-small btn-primary"%>
