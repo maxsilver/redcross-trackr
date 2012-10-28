@@ -11,8 +11,6 @@ $ ()->
       @item_id = @dom_scope.find("#data-item-id").data("item-id")
       @values = @dom_scope.find("#data-field-values").data("field-values")
 
-      console.log @values
-
       @dom_scope.delegate "select", "change", @kind_changed
 
       @load_state()
