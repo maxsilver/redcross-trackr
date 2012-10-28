@@ -6,6 +6,17 @@
   </div>
 <% end %>
 
+
+<% item = @items.first %>
+
+
+<h2>From : </h2>
+Owner : <%= item.home_location.name %><br />
+Current Location : <%= item.current_location.name %><br />
+Container : <%= item.container.name if item.container %><br />
+
+
+<h2>To : </h2>
 <label>Location</label>
 <%= select_tag "item[location_id]", options_from_collection_for_select(Location.all, :id, :name), :id=>"giving-lending-location" %>
 
@@ -14,16 +25,16 @@
     <%= select_tag "item[container_id]", "<option></option>".html_safe + options_from_collection_for_select( location.items.containers, :id, :name), :class=>"container-select", :id => "container-#{location.id}"  %>
 <% end %>
 
-<% @items.each do |item| %>
-  <div class="item">
+<hr />
+
+
+<div class="item">
     <%= hidden_field_tag "item_ids[]", item.id %>
     <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
     <%= link_to item.name, [@location, item] %>
     <%= item.item_type_definition.name %>
     <%= item.quantity %>
     <%= item.container.name if item.container %>
-    <%= item.home_location.name %>
-    <%= item.current_location.name unless item.at_home? %>
+
     <%= text_field_tag "quantities[]", item.quantity, :type => "number" %>
-  </div>
-<% end %>
+</div>
