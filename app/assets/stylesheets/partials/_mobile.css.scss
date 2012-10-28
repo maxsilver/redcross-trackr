@@ -19,8 +19,16 @@
 
 //Location Page
 
-.btn-back {
-    display: inline;
-    
+.location {
+	
+	.info {
+		background: $gray;
+		color: white;
+		text-shadow: 1px 1px $grayDark;
+		padding: 3px 10px;
+		text-transform: uppercase;
+	}
+	.address {
+		display: none;	
+	}
 }
-
