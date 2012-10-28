@@ -107,8 +107,9 @@ header {
 
 .location {
 	display: block;
-	padding: 1em;
-		
+	padding: 1em 0 0;
+	border-bottom: 1px solid $grayDark;
+			
 	img {
 		display: block;
 		float: left;
@@ -120,13 +121,48 @@ header {
 	
 }
 
+.sorry {
+	padding: 8px 35px 8px 14px;
+	color: $grayDark;
+	text-shadow: 0px 1px $white;
+	text-align: center;
+}
+
 .location-title {
 	@include span-columns(12 omega, 12);
 	padding-bottom: .5em;
+	border-bottom: 1px solid $grayLight;
 
 	h4 {
 		@include span-columns(9,12);
 	}
+}
+
+.details-wrapper {
+	background: white;
+	@include span-columns(12 omega,12);
+}
+
+.details {
+	@include span-columns (6, 12);
+	margin-right: 0;
+	padding: 1em;
+}
+
+.map {
+	@include span-columns (5 omega, 12);
+	height: 200px;
+	width: 47.4%;
+	float: right;
+	display: inline;	
+}
+
+.info {
+	display: none;
+}
+
+.btn-add-item {
+	float: right;
 }
 
 .location-name {
@@ -151,6 +187,10 @@ header {
 	color: white;
 	text-shadow: 0px 1px $charcoal;
 	margin: 0 1em;
+}
+
+footer.two {
+	display: none;
 }
 
 // Items

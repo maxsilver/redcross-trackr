@@ -4,34 +4,35 @@
   <div class="location-title cf">
   	<h4><%= @location.name %></h4>
   	<a href="#" class="info" rel="popover" data-placement="bottom" data-title="<%= @location.name %>">info</a>
+  <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-small btn-primary btn-add-item"%>
+  </div>
+  <div class="details-wrapper cf">
+  	<div class="details">
+  		<%= (image_tag @location.picture_url(:thumbnail), :alt => @location.name) if @location.picture.present? %>
+  	  <div class="address">
+  	    <%= @location.address %>
+  	    <%= @location.address2 %>
+  	    <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
+  	  </div>
+  	
+  	  <div class="contact">
+  	    <%= @location.contact_name %>
+  	    <%= number_to_phone @location.contact_phone %>
+  	  </div>
+  	
+  	  <p>
+  	    <b>National shelter system identifier:</b>
+  	    <%= @location.national_shelter_system_identifier %>
+  	  </p>
+  	
+  	  <p>
+  	    <b>Chapter:</b>
+  	    <%= @location.chapter.name %>
+  	  </p>
+  	</div>
+  	<div class="map"></div>
   </div>
 
-  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary"%>
-
-  <div class="details">
-  	<%= (image_tag @location.picture_url(:thumbnail), :alt => @location.name) if @location.picture.present? %>
-    <div class="address">
-      <%= @location.address %>
-      <%= @location.address2 %>
-      <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
-      <div class="map"></div>
-    </div>
-
-    <div class="contact">
-      <%= @location.contact_name %>
-      <%= number_to_phone @location.contact_phone %>
-    </div>
-
-    <p>
-      <b>National shelter system identifier:</b>
-      <%= @location.national_shelter_system_identifier %>
-    </p>
-
-    <p>
-      <b>Chapter:</b>
-      <%= @location.chapter.name %>
-    </p>
-  </div>
 </div>
 
 <div class="navbar">

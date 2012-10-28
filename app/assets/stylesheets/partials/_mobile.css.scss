@@ -98,7 +98,8 @@ header {
 			text-decoration: none;
 		}
 	}
-	.details {
+	.details-wrapper,
+	.btn-add-item {
 		display: none;	
 	}
 	
@@ -111,6 +112,25 @@ header {
 		}
 	}
 }
+
+// Indivdual Location
+
+.location {
+	padding: 1em;
+}
+
+.location-title {
+	border: none;
+	
+	h4 {	
+		@include text-overflow();
+	}
+}
+
+footer.two {
+	display: block;
+}
+
 
 //Forms 
 
