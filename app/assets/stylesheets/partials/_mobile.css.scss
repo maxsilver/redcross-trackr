@@ -55,7 +55,11 @@ header {
 .main {
 	padding: 0 0 70px;
 	margin: 71px 0 0;
+}
 
+//overwrites min-height for desktop
+.content {
+	min-height: inherit;
 }
 
 //We don't show maps on Mobile
@@ -136,10 +140,11 @@ header {
 	font-size: $baseFontSize / 1.15;
 }
 
-// Indivdual Location
+// Individual Location
 
 .location {
 	padding: 1em;
+	height: inherit;
 	
 	img {
 		width: 25%;
@@ -148,6 +153,7 @@ header {
 
 .location-title {
 	border: none;
+	padding: 0;
 	
 	h4 {	
 		@include text-overflow();
@@ -156,6 +162,13 @@ header {
 
 footer.two {
 	display: block;
+}
+
+.item {
+	
+	img {
+		width: 25%;
+	}
 }
 
 
@@ -224,5 +237,16 @@ footer {
 	      margin-left: 4%;
 	    }
 	  }
+	}
+}
+
+.sessions.new {
+	
+	footer {
+		bottom: 0;
+		background: $white;
+		@include box-shadow($reverse-shadow);
+		z-index: 50;
+		float: left;
 	}
 }
