@@ -48,10 +48,8 @@ ActiveRecord::Schema.define(:version => 20121027212138) do
 
   create_table "item_type_definitions", :force => true do |t|
     t.string   "name"
-    t.boolean  "is_containerable", :default => false
-    t.integer  "kind_id"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "kind"
   end
 
@@ -61,7 +59,6 @@ ActiveRecord::Schema.define(:version => 20121027212138) do
     t.integer  "current_location_id"
     t.integer  "home_location_id"
     t.integer  "quantity"
-    t.integer  "item_id"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.string   "picture"
