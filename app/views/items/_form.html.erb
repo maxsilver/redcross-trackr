@@ -45,9 +45,16 @@
       <div id="additional_fields">
       </div>
 
-      <%= f.submit :class => "btn btn-primary btn-large" %>
     </div>
 
-    <%= link_to "Cancel", location, :class => "btn btn-classy btn-large" %>
+    <footer class="two">
+      <% if item.new_record? %>
+        <%= f.submit "Create", :class => "btn btn-primary btn-large" %>
+        <%= link_to "Cancel", location, :class => "btn btn-classy btn-large" %>  
+      <% else %>
+        <%= f.submit "Update", :class => "btn btn-primary btn-large" %>
+        <%= link_to "Cancel", [location, item], :class => "btn btn-classy btn-large" %>
+      <% end %>
+    </footer>
   <% end %>
 </div>
