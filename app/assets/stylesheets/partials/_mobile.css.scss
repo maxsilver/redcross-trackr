@@ -78,13 +78,13 @@ header {
 
 .even {
     background: $pageBackground;
-    width: inherit;
+    width: 90%;
     height: inherit;
     border-right: none;
 }
 
 .odd {
-	width: inherit;
+	width: 90%;
 	height: inherit;
 	float: left;
 }
