@@ -2,7 +2,7 @@
 
 <% @locations.each do |location| %>
   <%= link_to location, :class => "location cf #{cycle :even, :odd}", :data => { :lat => location.latitude, :lng => location.longitude } do %>
-    <%= (image_tag location.picture_url(:thumbnail), :alt => location.name) if location.picture %>
+    <%= (image_tag location.picture_url(:thumbnail), :alt => location.name) if location.picture.present? %>
     <div class="location-details cf">
     	<div class="location-name"><%= location.name %></div>
     	<div class="location-chapter"><%= location.chapter.name %> Chapter</div>

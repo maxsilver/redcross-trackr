@@ -4,7 +4,7 @@
   <h2><%= link_to chapter.name, chapter %></h2>
   <% chapter.locations.each do |location| %>
     <%= link_to location, :class => "location #{cycle :even, :odd}" do %>
-      <%= (image_tag location.picture_url(:thumbnail), :alt => location.name) if location.picture %>
+      <%= (image_tag location.picture_url(:thumbnail), :alt => location.name) if location.picture.present? %>
 
       <div class="name"><%= location.name %></div>
       <div class="chapter"><%= location.chapter.name %> Chapter</div>

@@ -57,11 +57,11 @@
   </div>
   <div class="field">
     <%= f.label :picture %>
-    <%= image_tag(@location.picture_url(:thumbnail), :alt => @location.name) if @location.picture? %>
+    <%= image_tag(@location.picture_url(:thumbnail), :alt => @location.name) if @location.picture.present? %>
     <%= f.hidden_field :picture_cache %>
     <%= f.file_field :picture %>
   </div>
-  
+
   <div>
     <%= f.submit :class => "btn btn-primary btn-large" %>
   </div>
