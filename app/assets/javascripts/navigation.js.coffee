@@ -1,7 +1,8 @@
 $ ->
-  top = parseInt($(".nav").css("top"))
-  height = $(".nav").height()
-  $(".nav").css top: top - height
+  nav = $("header .nav")
+  top = parseInt(nav.css("top"))
+  height = nav.height()
+  nav.css top: top - height
   
   $(".menu").click ->
     margin = parseInt($("header").css("marginTop"))
