@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   class IsNotContainerableException < RuntimeError; end
 
-  attr_accessible :name, :quantity, :container_id,
+  attr_accessible :name, :description, :quantity, :container_id,
                   :item_type_definition_id, :home_location_id, :current_location_id,
                   :picture, :picture_cache, :remove_picture, :item_type_definition,
                   :current_location, :home_location, :item_field_values_attributes

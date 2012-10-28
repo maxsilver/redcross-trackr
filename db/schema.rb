@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027212138) do
+ActiveRecord::Schema.define(:version => 20121028021703) do
 
   create_table "chapters", :force => true do |t|
     t.string   "name"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20121027212138) do
     t.datetime "updated_at",              :null => false
     t.string   "picture"
     t.integer  "container_id"
+    t.string   "description"
   end
 
   create_table "kinds", :force => true do |t|
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20121027212138) do
     t.string   "picture"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "description"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -99,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20121027212138) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
+    t.integer  "year",       :limit => 8
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
