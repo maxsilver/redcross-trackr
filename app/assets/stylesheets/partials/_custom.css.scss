@@ -102,23 +102,32 @@ header {
 		border-bottom: 1px solid $grayDark;
 		padding: .25em 1em;
 		
+	}
+	
+	.map {
+		display: none;
 	}	
+}
+
+.even {
+	display: inline;
+	width: 49.8%;
+	float: left;
+	border-right: 1px solid $grayDark;
+}
+
+.odd {
+	display: inline;
+	width: 50%;
+	float: right;
 }
 
 .location {
 	display: block;
 	padding: 1em 0 0;
 	border-bottom: 1px solid $grayDark;
-			
-	img {
-		display: block;
-		float: left;
-		margin-right: .5em;
-		max-width: 39%;
-		border: 1px solid white;
-		@include box-shadow($shadow);
-	}
-	
+	height: 100px;
+				
 }
 
 .sorry {
@@ -147,6 +156,15 @@ header {
 	@include span-columns (6, 12);
 	margin-right: 0;
 	padding: 1em;
+	
+	img {
+		display: block;
+		float: left;
+		margin-right: .5em;
+		max-width: 39%;
+		border: 1px solid white;
+		@include box-shadow($shadow);
+	}
 }
 
 .map {
@@ -224,6 +242,8 @@ footer {
   background: $white;
   @include box-shadow($reverse-shadow);
   z-index: 50;
+  float: left;
+  width: 96.6%;
   
 		
 		.btn {
@@ -237,6 +257,10 @@ footer {
 	footer {
 		background: transparent;
 		@include box-shadow(0 0 0 transparent);
+		
+		.btn {
+			display: inline-block;
+		}
 	}
 }
 
