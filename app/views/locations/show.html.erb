@@ -4,7 +4,7 @@
   <div class="location-title cf">
   	<h4><%= @location.name %></h4>
   	<a href="#" class="info" rel="popover" data-placement="bottom" data-title="<%= @location.name %>">info</a>
-    <div class="actions two">
+    <div class="actions two cf">
       <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-large btn-primary" %>
       <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-large btn-primary" %>
     </div>

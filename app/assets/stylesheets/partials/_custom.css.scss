@@ -91,6 +91,9 @@ header {
 	min-height: 500px;
 }
 
+.actions {
+	float: right;
+}
 
 
 /* Locations */
@@ -155,6 +158,7 @@ header {
 	@include span-columns (6, 12);
 	margin-right: 0;
 	padding: 1em;
+	box-sizing: border-box;
 	
 	img {
 		display: block;
@@ -167,11 +171,8 @@ header {
 }
 
 .map {
-	@include span-columns (5 omega, 12);
+	@include span-columns (6 omega, 12);
 	height: 200px;
-	width: 47.4%;
-	float: right;
-	display: inline;	
 }
 
 .info {
