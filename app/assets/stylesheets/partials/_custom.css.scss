@@ -95,7 +95,9 @@ header {
 
 
 .sessions, .passwords, .registrations {
-	padding: 0em 1em;
+  .main {
+  	padding: 0em 1em;
+	}
 }
 
 /* Locations */
