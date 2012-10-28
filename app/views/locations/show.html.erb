@@ -38,8 +38,7 @@
 <%= link_to "Add", "#" %>
 
 <div class="items">
-  <%# @location.items.individuals.each do |item| %>
-  <% @location.items.each do |item| %>
+  <% @location.items.individuals.each do |item| %>
     <div class="item">
       <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
       <%= link_to item.name, [@location, item] %>
