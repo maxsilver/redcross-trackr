@@ -85,8 +85,6 @@ header {
 .main {
 	background: $mainBackground;
 	z-index: 1;
-  	padding: 0 1em 70px;
-	margin: 71px 0 0 0;
 }
 
 .content {
@@ -104,7 +102,7 @@ header {
 		border-bottom: 1px solid $grayDark;
 		padding: .25em 1em;
 		
-	}
+	}	
 }
 
 .location {
@@ -186,6 +184,11 @@ footer {
   background: $white;
   @include box-shadow($reverse-shadow);
   z-index: 50;
+  
+		
+		.btn {
+			display: none;
+		}
 }
 	
 
