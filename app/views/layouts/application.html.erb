@@ -25,15 +25,17 @@
     <h1 class="name"><span>Cross</span>Track</h1>
     <% if current_user %>
       <div class="menu">Menu</div>
-      <ul class="nav cf">
+    <% end %>
+    <ul class="nav cf">
+      <% if current_user %>
         <li><%= link_to "Locations", locations_path %></li>
         <li><%= link_to "Profile", edit_user_registration_path %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
         <% if can?(:access, :rails_admin) %>
           <li><%= link_to "Admin", rails_admin_path, :class => "admin" %></li>
         <% end %>
-      </ul>
-    <% end %>
+      <% end %>
+    </ul>
   </header>
   
   <div class="main cf">

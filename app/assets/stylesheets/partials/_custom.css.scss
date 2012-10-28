@@ -22,7 +22,6 @@ a {
     color: $linkColorHover;
     text-decoration: underline;
   }
-
 }
 
 /* Header */
@@ -84,6 +83,7 @@ header {
     left: 0;
     width: 100%;
     background-color: $blueLight;
+    min-height: 10px;
 	
   	li {
   	  float: left;
