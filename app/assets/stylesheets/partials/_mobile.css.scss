@@ -8,7 +8,6 @@ body {
 
 header,
 footer {
-  @include container;
   height: inherit;
   position:fixed;
   left: 0px;
@@ -26,6 +25,9 @@ header {
 	.name {
     	font-size: 1.2em;
     	margin-top: 7px;
+    	@include span-columns(5, 12);
+    	margin-left: 3.47458%;
+
 	}
 	
   .menu {
@@ -44,6 +46,10 @@ header {
     text-indent: -1000em;
     @include border-radius(2px);
   }
+}
+
+.main {
+	padding: 0;
 }
 
 //We don't show maps on Mobile
