@@ -107,3 +107,7 @@ Then /^"(.*?)" should have (\d+) "(.*?)"$/ do |location_name, quantity, item_nam
   item = Item.find_by_name(item_name)
   location.number_of_items_of_type(item.item_type_definition).should == quantity.to_i
 end
+
+When /^I put in a quantity of (\d+)$/ do |quantity|
+  fill_in "quantities_", :with => quantity
+end
