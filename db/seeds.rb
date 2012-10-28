@@ -77,31 +77,34 @@ if Rails.env.development?
   location_gr_church = Location.create!({
     :name => "Fountain Street Church",
     :chapter => chapter_gr,
-    :address => "283 Fountain St.",
+    :address => "24 Fountain Street NE",
     :city => "Grand Rapids",
-    :state => State.all.first,
-    :zip => "49506",
-    :national_shelter_system_identifier => "punique"
+    :state => State.find_by_name("Michigan"),
+    :zip => "49503",
+    :national_shelter_system_identifier => "GR-FSC",
+    :picture => File.open(Rails.root.join("db","seed_images","fountain_street.jpg"))
   })
 
   location_gr_school = Location.create!({
     :name => "Union High School",
     :chapter => chapter_gr,
-    :address => "30 Union",
+    :address => "1800 Tremont Boulevard NW",
     :city => "Grand Rapids",
-    :state => State.all.first,
-    :zip => "49506",
-    :national_shelter_system_identifier => "punique-really"
+    :state => State.find_by_name("Michigan"),
+    :zip => "49504",
+    :national_shelter_system_identifier => "GR-UHS",
+    :picture => File.open(Rails.root.join("db","seed_images","union_high.jpg"))
   })
 
   location_kzoo_mission = Location.create!({
     :name => "Kalamazoo Gospel Mission",
     :chapter => chapter_kzoo,
-    :address => "3324 Ryan St.",
+    :address => "448 North Burdick ST",
     :city => "Kalamazoo",
-    :state => State.all.first,
-    :zip => "39203",
-    :national_shelter_system_identifier => "dfsunique-seriously"
+    :state => State.find_by_name("Michigan"),
+    :zip => "49007",
+    :national_shelter_system_identifier => "KZ-GSM",
+    :picture => File.open(Rails.root.join("db","seed_images","kzoo_mission.jpg"))
   })
 
   # *Defining* a item type of"" "Fire extinguisher"
