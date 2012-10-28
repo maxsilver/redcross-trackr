@@ -10,8 +10,6 @@ body {
 	width: 100%;
 }
 
-
-
 * {
 	font-family: $sansFontFamily;
 }
@@ -106,7 +104,8 @@ header {
 
 .sessions, .passwords, .registrations, .items.new, .items.edit, .locations.new, .locations.edit {
   .main {
-  	padding: 0em 1em 1em;
+  	padding-left: 1em;
+  	padding-right: 1em;
 	}
 }
 
