@@ -1,6 +1,8 @@
-<h3>Choose a location</h3>
-<div class="actions">
-  <%= link_to 'Add Location', new_location_path, :class => "btn btn-large btn-primary" %>
+<div class="location-title cf">
+	<h4>Choose a location</h4>
+	<div class="actions">
+	  <%= link_to 'Add Location', new_location_path, :class => "btn btn-large btn-primary" %>
+	</div>
 </div>
 
 <% @locations.each do |location| %>

@@ -100,9 +100,10 @@ header {
 
 .locations.index {
 	
-	h3 {
-		border-bottom: 1px solid $grayDark;
+	h4 {
 		padding: .25em 1em;
+		box-sizing: border-box;
+		@include span-columns(7,12);
 		
 	}
 	
@@ -141,8 +142,9 @@ header {
 
 .location-title {
 	@include span-columns(12 omega, 12);
-	padding-bottom: .5em;
+	padding: .5em 0;
 	border-bottom: 1px solid $grayLight;
+	box-sizing: border-box;
 
 	h4 {
 		@include span-columns(7,12);
