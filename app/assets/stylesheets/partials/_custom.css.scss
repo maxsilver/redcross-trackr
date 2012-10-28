@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  background: $white;
+  background: $mainBackground;
   //@include box-shadow($shadow);
   border-top: 10px solid $blueLight;
   width: 100%;
@@ -34,6 +34,7 @@ header,
 footer {
 	@include container;
 	position: relative;
+	background-color: $white;
 }
 
 header {
