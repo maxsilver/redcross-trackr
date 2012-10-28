@@ -54,7 +54,7 @@
 <%= link_to "Add", "#" %>
 
 <div class="items">
-  <% @location.items.individuals.each do |item| %>
+  <% if @location.items.individuals.each do |item| %>
     <div class="item">
       <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
       <%= link_to item.name, [@location, item] %>
@@ -66,6 +66,10 @@
       <%= link_to "Give", location_item_give_path(@location.id, item.id) %>
       <%= link_to "Lend", location_item_lend_path(@location.id, item.id) %>
     </div>
+  <% end.empty? %>
+    <div class="sorry">
+      There are no items at this location
+    </div>
   <% end %>
 </div>
 
@@ -75,7 +79,7 @@
 <%= link_to "Add", "#" %>
 
 <div class="containers">
-  <% @location.items.containers.each do |container| %>
+  <% if @location.items.containers.each do |container| %>
     <div class="item">
       <%= image_tag container.picture_url(:thumbnail), :alt => container.name %>
       <%= link_to container.name, [@location, container] %>
@@ -84,6 +88,10 @@
       <%= container.container.name if container.container %>
       <%= (container.home_location.name unless container.at_home?) if container.home_location %>
       <%= check_box_tag :check %>
+    </div>
+  <% end.empty? %>
+    <div class="sorry">
+      There are no items at this location
     </div>
   <% end %>
 </div>
