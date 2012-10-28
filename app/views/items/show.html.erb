@@ -2,27 +2,23 @@
 
 <h1><%= @item.name %></h1>
 
-<%= link_to "Give", location_item_give_path(@location, @item) %>
-<%= link_to "Lend", location_item_lend_path(@location, @item) %>
-<%= link_to 'Edit', edit_location_item_path(@location, @item) %>
-
 <%= (image_tag @item.picture_url(:thumbnail), :alt => @item.name) if @item.picture.present? %>
 
 <div class="address">
-  <%= @item.item_type_definition.name %>
-  <%= @item.quantity %>
+  <%= @item.quantity %> x <%= @item.item_type_definition.name %>
 
   <% if @item.container %>
-    <%= @item.container.name %>
+    <br/>Container: <%= @item.container.name %>
   <% end %>
 
-  <% if @item.home_location %>
-    <%= @item.home_location.name %>
+  <br/>Home Location: <%= @item.home_location.name if @item.home_location %>
+  <% unless @item.at_home? %>
+    <br/>Current Location: <%= @item.current_location.name %>
   <% end %>
-
-  <%= @item.current_location.name unless @item.at_home? %>
 </div>
 
-<h2>History</h2>
-
-TODO
+<footer class="three">
+  <%= link_to "Give", location_item_give_path(@location, @item), :class => "btn btn-large btn-primary" %>
+  <%= link_to "Lend", location_item_lend_path(@location, @item), :class => "btn btn-large btn-primary" %>
+  <%= link_to 'Edit', edit_location_item_path(@location, @item), :class => "btn btn-large btn-primary" %>
+</footer>
