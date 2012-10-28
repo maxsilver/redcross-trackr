@@ -236,22 +236,6 @@ header {
 
 /* Footer */
 
-footer {
-  bottom: 0;
-  padding: 1em;
-  background: $white;
-  @include box-shadow($reverse-shadow);
-  z-index: 50;
-  float: left;
-  width: 96.6%;
-  
-		
-/*
-		.btn {
-			display: none;
-		}
-*/
-}
 	
 
 .sessions.new {
