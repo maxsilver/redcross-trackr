@@ -1,39 +1,37 @@
-<% info =   %|<div class="address"> #{@location.address} #{@location.address2} #{@location.city} #{@location.state.name} #{@location.zip} </div>| %>
-
-
-
 <p id="notice"><%= notice %></p>
 
 <div class="location" data-lat="<%= @location.latitude %>" data-lng="<%= @location.longitude %>">
   <h5><%= @location.name %></h5>
-  <a href="#" class="info" rel="popover" data-content="<%=info%>" data-placement="left" data-title="<%=@location.name%>" >info</a>
+  <a href="#" class="info" rel="popover" data-placement="bottom" data-title="<%= @location.name %>">info</a>
 
   <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary"%>
   <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-small btn-primary"%>
 
   <%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
 
-  <div class="address">
-    <%= @location.address %>
-    <%= @location.address2 %>
-    <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
-    <div class="map"></div>
+  <div class="details">
+    <div class="address">
+      <%= @location.address %>
+      <%= @location.address2 %>
+      <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
+      <div class="map"></div>
+    </div>
+
+    <div class="contact">
+      <%= @location.contact_name %>
+      <%= number_to_phone @location.contact_phone %>
+    </div>
+
+    <p>
+      <b>National shelter system identifier:</b>
+      <%= @location.national_shelter_system_identifier %>
+    </p>
+
+    <p>
+      <b>Chapter:</b>
+      <%= @location.chapter.name %>
+    </p>
   </div>
-
-  <div class="contact">
-    <%= @location.contact_name %>
-    <%= number_to_phone @location.contact_phone %>
-  </div>
-
-  <p>
-    <b>National shelter system identifier:</b>
-    <%= @location.national_shelter_system_identifier %>
-  </p>
-
-  <p>
-    <b>Chapter:</b>
-    <%= @location.chapter.name %>
-  </p>
 </div>
 
 <%#= link_to "Move", move_location_items_path(@location) %>
