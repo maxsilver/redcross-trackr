@@ -4,10 +4,18 @@
   <title>RedcrossTrackr</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyAiAYsEi7meP_hcCD4SxOhlkaUGMGqIvKw&sensor=true" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; user-scalable=no;" />
   <meta name="apple-mobile-web-app-capable" content="yes" />  
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiAYsEi7meP_hcCD4SxOhlkaUGMGqIvKw&sensor=true"></script>
+  <!-- <link rel="apple-touch-icon-precomposed" href="images/example.png">
+  <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+  <link rel="apple-touch-startup-image" href="img/splash-screen-320x460.png" />
+  <link rel="apple-touch-startup-image" sizes="640x960" href="img/splash-screen-640x960.png" />
+  <link rel="apple-touch-startup-image" sizes="1024x748" href="img/splash-screen-1024x748.png" />
+  <link rel="apple-touch-startup-image" sizes="768x1004" href="img/splash-screen-768x1004.png" /> -->
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 
