@@ -2,4 +2,5 @@
 
 <%= render 'form' %>
 
+<%= link_to "Cancel", @location, :class => "btn btn-classy btn-large" %>
 <%= link_to 'Delete', @location, :class => "delete btn btn-danger btn-large", method: :delete, data: { confirm: 'Are you sure?' } %>
