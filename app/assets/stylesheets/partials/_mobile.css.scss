@@ -10,8 +10,40 @@ header,
 footer {
   @include container;
   height: inherit;
+  position:fixed;
+  left: 0px;
+  right: 0px;
 }
 
+header {
+	.logo {
+	  	background-size: 100%;
+	  	@include span-columns(5,12);
+	  	height: 60px;
+	  	margin-top: 0px;
+	}
+	
+	.name {
+    	font-size: 1.2em;
+    	margin-top: 7px;
+	}
+	
+  .menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    background-image: image-url("nav-icon.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: $blueLight;
+    text-align: left;
+    text-indent: -1000em;
+    @include border-radius(2px);
+  }
+}
 
 //We don't show maps on Mobile
 
@@ -68,5 +100,73 @@ footer {
 			width: 46%;
 			padding: 9px 14px;
 		}
+	}
+}
+
+//Forms 
+
+input,
+textarea {
+  width: 97%;
+}
+
+.sessions, .passwords, .registrations, .items.new, .items.edit, .locations.new, .locations.edit {
+  .main {
+  	padding-left: 1em;
+  	padding-right: 1em;
+	}
+}
+
+//New Session
+
+.sessions {
+  .forgot-password {
+    float: right;
+    // margin: -0.5em 0 0.5em 0;
+  }
+  
+  .remember-me {
+    margin-bottom: .5em;
+  }
+}
+
+
+//Footer 
+
+footer {
+  background: white;
+	
+		.btn {
+		display: block;
+		margin: auto;
+		box-sizing: border-box;
+
+		&[type=submit] {
+		  width: 100%;
+		}
+	}
+	
+	&.two {
+	  @include pie-clearfix;
+	  .btn {
+	    float: left;
+	    width: 48%;
+	    
+	    &:not(:first-child) {
+	      margin-left: 4%;
+	    }
+	  }
+	}
+	
+		&.three {
+	  @include pie-clearfix;
+	  .btn {
+	    float: left;
+	    width: 30.66%;
+	    
+	    &:not(:first-child) {
+	      margin-left: 4%;
+	    }
+	  }
 	}
 }

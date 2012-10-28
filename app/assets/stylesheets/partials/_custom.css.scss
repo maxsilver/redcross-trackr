@@ -27,9 +27,6 @@ a {
 
 header,
 footer {
-// position:fixed;
-//  left: 0px;
-//  right: 0px;
   background-color: $white;
 }
 
@@ -43,39 +40,29 @@ header {
 
   .logo {
   	background: image-url('red-cross-logo@2x.jpg') no-repeat left center;
-  	background-size: 100%;
-  	@include span-columns(5,12);
-  	height: 60px;
+  	@include span-columns(4,12);
+  	height: 100px;
+  	background-size: 75%;
+  	margin: 10px 0 0 1em;
   }
 	
   .name {
     color: #aaa;
-    @include span-columns(5, 12);
+    @include span-columns(5 omega, 12);
     @include push(1, 12);
-    font-size: 1.2em;
-    margin-top: 7px;
-
+    font-size: 3em;
+    
     span {
       color: #ccc;
     }
   }
 
-  .menu {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    padding: 10px;
-    background-image: image-url("nav-icon.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-color: $blueLight;
-    text-align: left;
-    text-indent: -1000em;
-    @include border-radius(2px);
-  }
+// No menu button for desktop
 
+  .menu {
+	  display: none;
+  }
+  
   .nav {
     position: absolute;
     top: 0px;
@@ -98,17 +85,16 @@ header {
 .main {
 	background: $mainBackground;
 	z-index: 1;
-  padding-bottom: 70px;
+  	padding: 0 1em 70px;
 	margin: 71px 0 0 0;
 }
 
+.content {
+		min-height: 500px;
 
-.sessions, .passwords, .registrations, .items.new, .items.edit, .locations.new, .locations.edit {
-  .main {
-  	padding-left: 1em;
-  	padding-right: 1em;
-	}
 }
+
+
 
 /* Locations */
 
@@ -191,16 +177,6 @@ header {
 
 /* New Session */
 
-.sessions {
-  .forgot-password {
-    float: right;
-    // margin: -0.5em 0 0.5em 0;
-  }
-  
-  .remember-me {
-    margin-bottom: .5em;
-  }
-}
 
 /* Footer */
 
@@ -210,39 +186,14 @@ footer {
 	background: $white;
 	@include box-shadow($reverse-shadow);
 	z-index: 50;
-
-	.btn {
-		display: block;
-		margin: auto;
-		box-sizing: border-box;
-
-		&[type=submit] {
-		  width: 100%;
-		}
-	}
+}
 	
-	&.two {
-	  @include pie-clearfix;
-	  .btn {
-	    float: left;
-	    width: 48%;
-	    
-	    &:not(:first-child) {
-	      margin-left: 4%;
-	    }
-	  }
-	}
+
+.sessions.new {
 	
-	&.three {
-	  @include pie-clearfix;
-	  .btn {
-	    float: left;
-	    width: 30.66%;
-	    
-	    &:not(:first-child) {
-	      margin-left: 4%;
-	    }
-	  }
+	footer {
+		background: transparent;
+		@include box-shadow(0 0 0 transparent);
 	}
 }
 
