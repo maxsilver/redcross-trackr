@@ -86,9 +86,11 @@ header {
     background-color: $blueLight;
 	
   	li {
+  	  float: left;
+  	  width: auto;
     	a {
     	  color: #fff;
-  	    padding: 5px 10px;
+  	    padding: 10px 12px 0;
   	  }
   	}
   }
