@@ -12,14 +12,3 @@
 }
 
 
-//Hiding the header until we get the location title to stick to the top of the screen on mobile
-
-@include at-breakpoint(20em 12) {
-
-	.locations.show {
-
-		header {
-			display: none;
-		}
-	}
-}

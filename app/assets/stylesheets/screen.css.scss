@@ -48,8 +48,6 @@
 //@import "partials/_progress-bars";
 //@import "partials/_accordion";
 
-// Media Queries
-@import "partials/_mobile";
 
 // Custom
 @import "partials/_custom";
@@ -60,3 +58,9 @@
 // Temp stuff that needs to have a better solution later
 @import "partials/_temp";
 
+@media screen and (max-width: 600px) {
+
+	// Media Queries
+	@import "partials/_mobile";
+
+}
