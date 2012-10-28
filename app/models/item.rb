@@ -73,9 +73,10 @@ class Item < ActiveRecord::Base
       give_all_items_to(location)
       self.current_location = location
       self.container = nil
-      binding.pry
     else
       give_all_items_to(location)
+      self.current_location = location
+      self.container = nil
     end
     save!
   end

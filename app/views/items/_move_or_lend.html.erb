@@ -7,10 +7,12 @@
 <% end %>
 
 <label>Location</label>
-<%= select_tag "item[location_id]", options_from_collection_for_select(Location.all, :id, :name) %>
+<%= select_tag "item[location_id]", options_from_collection_for_select(Location.all, :id, :name), :id=>"giving-lending-location" %>
 
 <label>Container</label>
-<%= select_tag "item[container_id]", options_from_collection_for_select(Item.containers + Location.all, :id, :name)  %>
+<% Location.all.each do |location| %>
+    <%= select_tag "item[container_id]", "<option></option>".html_safe + options_from_collection_for_select( location.items.containers, :id, :name), :class=>"container-select", :id => "container-#{location.id}"  %>
+<% end %>
 
 <% @items.each do |item| %>
   <div class="item">
@@ -22,6 +24,6 @@
     <%= item.container.name if item.container %>
     <%= item.home_location.name %>
     <%= item.current_location.name unless item.at_home? %>
-    <%= text_field_tag "quantities[]", item.quantity %>
+    <%= text_field_tag "quantities[]", item.quantity, :type => "number" %>
   </div>
 <% end %>

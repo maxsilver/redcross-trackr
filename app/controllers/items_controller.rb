@@ -63,7 +63,7 @@ class ItemsController < ApplicationController
       location = Location.find(params[:item][:location_id])
       container = location.items.find_by_id(params[:item][:container_id])
       @items.zip(params[:quantities]).each do |item, qty|
-        if qty.to_i < item.quantity.to_i
+        if (qty.to_i < item.quantity.to_i) && (qty.to_i > 0)
           old_item = item
           old_item_attributes = old_item.attributes
           old_item_attributes.delete("id")
@@ -76,6 +76,8 @@ class ItemsController < ApplicationController
           new_item.give(qty, location, container)
         elsif qty.to_i == item.quantity.to_i
           item.give(qty, location, container)
+        elsif qty.to_i < 0
+          @errors << [item, "Can't give a negative quantity of items"]
         else
           @errors << [item,"Can't give more items than exist on the item quantity"]
         end
