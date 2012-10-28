@@ -6,8 +6,7 @@
   	<a href="#" class="info" rel="popover" data-placement="bottom" data-title="<%= @location.name %>">info</a>
   </div>
 
-  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary desktop"%>
-  <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-small btn-primary desktop"%>
+  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary"%>
 
   <div class="details">
   	<%= (image_tag @location.picture_url(:thumbnail), :alt => @location.name) if @location.picture.present? %>
