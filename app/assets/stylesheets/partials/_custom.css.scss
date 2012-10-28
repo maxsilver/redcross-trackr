@@ -132,7 +132,13 @@ header {
 		@include box-shadow($shadow);
 	}
 	
-	h5 {
+}
+
+.location-title {
+	@include span-columns(12 omega, 12);
+	padding-bottom: .5em;
+
+	h4 {
 		@include span-columns(10,12);
 	}
 }

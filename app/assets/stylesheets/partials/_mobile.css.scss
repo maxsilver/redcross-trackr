@@ -10,6 +10,12 @@
     }
 }
 
+//If something shouldn't show up in Mobile, give it a class of desktop and blow it away!
+
+.desktop {
+	display: none;
+}
+
 //Stripes on Mobile
 
 .even {
@@ -19,16 +25,36 @@
 
 //Location Page
 
-.location {
+.locations {
 	
 	.info {
 		background: $gray;
 		color: white;
-		text-shadow: 1px 1px $grayDark;
-		padding: 3px 10px;
+		text-shadow: 0px 1px $grayDark;
+		padding: 5px 10px;
 		text-transform: uppercase;
+		@include border-radius(15px);
+		font-size: small;
+		font-weight: 600;
+		@include box-shadow(inset 0px 1px 0px $grayDark);
+		margin-top: 3px;
+		display: block;
+		float: right;
+		
+		&:hover {
+			text-decoration: none;
+		}
 	}
-	.address {
+	.details {
 		display: none;	
+	}
+	
+	footer {
+		
+		.btn {
+			float: left;
+			width: 30%;
+			margin-right: 4.15%;
+		}
 	}
 }

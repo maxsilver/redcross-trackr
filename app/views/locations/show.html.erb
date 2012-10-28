@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<div class="location" data-lat="<%= @location.latitude %>" data-lng="<%= @location.longitude %>">
-  <h5><%= @location.name %></h5>
-  <a href="#" class="info" rel="popover" data-placement="bottom" data-title="<%= @location.name %>">info</a>
+<div class="location cf" data-lat="<%= @location.latitude %>" data-lng="<%= @location.longitude %>">
+  <div class="location-title cf">
+  	<h4><%= @location.name %></h4>
+  	<a href="#" class="info" rel="popover" data-placement="bottom" data-title="<%= @location.name %>">info</a>
+  </div>
 
-  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary"%>
-  <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-small btn-primary"%>
-
-  <%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
+  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary desktop"%>
+  <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-small btn-primary desktop"%>
 
   <div class="details">
+  	<%= image_tag @location.picture_url(:thumbnail), :alt => @location.name %>
     <div class="address">
       <%= @location.address %>
       <%= @location.address2 %>
@@ -31,6 +32,16 @@
       <b>Chapter:</b>
       <%= @location.chapter.name %>
     </p>
+  </div>
+</div>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li class="active"><a href="#">Items</a></li>
+      <li><a href="#">Vehicles & Trailers</a></li>
+      <li><a href="#">People</a></li>
+    </ul>
   </div>
 </div>
 
@@ -72,3 +83,8 @@
     </div>
   <% end %>
 </div>
+
+<% content_for :footer do %>
+  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-large btn-primary"%>
+  <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-large btn-primary"%>
+<% end %>
