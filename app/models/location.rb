@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   acts_as_paranoid
-  geocoded_by :address
+  geocoded_by :full_address
   after_validation :geocode
 
   attr_accessible :address, :address2, :city, :state_id, :zip,
