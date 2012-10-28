@@ -155,6 +155,21 @@ header {
 
 /* Individual Locations */
 
+.category {
+	@include span-columns(12 omega, 12);
+	background: $grayDark;
+	padding: 5px 0px;
+	margin: 0px 0px 5px;
+}
+
+.category-name {
+	display: block;
+	color: white;
+	text-shadow: 0px 1px $charcoal;
+	margin: 0 1em;
+
+}
+
 /* New Session */
 
 .sessions, .passwords, .registrations, .items.new, .items.edit, .locations.new, .locations.edit {

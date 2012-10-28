@@ -200,11 +200,12 @@
   float: none;
   // Vertically center the text given $navbarHeight
   $elementHeight: 20px;
-  padding: (($navbarHeight - $elementHeight) / 2) 10px (($navbarHeight - $elementHeight) / 2);
+  padding: (($navbarHeight - $elementHeight) / 2) 18px (($navbarHeight - $elementHeight) / 2);
   line-height: 19px;
   color: $navbarLinkColor;
   text-decoration: none;
-  text-shadow: 0 1px 0px rgba(255,255,255,.75);
+  text-shadow: 0 1px 0px $blueDark;
+  font-weight: 600;
 }
 // Buttons
 .navbar .btn {
@@ -234,6 +235,7 @@
   color: $navbarLinkColorActive;
   text-decoration: none;
   background-color: $navbarLinkBackgroundActive;
+  text-shadow: 0 1px 0px white;
 }
 
 // Dividers (basically a vertical hr)

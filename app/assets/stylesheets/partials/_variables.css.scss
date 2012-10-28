@@ -177,15 +177,15 @@ $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 // Navbar
 // -------------------------
 $navbarHeight:                    50px !default;
-$navbarBackground:                $grayLighter !default;
-$navbarBackgroundHighlight:       $grayLight !default;
+$navbarBackground:                $blueLighter !default;
+$navbarBackgroundHighlight:       $blueLight !default;
 
-$navbarText:                      $grayDarker !default;
-$navbarLinkColor:                 $grayDarker !default;
-$navbarLinkColorHover:            $gray !default;
-$navbarLinkColorActive:           $navbarLinkColorHover !default;
+$navbarText:                      white !default;
+$navbarLinkColor:                 white !default;
+$navbarLinkColorHover:            $grayLighter !default;
+$navbarLinkColorActive:           $charcoal !default;
 $navbarLinkBackgroundHover:       transparent !default;
-$navbarLinkBackgroundActive:      $navbarBackground !default;
+$navbarLinkBackgroundActive:      $grayLighter !default;
 
 $navbarSearchBackground:          lighten($navbarBackground, 25%) !default;
 $navbarSearchBackgroundFocus:     $white !default;
