@@ -2,7 +2,6 @@
 body {
   background: $mainBackground;
   //@include box-shadow($shadow);
-  border-top: 10px solid $blueLight;
   width: 100%;
 }
 
@@ -33,16 +32,18 @@ a {
 header,
 footer {
 	@include container;
-	position: relative;
+  position:fixed;
+	left: 0px;
+  right: 0px;
 	background-color: $white;
 }
 
 header {
+  border-top: 10px solid $blueLight;
+	top: 0px;
 	border-bottom: 1px solid $grayLighter;
 	@include box-shadow($shadow);
 	z-index: 50;
-	//padding-top: 1em;
-	position: relative;
 
   .logo {
   	background: image-url('red-cross-logo@2x.jpg') no-repeat left center;
@@ -98,8 +99,8 @@ header {
 .main {
 	background: $mainBackground;
 	z-index: 1;
-	padding-bottom: 1em;
-	
+  padding-bottom: 70px;
+	margin: 71px 0 0 0;
 }
 
 
@@ -186,9 +187,9 @@ header {
 /* Footer */
 
 footer {
-	position: relative;
+  bottom: 0;
 	padding: 1em;
-	background: white;
+	background: $white;
 	@include box-shadow($reverse-shadow);
 	z-index: 50;
 
