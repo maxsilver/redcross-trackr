@@ -1,5 +1,5 @@
 class ItemTypeDefinition < ActiveRecord::Base
-  attr_accessible :name, :kind, :item_field_definition_ids
+  attr_accessible :name, :kind, :item_field_definition_ids, :is_containerable, :kind_id, :item_ids
 
   has_many :items
   has_many :item_field_definitions
