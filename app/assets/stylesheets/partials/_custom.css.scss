@@ -41,6 +41,49 @@ header {
 	@include box-shadow($shadow);
 	z-index: 50;
 	//padding-top: 1em;
+	position: relative;
+
+  .logo {
+  	background: image-url('red-cross-logo@2x.jpg')no-repeat left center;
+  	background-size: 100%;
+  	@include span-columns(6,12);
+  	height: 80px;
+  }
+	
+  .name {
+    @include span-columns(6 omega, 12);
+    text-align: right;
+  }
+
+  .menu {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    background-image: image-url("nav-icon.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: $blueLight;
+    text-align: left;
+    text-indent: -1000em;
+  }
+
+  .nav {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    background-color: $blueLight;
+	
+  	li {
+    	a {
+    	  color: #fff;
+  	    padding: 5px 10px;
+  	  }
+  	}
+  }
 }
 
 .main {
@@ -48,40 +91,6 @@ header {
 	z-index: 1;
 	padding-bottom: 1em;
 	
-}
-
-.logo {
-	background: image-url('red-cross-logo@2x.jpg')no-repeat left center;
-	background-size: 100%;
-	@include span-columns(6,12);
-	height: 80px;
-}
-
-
-	
-.name {
-    @include span-columns(6 omega, 12);
-    text-align: right;
-}
-
-
-.nav {
-	@include span-columns(11 omega, 12);
-	
-		
-	li {
-		float: left;
-		margin-right: 2%;
-		padding-right: 2%;
-		border-right: 2px solid $charcoal;
-		
-		&:last-child {
-			border: none;
-			margin-right: 0;
-			padding-right: 0;
-
-		}
-	}
 }
 
 /* Layout - Mobile */
