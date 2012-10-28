@@ -1,4 +1,16 @@
 /* Layout - Mobile */
+body {
+ width: 100%;
+ padding: 0;
+ margin: 0;
+}
+
+
+header,
+footer {
+  @include container;
+  height: inherit;
+}
 
 
 //We don't show maps on Mobile
