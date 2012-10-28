@@ -6,6 +6,6 @@ $ ->
   $(".menu").click ->
     margin = parseInt($("header").css("marginTop"))
     if margin == height
-      $("header").animate marginTop: 0
+      $("header").animate marginTop: 0, 200
     else
-      $("header").animate marginTop: height
+      $("header").animate marginTop: height, 200
