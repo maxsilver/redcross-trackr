@@ -149,7 +149,10 @@ header {
 	.btn {
 		display: block;
 		margin: auto;
-		width: 100%;
+		
+		&[type=submit] {
+		  width: 100%;
+		}
 	}
 }
 
@@ -161,6 +164,12 @@ header {
   
   .remember-me {
     margin-bottom: .5em;
+  }
+}
+
+.items.edit, .items.new {
+  .btn[type=submit] {
+    margin: 0 0 10px 0;
   }
 }
 
@@ -176,6 +185,5 @@ footer {
 	.btn {
 		display: block;
 		margin: auto;
-		width: 100%;
 	}
 }

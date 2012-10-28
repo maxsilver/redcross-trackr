@@ -43,8 +43,8 @@
       </div>
 
       <%= f.submit item.new_record? ? "Add Item" : "Update Item", :class => "btn btn-primary btn-large" %>
-      <%= link_to "Cancel" %>
     </div>
 
+    <%= link_to "Cancel", location, :class => "btn btn-danger btn-large" %>
   <% end %>
 </div>
