@@ -67,17 +67,17 @@ class Item < ActiveRecord::Base
   def give(qty, location, container)
     if container.is_a?(Item)
       give_all_items_to(container.current_location)
-      self.owner = container.current_location
+      self.home_location = container.current_location
       self.current_location = container.current_location
       self.container = container
     elsif container.is_a?(Location)
       give_all_items_to(location)
-      self.owner = location
+      self.home_location = location
       self.current_location = location
       self.container = nil
     else
       give_all_items_to(location)
-      self.owner = location
+      self.home_location = location
       self.current_location = location
       self.container = nil
     end
