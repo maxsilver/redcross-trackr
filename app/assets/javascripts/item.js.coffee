@@ -21,9 +21,9 @@ $ ()->
       type_id = @dom_scope.find("select").val()
 
       if type_id == ""
-        @dom_scope.find("input").attr("disabled", true)
+        @dom_scope.find(".info").hide()
       else
-        @dom_scope.find("input").removeAttr("disabled")
+        @dom_scope.find(".info").show()
 
     kind_changed: ()=>
       type_id = @dom_scope.find("#item_item_type_definition_id").val()
@@ -44,9 +44,6 @@ $ ()->
 
           field_for_value.index = value.id
           field_for_value.value = value.value
-
-      else
-        context.message = "Please select a kind."
 
       fields_content = @template(context)
       $('#additional_fields').html(fields_content)

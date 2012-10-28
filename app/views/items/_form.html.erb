@@ -1,57 +1,50 @@
 <div class="enable-items-js item-form">
+  <%= form_for [location, item] do |f|%>
+    <%= errors_for(@item).html_safe %>
 
-<%= form_for [location, item] do |f|%>
-  <%= errors_for(@item).html_safe %>
+    <%= f.hidden_field :current_location_id, :value => location.id %>
 
-  <%= f.hidden_field :current_location_id, :value => location.id %>
+    <% if f.object.new_record? %> 
+      <%= f.label :item_type_definition_id, "Kind: " %>
+      <%= f.select(:item_type_definition_id, ItemTypeDefinition.options) %>
+    <% else %>
+      <%= f.hidden_field(:item_type_definition_id) %>
+    <% end %>
 
-  <% if f.object.new_record? %> 
-    <%= f.label :item_type_definition_id, "Kind: " %>
-    <%= f.select(:item_type_definition_id, ItemTypeDefinition.options) %>
-  <% else %>
-    <%= f.hidden_field(:item_type_definition_id) %>
+    <div class="info">
+      <div>
+        <%= f.label :name, "Name:" %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div>
+        <%= f.label :quantity, "Quantity:" %>
+        <%= f.text_field :quantity %>
+      </div>
+
+      <div id="data-fields" data-additional-fields="<%= ItemFieldDefinition.definition_json %>">
+      </div>
+
+      <div id="data-field-values" data-field-values="<%= @item.item_field_values.to_json %>">
+      </div>
+
+      <div id="data-item-id" data-item-id="<%= @item.id %>">
+      </div>
+
+      <script id="fields-template" type="text/x-handlebars-template">
+      {{#each fields}}
+        <label for="item[item_field_values][]">{{name}}</label>
+        <input type="text" name="item[item_field_values_attributes][{{index}}][value]" id="item_item_field_values_" value="{{value}}"/>
+        <input type="hidden" name="item[item_field_values_attributes][{{index}}][item_field_definition_id]" value="{{id}}"/>
+      {{/each}}
+      </script>
+
+      <div id="additional_fields">
+      </div>
+
+      <%= f.submit item.new_record? ? "Add Item" : "Update Item", :class => "btn btn-primary btn-large" %>
+      <%= link_to "Cancel" %>
+    </div>
+
   <% end %>
-
-  <br/>
-
-  <%= f.label :name, "Name:" %>
-  <%= f.text_field :name %>
-  <br/>
-
-  <%= f.label :quantity, "Quantity:" %>
-  <%= f.text_field :quantity %>
-  <br/>
-
-  <h3>Additional Information</h3>
-
-  <div id="data-fields" data-additional-fields="<%= ItemFieldDefinition.definition_json %>">
-  </div>
-
-  <div id="data-field-values" data-field-values="<%= @item.item_field_values.to_json %>">
-  </div>
-
-  <div id="data-item-id" data-item-id="<%= @item.id %>">
-  </div>
-
-  <script id="fields-template" type="text/x-handlebars-template">
-  {{#if message}}
-    {{message}}
-  {{else}}
-
-  {{#each fields}}
-    <label for="item[item_field_values][]">{{name}}</label>
-    <input type="text" name="item[item_field_values_attributes][{{index}}][value]" id="item_item_field_values_" value="{{value}}"/>
-    <input type="hidden" name="item[item_field_values_attributes][{{index}}][item_field_definition_id]" value="{{id}}"/>
-  {{/each}}
-
-  
-  {{/if}}
-  </script>
-
-  <div id="additional_fields">
-  </div>
-
-  <%= f.submit "Add Item" %>
-  <%= link_to "Cancel" %>
-<% end %>
 </div>

@@ -102,7 +102,7 @@ header {
 }
 
 
-.sessions, .passwords, .registrations {
+.sessions, .passwords, .registrations, .items.new, .items.edit {
   .main {
   	padding: 0em 1em 1em;
 	}
@@ -145,7 +145,7 @@ header {
 
 /* New Session */
 
-.sessions, .passwords, .registrations {
+.sessions, .passwords, .registrations, .items.new, .items.edit {
 	.btn {
 		display: block;
 		margin: auto;
