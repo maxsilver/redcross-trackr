@@ -12,30 +12,41 @@ $ ()->
       @values = @dom_scope.find("#data-field-values").data("field-values")
 
       @dom_scope.delegate "select", "change", @kind_changed
+      @dom_scope.delegate "select", "change", @update_controls
+
+      @dom_scope.find("select").trigger 'change'
 
       @load_state()
+
+    update_controls: ()=>
+      type_id = @dom_scope.find("select").val()
+
+      if type_id == ""
+        @dom_scope.find("input").attr("disabled", true)
+      else
+        @dom_scope.find("input").removeAttr("disabled")
 
     kind_changed: ()=>
       type_id = @dom_scope.find("select").val()
       context = {}
 
-      context.fields = _.filter @data, (field_def)->
-        return field_def.item_type_definition_id.toString() == type_id
+      if type_id != ""
+        context.fields = _.filter @data, (field_def)->
+          return field_def.item_type_definition_id.toString() == type_id
 
-      _.inject(context.fields, (memo, field)->
-        field.index = memo
-        memo += 1
-      ,0)
+        _.inject(context.fields, (memo, field)->
+          field.index = memo
+          memo += 1
+        ,0)
 
-      _.each @values, (value)->
-        field_for_value = _.find context.fields, (cf)->
-          cf.id == value.item_field_definition_id
+        _.each @values, (value)->
+          field_for_value = _.find context.fields, (cf)->
+            cf.id == value.item_field_definition_id
 
-        field_for_value.index = value.id
-        field_for_value.value = value.value
+          field_for_value.index = value.id
+          field_for_value.value = value.value
 
-
-      unless type_id != ""
+      else
         context.message = "Please select a kind."
 
       fields_content = @template(context)
@@ -45,6 +56,4 @@ $ ()->
       @kind_changed()
 
   item_controller = new ItemController()
-  item_controller.kind_changed()
-
 
