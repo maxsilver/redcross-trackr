@@ -6,7 +6,7 @@ class ItemFieldDefinition < ActiveRecord::Base
   validates_presence_of :name, :kind
 
   def kind_enum
-    ["string", "number", "date"]
+    ["text", "number", "date"]
   end
 
   def self.definition_json
