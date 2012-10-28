@@ -55,12 +55,6 @@
 <div class="items cf">
   <% if @location.items.individuals.each do |item| %>
     <div class="item cf ">
-      <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
-      <%= link_to item.name, [@location, item] %>
-      <%#= item.item_type_definition.name %>
-      <%= item.quantity %>
-      <%= item.container.name if item.container %>
-      <%#= item.home_location.name unless item.at_home? %>
       <%= check_box_tag :check %>
       <%= image_tag item.picture_url(:thumbnail), :alt => item.name %>
       <div class="item-details cf">
@@ -81,18 +75,19 @@
 <div class="category">
 	<span class="category-name">Vehicles & Trailers</span>
 </div>
-<%= link_to "Add", "#" %>
 
-<div class="containers">
+<div class="containers cf">
   <% if @location.items.containers.each do |container| %>
-    <div class="item">
+    <div class="item cf">
       <%= check_box_tag :check %>
       <%= image_tag container.picture_url(:thumbnail), :alt => container.name %>
-      <%= link_to container.name, [@location, container] %>
+      <div class="item-details cf">
+      <%= link_to container.name, [@location, container], :class => "item-name" %>
       <%= container.item_type_definition.name %>
-      <%= container.quantity %>
-      <%= container.container.name if container.container %>
+      <span class="item-quantity">Quantity:<%= container.quantity %></span>
+      <span class="item-container"><%= container.container.name if container.container %></span>
       <%= (container.home_location.name unless container.at_home?) if container.home_location %>
+      </div>
     </div>
   <% end.empty? %>
     <div class="sorry">
@@ -102,6 +97,6 @@
 </div>
 
 <footer class="two">
-  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-large btn-primary"%>
+  <%= link_to 'Edit Selected', edit_location_path(@location), :class => "btn btn-large btn-primary"%>
   <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-large btn-primary"%>
 </footer>

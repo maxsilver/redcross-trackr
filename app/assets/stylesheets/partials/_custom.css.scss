@@ -173,6 +173,11 @@ header {
 // Items
 .item {
 	border-bottom: 1px solid $gray;
+	padding: .25em; 
+	
+	img {
+		max-width: 125px;
+	}
 }
 
 .item-details {
