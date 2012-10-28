@@ -63,13 +63,13 @@ if Rails.env.development?
   region_michigan = Region.create!({:name => "Michigan", :code => "nocode"})
 
   chapter_gr = Chapter.create!({
-    :name => "Greater Grand Rapids Chapter",
+    :name => "Greater Grand Rapids",
     :region => region_michigan,
     :code => "3894023"
   })
 
   chapter_kzoo = Chapter.create!({
-    :name => "Greater Kalamazoo Area Chapter",
+    :name => "Greater Kalamazoo Area",
     :region => region_michigan,
     :code => "3894023"
   })
