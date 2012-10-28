@@ -10,9 +10,8 @@
   <div><%= f.label :password_confirmation, "Confirm new password" %>
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Change my password", :class => "btn btn-primary btn-large" %></div>
+  <footer class="two">
+    <%= f.submit "Change my password", :class => "btn btn-primary btn-large" %>
+    <%= link_to "Sign in", new_session_path(resource_name), :class => "btn btn-classy btn-large" %>
+  </div>
 <% end %>
-
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Sign in", new_session_path(resource_name), :class => "btn btn-classy btn-large" %>
-<% end -%>

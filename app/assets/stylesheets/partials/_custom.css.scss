@@ -172,22 +172,6 @@ header {
 
 /* New Session */
 
-.sessions, .passwords, .registrations, .items.new, .items.edit, .locations.new, .locations.edit {
-	.btn {
-		display: block;
-		margin: auto;
-		
-		&[type=submit] {
-		  width: 100%;
-		  margin: 0 0 10px 0;
-		}
-		
-		&.delete {
-		  margin: 10px 0 0 0;
-		}
-	}
-}
-
 .sessions {
   .forgot-password {
     float: right;
@@ -211,5 +195,34 @@ footer {
 	.btn {
 		display: block;
 		margin: auto;
+		box-sizing: border-box;
+
+		&[type=submit] {
+		  width: 100%;
+		}
+	}
+	
+	&.two {
+	  @include pie-clearfix;
+	  .btn {
+	    float: left;
+	    width: 48%;
+	    
+	    &:not(:first-child) {
+	      margin-left: 4%;
+	    }
+	  }
+	}
+	
+	&.three {
+	  @include pie-clearfix;
+	  .btn {
+	    float: left;
+	    width: 30.66%;
+	    
+	    &:not(:first-child) {
+	      margin-left: 4%;
+	    }
+	  }
 	}
 }
