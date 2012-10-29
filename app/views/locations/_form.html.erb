@@ -61,9 +61,12 @@
     <%= f.hidden_field :picture_cache %>
     <%= f.file_field :picture %>
   </div>
-  <%= link_to 'Delete', @location, :class => "delete btn btn-danger btn-large", method: :delete, data: { confirm: 'Are you sure?' } %>
 
-  <footer class="two">
+  <% unless @location.new_record? %>
+    <%= link_to 'Delete', @location, :class => "delete btn btn-danger btn-large", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
+  <div class="actions two">
     <% if @location.new_record? %>
       <%= f.submit "Create", :class => "btn btn-primary btn-large" %>
       <%= link_to "Cancel", locations_path, :class => "btn btn-classy btn-large" %>  
@@ -71,5 +74,5 @@
       <%= f.submit "Update", :class => "btn btn-primary btn-large" %>
       <%= link_to "Cancel", @location, :class => "btn btn-classy btn-large" %>
     <% end %>
-  </footer>
+  </div>
 <% end %>

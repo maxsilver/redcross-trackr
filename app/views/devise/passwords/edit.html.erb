@@ -10,7 +10,7 @@
   <div><%= f.label :password_confirmation, "Confirm new password" %>
   <%= f.password_field :password_confirmation %></div>
 
-  <footer class="two">
+  <div class="actions two">
     <%= f.submit "Update", :class => "btn btn-primary btn-large" %>
     <%= link_to "Sign in", new_session_path(resource_name), :class => "btn btn-classy btn-large" %>
   </div>

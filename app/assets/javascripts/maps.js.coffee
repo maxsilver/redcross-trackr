@@ -3,9 +3,9 @@ $ ->
   if element.length > 0
     icon = new google.maps.MarkerImage "/assets/red-cross-pin.png", new google.maps.Size(36, 44)
 
-    map = new google.maps.Map(element[0], {
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    })
+    map = new google.maps.Map element[0],
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      maxZoom: 18
 
     bounds = new google.maps.LatLngBounds()
 

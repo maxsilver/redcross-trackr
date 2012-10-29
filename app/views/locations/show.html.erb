@@ -4,37 +4,41 @@
   <div class="location-title cf">
   	<h4><%= @location.name %></h4>
   	<a href="#" class="info" rel="popover" data-placement="bottom" data-title="<%= @location.name %>">info</a>
+    <div class="actions two cf">
+      <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-large btn-primary" %>
+      <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-large btn-primary" %>
+    </div>
+  </div>
+  <div class="details-wrapper cf">
+  	<div class="details">
+  		<%= (image_tag @location.picture_url(:thumbnail), :alt => @location.name) if @location.picture.present? %>
+  	  <div class="address">
+  	    <%= @location.address %>
+  	    <%= @location.address2 %>
+  	    <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
+  	  </div>
+  	
+  	  <div class="contact">
+  	    <%= @location.contact_name %>
+  	    <%= number_to_phone @location.contact_phone %>
+  	  </div>
+  	
+  	  <p>
+  	    <b>National shelter system identifier:</b>
+  	    <%= @location.national_shelter_system_identifier %>
+  	  </p>
+  	
+  	  <p>
+  	    <b>Chapter:</b>
+  	    <%= @location.chapter.name %>
+  	  </p>
+  	</div>
+  	<div class="map"></div>
   </div>
 
-  <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-small btn-primary"%>
-
-  <div class="details">
-  	<%= (image_tag @location.picture_url(:thumbnail), :alt => @location.name) if @location.picture.present? %>
-    <div class="address">
-      <%= @location.address %>
-      <%= @location.address2 %>
-      <%= @location.city %>, <%= @location.state.name %> <%= @location.zip %>
-      <div class="map"></div>
-    </div>
-
-    <div class="contact">
-      <%= @location.contact_name %>
-      <%= number_to_phone @location.contact_phone %>
-    </div>
-
-    <p>
-      <b>National shelter system identifier:</b>
-      <%= @location.national_shelter_system_identifier %>
-    </p>
-
-    <p>
-      <b>Chapter:</b>
-      <%= @location.chapter.name %>
-    </p>
-  </div>
 </div>
 
-<div class="navbar">
+<div class="navbar cf">
   <div class="navbar-inner">
     <ul class="nav">
       <li class="active"><a href="#">Items</a></li>
@@ -54,7 +58,6 @@
 <div class="items cf">
   <% if @location.items.individuals.each do |item| %>
     <div class="item cf ">
-      <%= check_box_tag :check %>
       <%= (image_tag item.picture_url(:thumbnail), :alt => item.name ) if item.picture.present? %>
       <div class="item-details cf">
         <%= link_to item.name, [@location, item], :class => "item-name"%>
@@ -78,7 +81,6 @@
 <div class="containers cf">
   <% if @location.items.containers.each do |container| %>
     <div class="item cf">
-      <%= check_box_tag :check %>
       <%= image_tag container.picture_url(:thumbnail), :alt => container.name %>
       <div class="item-details cf">
       <%= link_to container.name, [@location, container], :class => "item-name" %>
@@ -94,8 +96,3 @@
     </div>
   <% end %>
 </div>
-
-<footer class="two">
-  <%= link_to 'Edit Selected', edit_location_path(@location), :class => "btn btn-large btn-primary"%>
-  <%= link_to "Add Item", new_location_item_path(@location), :class => "btn btn-large btn-primary"%>
-</footer>

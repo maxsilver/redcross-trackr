@@ -17,7 +17,7 @@ When /^I create a location$/ do
   select "Michigan", :from => "State"
   fill_in "Zip", :with => "49505"
   select "Greater Grand Rapids", :from => "Chapter"
-  click_on "Create Location"
+  click_on "Create"
 end
 
 Then /^that location should get added to the list$/ do
@@ -56,7 +56,6 @@ When /^I try to delete that location$/ do
 end
 
 Then /^I should get an error$/ do
-  page.should have_content("Editing location")
   page.should have_content("Can't delete this location because it has items attached to it.")
 end
 
@@ -78,11 +77,37 @@ When /^I am on the "(.*?)" location page$/ do |location_name|
 end
 
 Then /^I should be on the "(.*?)" location page$/ do |location_name|
+  page.should_not have_content("Name can't be blank")
   page.should have_content(location_name)
 end
 
 Then /^I should see the following item:$/ do |table|
-  binding.pry
+  pending
 end
 
+Given /^a location "(.*?)" exists$/ do |name|
+  FactoryGirl.create(:location, name: name)
+end
 
+When /^I follow "(.*?)"$/ do |text|
+  click_on text
+end
+
+When /^I select "(.*?)" from "(.*?)"$/ do |option, select_field_label|
+  page.should have_content("Give Item")
+  select option, :from => select_field_label
+end
+
+When /^I press "(.*?)"$/ do |label|
+  click_on label
+end
+
+Then /^"(.*?)" should have (\d+) "(.*?)"$/ do |location_name, quantity, item_name|
+  location = Location.find_by_name(location_name)
+  item = Item.find_by_name(item_name)
+  location.number_of_items_of_type(item.item_type_definition).should == quantity.to_i
+end
+
+When /^I put in a quantity of (\d+)$/ do |quantity|
+  fill_in "quantities_", :with => quantity
+end

@@ -24,8 +24,8 @@ class Item < ActiveRecord::Base
 
   validates_presence_of :name
 
-  scope :containers, joins(:item_type_definition).where("item_type_definitions.kind_id" => Kind.find_by_name("container").id)
-  scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind_id != " + Kind.find_by_name("container").id.to_s)
+  scope :containers, joins(:item_type_definition).where("item_type_definitions.kind_id" => Kind.find_or_create_by_name("container").id)
+  scope :individuals, joins(:item_type_definition).where("item_type_definitions.kind_id != " + Kind.find_or_create_by_name("container").id.to_s)
   scope :of_type, lambda { |item_type_definition| where(:item_type_definition_id => item_type_definition.id) }
 
   def at_home?

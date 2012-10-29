@@ -2,12 +2,12 @@
 body {
  width: 100%;
  padding: 0;
- margin: 0;
+ margin: 0; 
 }
 
 
 header,
-footer {
+.actions {
   height: inherit;
   position:fixed;
   left: 0px;
@@ -51,17 +51,35 @@ header {
 .main {
 	padding: 0 0 70px;
 	margin: 71px 0 0;
+}
 
+//overwrites min-height for desktop
+.content {
+	min-height: inherit;
 }
 
 //We don't show maps on Mobile
 
 .map {
+	display: none;
     
     * {
     	display: none;
     }
 }
+
+//This is the containing box for action buttons
+.actions {
+  bottom: 0;
+  padding: 1em;
+  background: $white;
+  @include box-shadow($reverse-shadow);
+  z-index: 50;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 
 //If something shouldn't show up in Mobile, give it a class of desktop and blow it away!
 
@@ -73,6 +91,15 @@ header {
 
 .even {
     background: $pageBackground;
+    width: 90%;
+    height: inherit;
+    border-right: none;
+}
+
+.odd {
+	width: 90%;
+	height: inherit;
+	float: left;
 }
 
 
@@ -98,7 +125,8 @@ header {
 			text-decoration: none;
 		}
 	}
-	.details {
+	.details-wrapper,
+	.btn-add-item {
 		display: none;	
 	}
 	
@@ -111,6 +139,47 @@ header {
 		}
 	}
 }
+
+.location-details {
+	width: 71%;
+}
+
+.location-chapter,
+.address {
+	font-size: $baseFontSize / 1.15;
+}
+
+// Individual Location
+
+.location {
+	padding: 1em;
+	height: inherit;
+	
+	img {
+		width: 25%;
+	}
+}
+
+.location-title {
+	border: none;
+	padding: 0;
+	
+	h4 {	
+		@include text-overflow();
+	}
+}
+
+footer.two {
+	display: block;
+}
+
+.item {
+	
+	img {
+		width: 25%;
+	}
+}
+
 
 //Forms 
 
@@ -142,7 +211,7 @@ textarea {
 
 //Footer 
 
-footer {
+.actions {
   background: white;
 	
 		.btn {
@@ -177,5 +246,16 @@ footer {
 	      margin-left: 4%;
 	    }
 	  }
+	}
+}
+
+.sessions.new {
+	
+	footer {
+		bottom: 0;
+		background: $white;
+		@include box-shadow($reverse-shadow);
+		z-index: 50;
+		float: left;
 	}
 }
