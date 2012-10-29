@@ -13,6 +13,7 @@ gem 'geocoder'
 gem 'cancan'
 gem 'rails_admin'
 gem "pry"
+gem "dynamic_form"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

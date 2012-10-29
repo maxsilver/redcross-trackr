@@ -1,6 +1,11 @@
 <div class="enable-items-js item-form">
   <%= form_for [location, item] do |f|%>
-    <%= errors_for(@item).html_safe %>
+
+    <% if !item.errors.blank? %>
+      <div class ="alert">
+        <%= error_messages_for item %>
+      </div>
+    <% end %>
 
     <%= f.hidden_field :current_location_id, :value => location.id %>
 
